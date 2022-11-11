@@ -1,5 +1,5 @@
 import React from 'react';
-import { GROUP_STAGE, IGroup } from '../../config';
+import { GROUP_STAGE, IGroup } from '../../config/groups';
 
 const Standings = () => {
   return (

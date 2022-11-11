@@ -1,4 +1,4 @@
-import { COUNTRIES } from '../config';
+import { COUNTRIES } from './groups';
 
 interface IMatch {
   group?: string;
