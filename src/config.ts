@@ -33,7 +33,12 @@ const COUNTRIES = {
   SouthKorea: 'South Korea',
 };
 
-const GROUP_STAGE = {
+interface IGroup {
+  group: string;
+  teams: string[];
+}
+
+const GROUP_STAGE: Record<string, IGroup> = {
   A: {
     group: 'A',
     teams: [COUNTRIES.Qatar, COUNTRIES.Ecuador, COUNTRIES.Senegal, COUNTRIES.Netherlands],
@@ -69,3 +74,4 @@ const GROUP_STAGE = {
 };
 
 export { COUNTRIES, GROUP_STAGE };
+export type { IGroup };
