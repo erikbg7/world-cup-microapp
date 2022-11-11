@@ -13,7 +13,7 @@ const Standings = () => {
 
 const GroupSection: React.FC<IGroup> = ({ group, teams }) => {
   return (
-    <section className="p-12">
+    <section className="p-6 sm:p-12">
       <h2 className="text-xl p-3">Group {group}</h2>
       <table className="w-full text-center">
         <tbody>

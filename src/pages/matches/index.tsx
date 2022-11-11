@@ -5,17 +5,17 @@ const TestPage = () => {
   return (
     <div className="py-20">
       {Object.entries(GROUP_STAGE_MATCHES).map(([id, matchDay]) => (
-        <MatchesSection key={id} id={id} matchDay={matchDay} />
+        <MatchesDay key={id} id={id} matchDay={matchDay} />
       ))}
     </div>
   );
 };
 
-const MatchesSection: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDay }) => {
+const MatchesDay: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDay }) => {
   return (
-    <section className="px-12">
+    <section className="px-6 sm:px-12">
       <h2 className="text-gray-300 text-sm py-3 px-6">{id}</h2>
-      <div className="grid grid-cols-2 gap-[1px] py-[1px] bg-gray-600">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-[1px] py-[1px] bg-gray-600">
         {matchDay.matches.map((match) => (
           <MatchItem key={match.team1 + match.team2} {...match} />
         ))}
