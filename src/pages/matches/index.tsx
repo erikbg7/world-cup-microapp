@@ -1,5 +1,7 @@
 import React from 'react';
+import Image from 'next/image';
 import { GROUP_STAGE_MATCHES, IMatch, IMatchDay } from '../../config/matches';
+import { ITeam } from '../../config/groups';
 
 const TestPage = () => {
   return (
@@ -32,10 +34,21 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
         <span className="text-lg font-semibold">{time}</span>
       </div>
       <div className="flex items-center text-center text-gray-300 h-20 py-2">
-        <div className="flex-1">{team1.name}</div>
+        <TeamDetails name={team1.name} flag={team1.flag} />
         <div className="h-full w-[1px] bg-gray-600"></div>
-        <div className="flex-1">{team2.name}</div>
+        <TeamDetails name={team2.name} flag={team2.flag} />
       </div>
+    </div>
+  );
+};
+
+const TeamDetails: React.FC<ITeam> = ({ flag, name }) => {
+  return (
+    <div className="flex flex-col flex-1 items-center">
+      <div className="relative h-8 w-12 m-2 border border-gray-300 rounded-sm">
+        <Image src={flag} alt={name} layout="fill" objectFit="cover" className="rounded-sm" />
+      </div>
+      <div>{name}</div>
     </div>
   );
 };
