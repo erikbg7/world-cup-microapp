@@ -5,7 +5,7 @@ const Standings = () => {
   return (
     <div className="py-20">
       {Object.values(GROUP_STAGE).map((group: IGroup) => (
-        <GroupSection {...group} />
+        <GroupSection key={group.group} {...group} />
       ))}
     </div>
   );
@@ -30,7 +30,7 @@ const GroupSection: React.FC<IGroup> = ({ group, teams }) => {
           </tr>
           {teams.map((t) => {
             return (
-              <tr className="border-t border-gray-600 text-gray-300 py-1">
+              <tr key={t} className="border-t border-gray-600 text-gray-300 py-1">
                 <td>1</td>
                 <td>{t}</td>
                 <td>0</td>
