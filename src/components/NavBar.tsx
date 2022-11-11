@@ -16,7 +16,7 @@ const SECTIONS: ISection[] = [
 
 const NavBar = () => {
   return (
-    <nav className="fixed top-0 left-0 right-0">
+    <nav className="fixed top-0 left-0 right-0 z-10">
       <ul className="flex justify-center h-20 bg-rose-900 sm:px-20">
         {SECTIONS.map((section) => (
           <NavBarItem key={section.id} {...section} />
