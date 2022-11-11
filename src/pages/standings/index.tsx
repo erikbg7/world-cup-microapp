@@ -28,11 +28,11 @@ const GroupSection: React.FC<IGroup> = ({ group, teams }) => {
             <th>GD</th>
             <th>Points</th>
           </tr>
-          {teams.map((t) => {
+          {teams.map((team) => {
             return (
-              <tr key={t} className="border-t border-gray-600 text-gray-300 py-1">
+              <tr key={team.name} className="border-t border-gray-600 text-gray-300 py-1">
                 <td>1</td>
-                <td>{t}</td>
+                <td>{team.name}</td>
                 <td>0</td>
                 <td>0</td>
                 <td>0</td>

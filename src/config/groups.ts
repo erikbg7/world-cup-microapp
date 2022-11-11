@@ -1,77 +1,82 @@
-const COUNTRIES = {
-  Qatar: 'Qatar',
-  Ecuador: 'Ecuador',
-  Senegal: 'Senegal',
-  Netherlands: 'Netherlands',
-  England: 'England',
-  Iran: 'Iran',
-  USA: 'USA',
-  Wales: 'Wales',
-  Argentina: 'Argentina',
-  SaudiArabia: 'Saudi Arabia',
-  Mexico: 'Mexico',
-  Poland: 'Poland',
-  France: 'France',
-  Australia: 'Australia',
-  Denmark: 'Denmark',
-  Tunisia: 'Tunisia',
-  Spain: 'Spain',
-  CostaRica: 'Costa Rica',
-  Germany: 'Germany',
-  Japan: 'Japan',
-  Belgium: 'Belgium',
-  Canada: 'Canada',
-  Morocco: 'Morocco',
-  Croatia: 'Croatia',
-  Brazil: 'Brazil',
-  Serbia: 'Serbia',
-  Switzerland: 'Switzerland',
-  Cameroon: 'Cameroon',
-  Portugal: 'Portugal',
-  Ghana: 'Ghana',
-  Uruguay: 'Uruguay',
-  SouthKorea: 'South Korea',
+interface ITeam {
+  name: string;
+  flag: string;
+}
+
+const TEAMS = {
+  Qatar: { name: 'Qatar', flag: 'flags/qa.webp' },
+  Ecuador: { name: 'Ecuador', flag: 'flags/ec.webp' },
+  Senegal: { name: 'Senegal', flag: 'flags/sn.webp' },
+  Netherlands: { name: 'Netherlands', flag: 'flags/nl.webp' },
+  England: { name: 'England', flag: 'flags/bg-eng.webp' },
+  Iran: { name: 'Iran', flag: 'flags/ir.webp' },
+  USA: { name: 'USA', flag: 'flags/us.webp' },
+  Wales: { name: 'Wales', flag: 'flags/gb-wls.webp' },
+  Argentina: { name: 'Argentina', flag: 'flags/ar.webp' },
+  SaudiArabia: { name: 'Saudi Arabia', flag: 'flags/sa.webp' },
+  Mexico: { name: 'Mexico', flag: 'flags/mx.webp' },
+  Poland: { name: 'Poland', flag: 'flags/pl.webp' },
+  France: { name: 'France', flag: 'flags/fr.webp' },
+  Australia: { name: 'Australia', flag: 'flags/au.webp' },
+  Denmark: { name: 'Denmark', flag: 'flags/dk.webp' },
+  Tunisia: { name: 'Tunisia', flag: 'flags/tn.webp' },
+  Spain: { name: 'Spain', flag: 'flags/es.webp' },
+  CostaRica: { name: 'Costa Rica', flag: 'flags/cr.webp' },
+  Germany: { name: 'Germany', flag: 'flags/de.webp' },
+  Japan: { name: 'Japan', flag: 'flags/jp.webp' },
+  Belgium: { name: 'Belgium', flag: 'flags/be.webp' },
+  Canada: { name: 'Canada', flag: 'flags/ca.webp' },
+  Morocco: { name: 'Morocco', flag: 'flags/ma.webp' },
+  Croatia: { name: 'Croatia', flag: 'flags/hr.webp' },
+  Brazil: { name: 'Brazil', flag: 'flags/br.webp' },
+  Serbia: { name: 'Serbia', flag: 'flags/rs.webp' },
+  Switzerland: { name: 'Switzerland', flag: 'flags/ch.webp' },
+  Cameroon: { name: 'Cameroon', flag: 'flags/cm.webp' },
+  Portugal: { name: 'Portugal', flag: 'flags/pt.webp' },
+  Ghana: { name: 'Ghana', flag: 'flags/gh.webp' },
+  Uruguay: { name: 'Uruguay', flag: 'flags/uy.webp' },
+  SouthKorea: { name: 'South Korea', flag: 'flags/kr.webp' },
 };
 
 interface IGroup {
   group: string;
-  teams: string[];
+  teams: ITeam[];
 }
 
 const GROUP_STAGE: Record<string, IGroup> = {
   A: {
     group: 'A',
-    teams: [COUNTRIES.Qatar, COUNTRIES.Ecuador, COUNTRIES.Senegal, COUNTRIES.Netherlands],
+    teams: [TEAMS.Qatar, TEAMS.Ecuador, TEAMS.Senegal, TEAMS.Netherlands],
   },
   B: {
     group: 'B',
-    teams: [COUNTRIES.England, COUNTRIES.Iran, COUNTRIES.USA, COUNTRIES.Wales],
+    teams: [TEAMS.England, TEAMS.Iran, TEAMS.USA, TEAMS.Wales],
   },
   C: {
     group: 'C',
-    teams: [COUNTRIES.Argentina, COUNTRIES.SaudiArabia, COUNTRIES.Mexico, COUNTRIES.Poland],
+    teams: [TEAMS.Argentina, TEAMS.SaudiArabia, TEAMS.Mexico, TEAMS.Poland],
   },
   D: {
     group: 'D',
-    teams: [COUNTRIES.France, COUNTRIES.Australia, COUNTRIES.Denmark, COUNTRIES.Tunisia],
+    teams: [TEAMS.France, TEAMS.Australia, TEAMS.Denmark, TEAMS.Tunisia],
   },
   E: {
     group: 'E',
-    teams: [COUNTRIES.Spain, COUNTRIES.CostaRica, COUNTRIES.Germany, COUNTRIES.Japan],
+    teams: [TEAMS.Spain, TEAMS.CostaRica, TEAMS.Germany, TEAMS.Japan],
   },
   F: {
     group: 'F',
-    teams: [COUNTRIES.Belgium, COUNTRIES.Canada, COUNTRIES.Morocco, COUNTRIES.Croatia],
+    teams: [TEAMS.Belgium, TEAMS.Canada, TEAMS.Morocco, TEAMS.Croatia],
   },
   G: {
     group: 'G',
-    teams: [COUNTRIES.Brazil, COUNTRIES.Serbia, COUNTRIES.Switzerland, COUNTRIES.Cameroon],
+    teams: [TEAMS.Brazil, TEAMS.Serbia, TEAMS.Switzerland, TEAMS.Cameroon],
   },
   H: {
     group: 'H',
-    teams: [COUNTRIES.Portugal, COUNTRIES.Ghana, COUNTRIES.Uruguay, COUNTRIES.SouthKorea],
+    teams: [TEAMS.Portugal, TEAMS.Ghana, TEAMS.Uruguay, TEAMS.SouthKorea],
   },
 };
 
-export { COUNTRIES, GROUP_STAGE };
-export type { IGroup };
+export { TEAMS, GROUP_STAGE };
+export type { ITeam, IGroup };
