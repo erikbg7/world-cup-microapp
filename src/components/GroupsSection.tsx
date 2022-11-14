@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import Image from 'next/image';
+import Image from "next/legacy/image";
 import { IGroup } from '../config/group-stage';
 
 interface Props extends IGroup {
