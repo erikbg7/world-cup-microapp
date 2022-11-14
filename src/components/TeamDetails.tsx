@@ -6,13 +6,28 @@ import clsx from 'clsx';
 interface Props extends ITeam {
   flagClassName?: string;
   nameClassName?: string;
+  containerRowDirection?: boolean;
 }
 
-const TeamDetails: React.FC<Props> = ({ flag, name, flagClassName, nameClassName }) => {
+const TeamDetails: React.FC<Props> = ({
+  flag,
+  name,
+  flagClassName,
+  nameClassName,
+  containerRowDirection,
+}) => {
   return (
-    <div className="flex flex-col flex-1 items-center">
+    <div
+      className={clsx('flex flex-1 items-center', {
+        ['flex-col']: !containerRowDirection,
+        ['flex-row']: containerRowDirection,
+      })}
+    >
       <div
-        className={clsx('relative h-8 w-12 m-2 border border-gray-300 rounded-sm', flagClassName)}
+        className={clsx('relative m-2 border border-gray-300 rounded-sm', {
+          ['h-8 w-12']: !flagClassName,
+          [`${flagClassName}`]: flagClassName,
+        })}
       >
         <Image src={flag} alt={name} layout="fill" objectFit="cover" className="rounded-sm" />
       </div>

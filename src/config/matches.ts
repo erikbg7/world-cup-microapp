@@ -12,6 +12,104 @@ interface IMatchDay {
   matches: IMatch[];
 }
 
+const PLAYOFFS_MATCHES: Record<string, IMatchDay> = {
+  'Round of 16': {
+    day: '',
+    matches: [
+      {
+        time: '3/12, 16:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '3/12, 20:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '5/12, 16:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '5/12, 20:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '4/12, 16:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '4/12, 20:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '6/12, 16:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '6/12, 20:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+    ],
+  },
+  'Round of 8': {
+    day: '',
+    matches: [
+      {
+        time: '9/12, 20:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '9/12, 16:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '10/12, 20:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '10/12, 16:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+    ],
+  },
+  Semifinals: {
+    day: '',
+    matches: [
+      {
+        time: '13/12, 20:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+      {
+        time: '14/12, 20:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+    ],
+  },
+  Final: {
+    day: '',
+    matches: [
+      {
+        time: '18/12, 16:00',
+        team1: TEAMS.ToDefine,
+        team2: TEAMS.ToDefine,
+      },
+    ],
+  },
+};
+
 const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
   'Group Stage · Sun, Nov 20': {
     day: 'Sun, Nov 20',
@@ -368,5 +466,5 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
   },
 };
 
-export { GROUP_STAGE_MATCHES };
+export { GROUP_STAGE_MATCHES, PLAYOFFS_MATCHES };
 export type { IMatch, IMatchDay };

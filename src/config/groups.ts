@@ -36,10 +36,16 @@ const TEAMS = {
   Ghana: { name: 'Ghana', flag: '/flags/gh.webp' },
   Uruguay: { name: 'Uruguay', flag: '/flags/uy.webp' },
   SouthKorea: { name: 'South Korea', flag: '/flags/kr.webp' },
+  ToDefine: { name: 'To define', flag: '/flags/no-flag.webp' },
 };
 
 interface IGroup {
   group: string;
+  teams: ITeam[];
+}
+
+interface IPlayoff {
+  date: string;
   teams: ITeam[];
 }
 
@@ -79,4 +85,4 @@ const GROUP_STAGE: Record<string, IGroup> = {
 };
 
 export { TEAMS, GROUP_STAGE };
-export type { ITeam, IGroup };
+export type { ITeam, IGroup, IPlayoff };
