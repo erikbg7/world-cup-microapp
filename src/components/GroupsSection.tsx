@@ -12,7 +12,6 @@ interface Props {
 }
 
 const GroupSection: React.FC<Props> = ({ group, teams, className, showGroup = true }) => {
-  console.log({ teams });
   return (
     <section className={clsx('p-6 sm:p-12', className)}>
       {showGroup && <h2 className="text-xl p-3">Group {group}</h2>}

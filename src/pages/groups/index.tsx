@@ -31,7 +31,7 @@ const GroupStagePage: NextPage<{ results: IGroupResults }> = ({ results }) => {
   );
 };
 
-const getServerSideProps = async () => {
+const getStaticProps = async () => {
   try {
     const response = await fetch('/api/group-results');
     const results = response.json();
@@ -52,7 +52,7 @@ const getServerSideProps = async () => {
   }
 };
 
-export { getServerSideProps };
+export { getStaticProps };
 export default GroupStagePage;
 
 export type { GroupIdentifier, IGroupResults, IGroupStageTeamResults };
