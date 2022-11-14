@@ -2,9 +2,9 @@ import React from 'react';
 import { GROUP_STAGE, IGroup } from '../../config/group-stage';
 import GroupSection from '../../components/GroupsSection';
 
-const StandingsPage = () => {
+const GroupStagePage = () => {
   return (
-    <div className="py-20">
+    <div className="responsive-screen py-20">
       {Object.values(GROUP_STAGE).map((group: IGroup) => (
         <GroupSection key={group.group} {...group} />
       ))}
@@ -12,4 +12,4 @@ const StandingsPage = () => {
   );
 };
 
-export default StandingsPage;
+export default GroupStagePage;

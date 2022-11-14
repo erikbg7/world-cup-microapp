@@ -5,3 +5,7 @@
 body {
   @apply bg-blackish text-white;
 }
+
+.responsive-screen {
+  @apply mx-auto lg:w-[90%] xl:w-[80%] 2xl:w-[70%];
+}

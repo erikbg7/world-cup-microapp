@@ -3,9 +3,9 @@ import clsx from 'clsx';
 import TeamDetails from '../../components/TeamDetails';
 import { IRound, KNOCKOUT_STAGE_ROUNDS } from '../../config/knockout-stage';
 
-const Bracket = () => {
+const KnockoutStagePage = () => {
   return (
-    <div className="py-20 pl-2.5 flex flex-row">
+    <div className="responsive-screen flex lg:justify-center py-20 pl-2.5 ">
       {KNOCKOUT_STAGE_ROUNDS.map((round) => (
         <div
           key={round.type}
@@ -75,4 +75,4 @@ const KnockoutRound: React.FC<IRound> = ({ type, matches }) => {
   );
 };
 
-export default Bracket;
+export default KnockoutStagePage;
