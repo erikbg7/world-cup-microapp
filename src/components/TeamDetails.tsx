@@ -6,7 +6,7 @@ import clsx from 'clsx';
 interface Props extends ITeam {
   flagClassName?: string;
   nameClassName?: string;
-  containerRowDirection?: boolean;
+  wrapperClassName?: string;
 }
 
 const TeamDetails: React.FC<Props> = ({
@@ -14,21 +14,11 @@ const TeamDetails: React.FC<Props> = ({
   name,
   flagClassName,
   nameClassName,
-  containerRowDirection,
+  wrapperClassName,
 }) => {
   return (
-    <div
-      className={clsx('flex flex-1 items-center', {
-        ['flex-col']: !containerRowDirection,
-        ['flex-row']: containerRowDirection,
-      })}
-    >
-      <div
-        className={clsx('relative m-2 border border-gray-300 rounded-sm', {
-          ['h-8 w-12']: !flagClassName,
-          [`${flagClassName}`]: flagClassName,
-        })}
-      >
+    <div className={clsx('flex flex-1 items-center', wrapperClassName)}>
+      <div className={clsx('relative m-2 border border-gray-300 rounded-sm', flagClassName)}>
         <Image src={flag} alt={name} layout="fill" objectFit="cover" className="rounded-sm" />
       </div>
       <div className={nameClassName}>{name}</div>

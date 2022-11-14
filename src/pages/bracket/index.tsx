@@ -53,14 +53,12 @@ const Playoff: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDay }
               <TeamDetails
                 name={match.team1.name}
                 flag={match.team1.flag}
-                containerRowDirection
                 flagClassName="w-6 h-6 bg-[#B2B2B2] mt-0 mb-1"
                 nameClassName="text-sm"
               />
               <TeamDetails
                 name={match.team2.name}
                 flag={match.team2.flag}
-                containerRowDirection
                 flagClassName="w-6 h-6 bg-[#B2B2B2] mt-0 mb-1"
                 nameClassName="text-sm"
               />

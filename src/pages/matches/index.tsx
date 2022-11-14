@@ -42,9 +42,19 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
           <span className="text-lg font-semibold">{time}</span>
         </div>
         <div className="flex items-center text-center text-gray-300 h-20 py-2">
-          <TeamDetails name={team1.name} flag={team1.flag} />
+          <TeamDetails
+            name={team1.name}
+            flag={team1.flag}
+            flagClassName="h-8 w-12"
+            wrapperClassName="flex-col"
+          />
           <div className="h-full w-[1px] bg-gray-600"></div>
-          <TeamDetails name={team2.name} flag={team2.flag} />
+          <TeamDetails
+            name={team2.name}
+            flag={team2.flag}
+            flagClassName="h-8 w-12"
+            wrapperClassName="flex-col"
+          />
         </div>
       </div>
       <GroupMatchModal ref={modalRef} match={{ group, time, team1, team2 } as IMatch} />
