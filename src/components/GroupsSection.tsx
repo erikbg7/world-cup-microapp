@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import Image from "next/legacy/image";
+import Image from 'next/image';
 import { IGroup } from '../config/group-stage';
 
 interface Props extends IGroup {
@@ -22,15 +22,15 @@ const GroupSection: React.FC<Props> = ({ group, teams, className, showGroup = tr
             <th>L</th>
             <th>Points</th>
           </tr>
-          {teams.map((team, i) => {
+          {teams.map(({ flag, name }, i) => {
             return (
-              <tr key={team.name} className="border-t border-gray-600 text-gray-300">
+              <tr key={name} className="border-t border-gray-600 text-gray-300">
                 <td className="flex items-center py-2">
                   <span className="font-mono">{i + 1}</span>
                   <div className="relative h-6 w-6 mx-4 border border-white-300 rounded-sm">
-                    <Image src={team.flag} alt={team.name} layout="fill" objectFit="fill" />
+                    <Image src={flag} alt={name} fill sizes="100vw" className="object-fill" />
                   </div>
-                  {team.name}
+                  {name}
                 </td>
                 <td>0</td>
                 <td>0</td>

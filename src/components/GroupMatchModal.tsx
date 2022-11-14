@@ -47,7 +47,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full h-full transform overflow-hidden text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full h-full transform overflow-hidden text-left align-middle shadow-xl transition-all bg-blackish">
                 <button
                   className="absolute top-10 right-10 hover:bg-gray-600/40 p-2 rounded-lg"
                   onClick={closeModal}
@@ -55,7 +55,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                   <XMarkIcon className="text-gray-300 hover:text-gray-100 h-10 w-10 mx-auto" />
                 </button>
 
-                <div className="flex flex-col justify-center items-center w-full h-full bg-blackish">
+                <div className="responsive-screen flex flex-col justify-center items-center w-full h-full ">
                   <div className="text-4xl font-extralight w-full p-4 text-center">
                     <div className="py-2">Group Stage · Group {props.match.group}</div>
                     <hr className="w-full border-gray-600" />
