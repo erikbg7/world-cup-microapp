@@ -19,7 +19,7 @@ interface IGroupResults extends Record<GroupIdentifier, IGroupStageTeamResults[]
 
 const GroupStagePage: NextPage<{ results: IGroupResults }> = ({ results }) => {
   return (
-    <div className="responsive-screen py-20">
+    <div className="overflow-auto flex-1 py-5">
       {Object.entries(results).map(([group, teams]) => (
         <GroupSection
           key={group}
