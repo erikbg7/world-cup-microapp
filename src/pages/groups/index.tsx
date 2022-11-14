@@ -4,7 +4,7 @@ import GroupSection from '../../components/GroupsSection';
 
 const GroupStagePage = () => {
   return (
-    <div className="responsive-screen py-20">
+    <div className="overflow-auto flex-1 py-5">
       {Object.values(GROUP_STAGE).map((group: IGroup) => (
         <GroupSection key={group.group} {...group} />
       ))}

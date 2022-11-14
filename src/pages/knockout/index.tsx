@@ -5,7 +5,7 @@ import { IRound, KNOCKOUT_STAGE_ROUNDS } from '../../config/knockout-stage';
 
 const KnockoutStagePage = () => {
   return (
-    <div className="responsive-screen flex lg:justify-center py-20 pl-2.5 ">
+    <div className="overflow-auto flex-1 flex lg:justify-center pl-2.5 ">
       {KNOCKOUT_STAGE_ROUNDS.map((round) => (
         <div
           key={round.type}
