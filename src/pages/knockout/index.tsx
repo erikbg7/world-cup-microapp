@@ -1,6 +1,7 @@
 import React from 'react';
 import clsx from 'clsx';
 import TeamDetails from '../../components/TeamDetails';
+import DateTime from '../../components/DateTime';
 import { IRound, KNOCKOUT_STAGE_ROUNDS } from '../../config/knockout-stage';
 
 const KnockoutStagePage = () => {
@@ -24,7 +25,7 @@ const KnockoutStagePage = () => {
 const KnockoutRound: React.FC<IRound> = ({ type, matches }) => {
   return (
     <>
-      {matches.map((match) => (
+      {matches.map((match, idx) => (
         <div key={match.team1.name + match.team2.name} className="relative">
           {type !== 'Round of 16' && (
             <div
@@ -42,14 +43,16 @@ const KnockoutRound: React.FC<IRound> = ({ type, matches }) => {
               'border-[#3c4043] border-[1px] text-[#bdc1c6] pt-2 pb-2 pl-2] rounded-lg mt-2.5 mb-2.5 w-44',
               {
                 ['mb-[128px]']: type === 'Quarterfinals',
-                ['mb-[20px]']: ['3/12, 20:00', '5/12, 20:00', '4/12, 20:00'].includes(match.date),
-                ['mt-[178px]']: match.date === '13/12, 20:00',
-                ['mt-[354px]']: match.date === '14/12, 20:00',
-                ['mt-[390px]']: match.date === '18/12, 16:00',
+                ['mb-[20px]']: type === 'Round of 16' && [1, 3, 5].includes(idx),
+                ['mt-[178px]']: type === 'Semifinals' && idx === 0,
+                ['mt-[354px]']: type === 'Semifinals' && idx === 1,
+                ['mt-[390px]']: type === 'Final',
               }
             )}
           >
-            <p className="text-xs pl-2.5 mb-2">{match.date}</p>
+            <p className="text-xs pl-2.5 mb-2">
+              <DateTime {...{ timestamp: match.date, format: 'dateAndTime' }} />
+            </p>
             <div className="">
               <TeamDetails
                 name={match.team1.name}
