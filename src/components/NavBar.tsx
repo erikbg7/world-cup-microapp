@@ -10,8 +10,8 @@ interface ISection {
 
 const SECTIONS: ISection[] = [
   { id: 1, name: 'Matches', path: '/matches' },
-  { id: 2, name: 'Bracket', path: '/bracket' },
-  { id: 3, name: 'Standings', path: '/standings' },
+  { id: 2, name: 'Groups', path: '/groups' },
+  { id: 3, name: 'Knockouts', path: '/knockout' },
 ];
 
 const NavBar = () => {
