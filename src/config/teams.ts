@@ -35,7 +35,7 @@ const TEAMS = {
   Portugal: { name: 'Portugal', flag: '/flags/pt.webp' },
   Ghana: { name: 'Ghana', flag: '/flags/gh.webp' },
   Uruguay: { name: 'Uruguay', flag: '/flags/uy.webp' },
-  SouthKorea: { name: 'South Korea', flag: '/flags/kr.webp' },
+  SouthKorea: { name: 'Korea Republic', flag: '/flags/kr.webp' },
   TBD: { name: 'TBD', flag: '/flags/no-flag.webp' },
 };
 
