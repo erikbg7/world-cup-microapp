@@ -5,7 +5,7 @@ import TeamDetails from '../../components/TeamDetails';
 
 const MatchesPage = () => {
   return (
-    <div className="responsive-screen py-20">
+    <div className="overflow-auto flex-1 py-5">
       {Object.entries(GROUP_STAGE_MATCHES).map(([id, matchDay]) => (
         <MatchesDay key={id} id={id} matchDay={matchDay} />
       ))}

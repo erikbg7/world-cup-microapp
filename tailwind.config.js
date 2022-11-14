@@ -10,6 +10,7 @@ module.exports = {
       backgroundColor: {
         blackish: '#171717',
         blackishLight: '#202124',
+        liveIndicator: '#00FF00',
       },
     },
   },
