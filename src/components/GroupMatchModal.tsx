@@ -1,11 +1,10 @@
 import React from 'react';
-import Image from 'next/image';
 import { Dialog, Transition } from '@headlessui/react';
-import { ChevronLeftIcon, ChevronRightIcon, XMarkIcon } from '@heroicons/react/24/solid';
+import { XMarkIcon } from '@heroicons/react/24/solid';
 import { IMatch } from '../config/matches';
 import TeamDetails from './TeamDetails';
 import GroupSection from './GroupsSection';
-import { GROUP_STAGE } from '../config/groups';
+import { GROUP_STAGE } from '../config/group-stage';
 
 interface Props {
   match: IMatch;

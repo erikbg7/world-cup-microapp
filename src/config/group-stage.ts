@@ -5,11 +5,6 @@ interface IGroup {
   teams: ITeam[];
 }
 
-interface IPlayoff {
-  date: string;
-  teams: ITeam[];
-}
-
 const GROUP_STAGE: Record<string, IGroup> = {
   A: {
     group: 'A',
@@ -45,5 +40,5 @@ const GROUP_STAGE: Record<string, IGroup> = {
   },
 };
 
-export { TEAMS, GROUP_STAGE };
-export type { ITeam, IGroup, IPlayoff };
+export { GROUP_STAGE };
+export type { IGroup };

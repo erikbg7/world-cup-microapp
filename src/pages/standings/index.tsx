@@ -1,5 +1,5 @@
 import React from 'react';
-import { GROUP_STAGE, IGroup } from '../../config/groups';
+import { GROUP_STAGE, IGroup } from '../../config/group-stage';
 import GroupSection from '../../components/GroupsSection';
 
 const StandingsPage = () => {

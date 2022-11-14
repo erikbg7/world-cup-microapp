@@ -1,54 +1,55 @@
 import React from 'react';
 import clsx from 'clsx';
 import TeamDetails from '../../components/TeamDetails';
-import { PLAYOFFS_MATCHES, IMatch, IMatchDay } from '../../config/matches';
+import { IRound, KNOCKOUT_STAGE_ROUNDS } from '../../config/knockout-stage';
 
 const Bracket = () => {
   return (
     <div className="py-20 pl-2.5 flex flex-row">
-      {Object.entries(PLAYOFFS_MATCHES).map(([id, matchDay]) => (
+      {KNOCKOUT_STAGE_ROUNDS.map((round) => (
         <div
+          key={round.type}
           className={clsx('', {
-            ['ml-5 pt-14']: id === 'Round of 8',
-            ['ml-5']: id === 'Semifinals' || id === 'Final',
+            ['ml-5 pt-14']: round.type === 'Quarterfinals',
+            ['ml-5']: round.type === 'Semifinals' || round.type === 'Final',
           })}
-          key={id}
         >
-          <Playoff id={id} matchDay={matchDay} />
+          <KnockoutRound {...round} />
         </div>
       ))}
     </div>
   );
 };
 
-const Playoff: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDay }) => {
+const KnockoutRound: React.FC<IRound> = ({ type, matches }) => {
   return (
     <>
-      {matchDay.matches.map((match) => (
+      {matches.map((match) => (
         <div key={match.team1.name + match.team2.name} className="relative">
-          {id !== 'Round of 16' && (
+          {type !== 'Round of 16' && (
             <div
               className={clsx('w-[1px] bg-[#3c4043] absolute left-[-7px]', {
-                ['h-[108px] top-[-8px]']: id === 'Round of 8',
-                ['h-[226px] top-[-63px]']: id === 'Semifinals',
-                ['h-[454px] top-[-164px]']: id === 'Final',
+                ['h-[108px] top-[-8px]']: type === 'Quarterfinals',
+                ['h-[226px] top-[-63px]']: type === 'Semifinals',
+                ['h-[454px] top-[-164px]']: type === 'Final',
               })}
             ></div>
           )}
 
           <div
+            id={type}
             className={clsx(
-              'w-40 border-[#3c4043] border-[1px] text-[#bdc1c6] pt-2 pb-2 pl-2] rounded-lg mt-2.5 mb-2.5 w-44',
+              'border-[#3c4043] border-[1px] text-[#bdc1c6] pt-2 pb-2 pl-2] rounded-lg mt-2.5 mb-2.5 w-44',
               {
-                ['mb-[128px]']: id === 'Round of 8',
-                ['mb-[20px]']: ['3/12, 20:00', '5/12, 20:00', '4/12, 20:00'].includes(match.time),
-                ['mt-[178px]']: match.time === '13/12, 20:00',
-                ['mt-[354px]']: match.time === '14/12, 20:00',
-                ['mt-[390px]']: match.time === '18/12, 16:00',
+                ['mb-[128px]']: type === 'Quarterfinals',
+                ['mb-[20px]']: ['3/12, 20:00', '5/12, 20:00', '4/12, 20:00'].includes(match.date),
+                ['mt-[178px]']: match.date === '13/12, 20:00',
+                ['mt-[354px]']: match.date === '14/12, 20:00',
+                ['mt-[390px]']: match.date === '18/12, 16:00',
               }
             )}
           >
-            <p className="text-xs pl-2.5 mb-2">{match.time}</p>
+            <p className="text-xs pl-2.5 mb-2">{match.date}</p>
             <div className="">
               <TeamDetails
                 name={match.team1.name}
@@ -64,7 +65,7 @@ const Playoff: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDay }
               />
             </div>
           </div>
-          {id !== 'Final' && (
+          {type !== 'Final' && (
             <div className="w-4 h-[1px] bg-[#3c4043] absolute right-[-14px] top-12"></div>
           )}
           <div className="w-2 h-[1px] bg-[#3c4043] absolute left-[-6px] top-12"></div>

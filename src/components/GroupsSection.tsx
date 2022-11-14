@@ -1,7 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
-import { IGroup } from '../config/groups';
 import clsx from 'clsx';
+import Image from 'next/image';
+import { IGroup } from '../config/group-stage';
 
 interface Props extends IGroup {
   showGroup?: boolean;

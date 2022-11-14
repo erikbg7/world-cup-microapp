@@ -1,7 +1,7 @@
 import React from 'react';
-import Image from 'next/image';
-import { ITeam } from '../config/groups';
 import clsx from 'clsx';
+import Image from 'next/image';
+import { ITeam } from '../config/teams';
 
 interface Props extends ITeam {
   flagClassName?: string;
