@@ -3,8 +3,9 @@ import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { IMatch } from '../config/matches';
 import TeamDetails from './TeamDetails';
-import GroupSection from './GroupsSection';
-import { GROUP_STAGE } from '../config/group-stage';
+// import GroupSection from './GroupsSection';
+// import { GROUP_STAGE } from '../config/group-stage';
+// import { GroupIdentifier } from '../pages/groups';
 
 interface Props {
   match: IMatch;
@@ -79,12 +80,12 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                     />
                   </div>
 
-                  <GroupSection
+                  {/* <GroupSection
                     showGroup={false}
                     className="w-full px-2 py-0"
-                    group={GROUP_STAGE[props.match.group!].group}
-                    teams={GROUP_STAGE[props.match.group!].teams}
-                  />
+                    group={GROUP_STAGE[props.match.group!].group as GroupIdentifier}
+                    teams={GROUP_STAGE[props.match.group!].teams as }
+                  /> */}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
