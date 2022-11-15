@@ -14,31 +14,14 @@ const getDateByTimezone = ({ timestamp, format }: IDateFormat) => {
   const hour = date.toLocaleString('en-GB', { timeZone, hour: '2-digit' });
   const minute = date.toLocaleString('en-GB', { timeZone, minute: '2-digit' });
 
-  let dateFormated;
+  const dateFormated = {
+    dateAndTime: `${dayName}, ${day}/${month} ${hour}:0${minute}`,
+    dateNumbers: `${day}/${month} ${hour}:0${minute}`,
+    dateNames: `${dayName}, ${monthName} ${day}`,
+    dateHour: `${hour}:0${minute}`,
+  }[format];
 
-  switch (format) {
-    case 'dateAndTime':
-      dateFormated = `${dayName}, ${day}/${month} ${hour}:0${minute}`;
-      break;
-
-    case 'dateNumbers':
-      dateFormated = `${day}/${month} ${hour}:0${minute}`;
-      break;
-
-    case 'dateNames':
-      dateFormated = `${dayName}, ${monthName} ${day}`;
-      break;
-
-    case 'dateHour':
-      dateFormated = `${hour}:0${minute}`;
-      break;
-
-    default:
-      dateFormated = date.toLocaleString('en-GB', { timeZone });
-      break;
-  }
-
-  return dateFormated;
+  return dateFormated || date.toLocaleString('en-GB', { timeZone });
 };
 
 export { getDateByTimezone };

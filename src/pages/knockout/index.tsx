@@ -51,7 +51,7 @@ const KnockoutRound: React.FC<IRound> = ({ type, matches }) => {
             )}
           >
             <p className="text-xs pl-2.5 mb-2">
-              <DateTime {...{ timestamp: match.date, format: 'dateAndTime' }} />
+              <DateTime timestamp={match.date} format="dateAndTime" />
             </p>
             <div className="">
               <TeamDetails

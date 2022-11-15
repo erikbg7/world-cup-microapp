@@ -41,7 +41,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
         <div className="flex justify-between items-center">
           <span className="text-sm text-gray-400">Group {group}</span>
           <span className="text-lg font-semibold">
-            <DateTime {...{ timestamp: time, format: 'dateHour' }} />
+            <DateTime timestamp={time} format="dateHour" />
           </span>
         </div>
         <div className="flex items-center text-center text-gray-300 h-20 py-2">
