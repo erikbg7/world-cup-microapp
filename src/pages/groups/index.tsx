@@ -1,8 +1,7 @@
-import fs from 'fs';
-import path from 'path';
-import { NextPage } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import GroupSection from '../../components/GroupsSection';
 import { ITeam } from '../../config/teams';
+import { fetchGroupStageResults } from '../../services/api';
 
 type GroupIdentifier = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
 
@@ -31,28 +30,21 @@ const GroupStagePage: NextPage<{ results: IGroupResults }> = ({ results }) => {
   );
 };
 
-const getStaticProps = async () => {
+// TODO: Convert to ISR
+const getServerSideProps = async () => {
   try {
-    const response = await fetch('/api/group-results');
-    const results = response.json();
-
+    const results = await fetchGroupStageResults();
     return {
-      props: { results },
-      revalidate: 30,
+      props: { results: results },
+      // revalidate: 30,
     };
-  } catch (_) {
-    const grupResultsPath = path.join(process.cwd(), 'content', 'results.json');
-    const groupResultsFile = fs.readFileSync(grupResultsPath, 'utf8');
-    const results = JSON.parse(groupResultsFile) as IGroupResults;
-
-    return {
-      props: { results },
-      revalidate: 30,
-    };
+  } catch (e) {
+    console.error({ e });
+    return { props: { results: {} } };
   }
 };
 
-export { getStaticProps };
+export { getServerSideProps };
 export default GroupStagePage;
 
 export type { GroupIdentifier, IGroupResults, IGroupStageTeamResults };
