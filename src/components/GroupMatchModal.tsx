@@ -1,10 +1,14 @@
 import React from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import { IMatch } from '../config/matches';
+
 import TeamDetails from './TeamDetails';
 import GroupSection from './GroupsSection';
-import { GROUP_STAGE } from '../config/group-stage';
+import GroupsSectionSkeleton from './GroupsSectionSkeleton';
+import { IMatch } from '../config/matches';
+import { fetchGroupStageResults } from '../services/api';
+import { GroupIdentifier, IGroupResults } from '../models/groups';
 
 interface Props {
   match: IMatch;
@@ -79,14 +83,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                       wrapperClassName="flex-col"
                     />
                   </div>
-                  {props.match.group && (
-                    <GroupSection
-                      showGroup={false}
-                      className="w-full px-2 py-0"
-                      group={GROUP_STAGE[props.match.group!].group}
-                      teams={GROUP_STAGE[props.match.group!].teams}
-                    />
-                  )}
+                  {props.match.group && <DynamicGroupSection group={props.match.group} />}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -96,6 +93,24 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
     </Transition>
   );
 });
+
+const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
+  const { data, isError, isLoading } = useQuery(['groupResults'], fetchGroupStageResults);
+  const results = data as IGroupResults;
+
+  if (isError || isLoading) {
+    return <GroupsSectionSkeleton />;
+  }
+
+  return (
+    <GroupSection
+      showGroup={false}
+      className="w-full px-2 py-0"
+      group={props.group}
+      teams={results[props.group]}
+    />
+  );
+};
 
 GroupMatchModal.displayName = 'GroupMatchModal';
 
