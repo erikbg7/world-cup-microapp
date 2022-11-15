@@ -3,7 +3,9 @@ import clsx from 'clsx';
 import Image from 'next/image';
 import { ITeam } from '../config/teams';
 
-interface Props extends ITeam {
+interface Props {
+  flag: ITeam['flag'];
+  name: ITeam['name'];
   flagClassName?: string;
   nameClassName?: string;
   wrapperClassName?: string;
