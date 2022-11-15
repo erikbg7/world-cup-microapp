@@ -7,6 +7,7 @@ import TeamDetails from './TeamDetails';
 import { fetchGroupStageResults } from '../services/api';
 import GroupSection from './GroupsSection';
 import { GroupIdentifier, IGroupResults } from '../pages/groups';
+import GroupsSectionSkeleton from './GroupsSectionSkeleton';
 
 interface Props {
   match: IMatch;
@@ -81,12 +82,6 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                     />
                   </div>
                   {props.match.group && <DynamicGroupSection group={props.match.group} />}
-                  {/* <GroupSection
-                    showGroup={false}
-                    className="w-full px-2 py-0"
-                    group={GROUP_STAGE[props.match.group!].group as GroupIdentifier}
-                    teams={GROUP_STAGE[props.match.group!].teams as }
-                  /> */}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -101,10 +96,9 @@ const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
   const { data, isError, isLoading } = useQuery(['groupResults'], fetchGroupStageResults);
   const results = data as IGroupResults;
 
-  console.log({ data });
-
-  if (isLoading) return <div>Loading...</div>;
-  if (isError) return <div>Error</div>;
+  if (isError || isLoading) {
+    return <GroupsSectionSkeleton />;
+  }
 
   return (
     <GroupSection
