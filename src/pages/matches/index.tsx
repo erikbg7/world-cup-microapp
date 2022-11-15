@@ -60,7 +60,11 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
           />
         </div>
       </div>
-      <GroupMatchModal ref={modalRef} match={{ group, time, team1, team2 } as IMatch} />
+      <GroupMatchModal
+        ref={modalRef}
+        title={`Group Stage · Group ${group}`}
+        match={{ group, time, team1, team2 } as IMatch}
+      />
     </>
   );
 };

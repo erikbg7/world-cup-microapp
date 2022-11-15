@@ -8,6 +8,7 @@ import { GROUP_STAGE } from '../config/group-stage';
 
 interface Props {
   match: IMatch;
+  title: string;
 }
 
 interface IGroupMatchModalHandler {
@@ -57,7 +58,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
 
                 <div className="responsive-screen flex flex-col justify-center items-center w-full h-full ">
                   <div className="text-4xl font-extralight w-full p-4 text-center">
-                    <div className="py-2">Group Stage · Group {props.match.group}</div>
+                    <div className="py-2">{props.title}</div>
                     <hr className="w-full border-gray-600" />
                   </div>
 
@@ -78,13 +79,14 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                       wrapperClassName="flex-col"
                     />
                   </div>
-
-                  <GroupSection
-                    showGroup={false}
-                    className="w-full px-2 py-0"
-                    group={GROUP_STAGE[props.match.group!].group}
-                    teams={GROUP_STAGE[props.match.group!].teams}
-                  />
+                  {props.match.group && (
+                    <GroupSection
+                      showGroup={false}
+                      className="w-full px-2 py-0"
+                      group={GROUP_STAGE[props.match.group!].group}
+                      teams={GROUP_STAGE[props.match.group!].teams}
+                    />
+                  )}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
