@@ -3,26 +3,56 @@ import TeamDetails from './TeamDetails';
 
 const LiveScore = () => {
   return (
-    <div className="flex flex-col grid-row-2 p-2 rounded bg-blackishLight m-3">
-      <div className="flex items-center justify-end mb-2">
-        <span className="animate-ping rounded h-2 w-2 bg-liveIndicator" />
-        <span className="text-lg mx-2 font-bold">LIVE</span>
+    <>
+      <div className="flex items-center bg-gray-800 rounded mt-3 mx-3">
+        <div className="flex  justify-end mb-2 Light p-2">
+          <span className="animate-ping rounded h-2 w-2 bg-liveIndicator" />
+          <span className="text-lg mx-2 font-bold px-1">LIVE</span>
+        </div>
+        <div className="flex w-full p-2  items-center">
+          <TeamDetails
+            name={TEAMS.Spain.name}
+            flag={TEAMS.Spain.flag}
+            flagClassName="h-6 w-10"
+            wrapperClassName="flex-row-reverse"
+          />
+          <span className="px-3">2</span>
+        </div>
+        <span>-</span>
+        <div className="flex w-full p-2  items-center">
+          <span className="px-3">0</span>
+          <TeamDetails
+            name={TEAMS.Argentina.name}
+            flag={TEAMS.Argentina.flag}
+            flagClassName="h-6 w-10"
+          />
+        </div>
       </div>
-      <div className="flex w-full divide-x p-2 bg-blackish items-center">
-        <TeamDetails name={TEAMS.Spain.name} flag={TEAMS.Spain.flag} flagClassName="h-6 w-10" />
-        <span className="px-3">2</span>
+      <div className="flex items-center bg-gray-800 rounded mt-3 mx-3">
+        <div className="flex  justify-end mb-2 Light p-2">
+          <span className="animate-ping rounded h-2 w-2 bg-liveIndicator" />
+          <span className="text-lg mx-2 font-bold px-1">LIVE</span>
+        </div>
+        <div className="flex w-full p-2 items-center">
+          <TeamDetails
+            name={TEAMS.Spain.name}
+            flag={TEAMS.Spain.flag}
+            flagClassName="h-6 w-10"
+            wrapperClassName="flex-row-reverse"
+          />
+          <span className="px-3">2</span>
+        </div>
+        <span>-</span>
+        <div className="flex w-full p-2  items-center">
+          <span className="px-3">0</span>
+          <TeamDetails
+            name={TEAMS.Argentina.name}
+            flag={TEAMS.Argentina.flag}
+            flagClassName="h-6 w-10"
+          />
+        </div>
       </div>
-
-      <span className="font-medium mb-1 p-3">VS</span>
-      <div className="flex w-full divide-x p-2 bg-blackish items-center">
-        <TeamDetails
-          name={TEAMS.Argentina.name}
-          flag={TEAMS.Argentina.flag}
-          flagClassName="h-6 w-10"
-        />
-        <span className="px-3">0</span>
-      </div>
-    </div>
+    </>
   );
 };
 
