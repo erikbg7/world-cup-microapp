@@ -1,7 +1,8 @@
 import { ITeam, TEAMS } from './teams';
+import { GroupIdentifier } from '../models/groups';
 
 interface IMatch {
-  group?: string;
+  group?: GroupIdentifier;
   time: number;
   team1: ITeam;
   team2: ITeam;
