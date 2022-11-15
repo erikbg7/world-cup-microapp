@@ -71,7 +71,9 @@ const KnockoutRound: React.FC<IRound> = ({ type, matches }) => {
           {type !== 'Final' && (
             <div className="w-4 h-[1px] bg-[#3c4043] absolute right-[-14px] top-12"></div>
           )}
-          <div className="w-2 h-[1px] bg-[#3c4043] absolute left-[-6px] top-12"></div>
+          {type !== 'Round of 16' && (
+            <div className="w-2 h-[1px] bg-[#3c4043] absolute left-[-6px] top-12"></div>
+          )}
         </div>
       ))}
     </>
