@@ -11,9 +11,10 @@ const LiveScore = () => {
         </div>
         <div className="flex w-full p-2  items-center">
           <TeamDetails
-            name={TEAMS.Spain.name}
+            name={TEAMS.Spain.fifaCode}
             flag={TEAMS.Spain.flag}
             flagClassName="h-6 w-10"
+            nameClassName="hidden xs:block"
             wrapperClassName="flex-row-reverse"
           />
           <span className="px-3">2</span>
@@ -22,9 +23,10 @@ const LiveScore = () => {
         <div className="flex w-full p-2  items-center">
           <span className="px-3">0</span>
           <TeamDetails
-            name={TEAMS.Argentina.name}
+            name={TEAMS.Argentina.fifaCode}
             flag={TEAMS.Argentina.flag}
             flagClassName="h-6 w-10"
+            nameClassName="hidden xs:block"
           />
         </div>
       </div>
@@ -35,20 +37,22 @@ const LiveScore = () => {
         </div>
         <div className="flex w-full p-2 items-center">
           <TeamDetails
-            name={TEAMS.Spain.name}
+            name={TEAMS.Spain.fifaCode}
             flag={TEAMS.Spain.flag}
             flagClassName="h-6 w-10"
             wrapperClassName="flex-row-reverse"
+            nameClassName="hidden xs:block"
           />
           <span className="px-3">2</span>
         </div>
         <span>-</span>
-        <div className="flex w-full p-2  items-center">
+        <div className="flex w-full p-2 items-center">
           <span className="px-3">0</span>
           <TeamDetails
-            name={TEAMS.Argentina.name}
+            name={TEAMS.Argentina.fifaCode}
             flag={TEAMS.Argentina.flag}
             flagClassName="h-6 w-10"
+            nameClassName="hidden xs:block"
           />
         </div>
       </div>

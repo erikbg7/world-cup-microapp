@@ -7,6 +7,9 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        xs: '390px',
+      },
       backgroundColor: {
         blackish: '#171717',
         blackishLight: '#202124',
