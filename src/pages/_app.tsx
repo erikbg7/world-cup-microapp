@@ -1,14 +1,20 @@
-import '../globals.css';
+import React from 'react';
 import type { AppProps } from 'next/app';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import NavBar from '../components/NavBar';
 import LiveScore from '../components/LiveScore';
+import '../globals.css';
 
 export default function App({ Component, pageProps }: AppProps) {
+  const [queryClient] = React.useState(() => new QueryClient());
+
   return (
-    <div className="fixed w-full h-full flex flex-col">
-      <NavBar />
-      <LiveScore />
-      <Component {...pageProps} />
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <div className="fixed w-full h-full flex flex-col">
+        <NavBar />
+        <LiveScore />
+        <Component {...pageProps} />
+      </div>
+    </QueryClientProvider>
   );
 }

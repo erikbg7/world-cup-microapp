@@ -1,11 +1,12 @@
 import React from 'react';
+import { useQuery } from '@tanstack/react-query';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
 import { IMatch } from '../config/matches';
 import TeamDetails from './TeamDetails';
-// import GroupSection from './GroupsSection';
-// import { GROUP_STAGE } from '../config/group-stage';
-// import { GroupIdentifier } from '../pages/groups';
+import { fetchGroupStageResults } from '../services/api';
+import GroupSection from './GroupsSection';
+import { GroupIdentifier, IGroupResults } from '../pages/groups';
 
 interface Props {
   match: IMatch;
@@ -79,7 +80,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                       wrapperClassName="flex-col"
                     />
                   </div>
-
+                  {props.match.group && <DynamicGroupSection group={props.match.group} />}
                   {/* <GroupSection
                     showGroup={false}
                     className="w-full px-2 py-0"
@@ -95,6 +96,25 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
     </Transition>
   );
 });
+
+const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
+  const { data, isError, isLoading } = useQuery(['groupResults'], fetchGroupStageResults);
+  const results = data as IGroupResults;
+
+  console.log({ data });
+
+  if (isLoading) return <div>Loading...</div>;
+  if (isError) return <div>Error</div>;
+
+  return (
+    <GroupSection
+      showGroup={false}
+      className="w-full px-2 py-0"
+      group={props.group}
+      teams={results[props.group]}
+    />
+  );
+};
 
 GroupMatchModal.displayName = 'GroupMatchModal';
 

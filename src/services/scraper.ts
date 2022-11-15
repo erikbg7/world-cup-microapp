@@ -41,9 +41,9 @@ const getGroupStageResults = async (url: string) => {
     const teams = table.querySelectorAll('tr');
     assert.equal(teams?.length, 4, 'Expected exactly 4 teams per table');
 
-    teams.forEach((team) => {
+    teams.forEach((team, teamIndex) => {
       const data = getTeamDataFromRow(team);
-      SCRAPING_RESULTS[GROUP_BY_INDEX[index]].push(data);
+      SCRAPING_RESULTS[GROUP_BY_INDEX[index]][teamIndex] = data;
     });
   });
 

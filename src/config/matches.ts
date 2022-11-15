@@ -1,7 +1,9 @@
+//TODO: Mode to models
+import { GroupIdentifier } from '../pages/groups';
 import { ITeam, TEAMS } from './teams';
 
 interface IMatch {
-  group?: string;
+  group?: GroupIdentifier;
   time: number;
   team1: ITeam;
   team2: ITeam;

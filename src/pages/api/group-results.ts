@@ -24,7 +24,7 @@ const getResultsFromFileSystem = async () => {
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     const results = await getResultsFromScraper();
-    res.status(200).json({ groupStageResults: results });
+    res.status(200).json({ results });
   } catch (e) {
     console.log('[Scraper Error]: ', e);
     console.log('Trying to get results from file system...');
