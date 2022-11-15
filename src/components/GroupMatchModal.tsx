@@ -2,12 +2,13 @@ import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Dialog, Transition } from '@headlessui/react';
 import { XMarkIcon } from '@heroicons/react/24/solid';
-import { IMatch } from '../config/matches';
+
 import TeamDetails from './TeamDetails';
-import { fetchGroupStageResults } from '../services/api';
 import GroupSection from './GroupsSection';
-import { GroupIdentifier, IGroupResults } from '../pages/groups';
 import GroupsSectionSkeleton from './GroupsSectionSkeleton';
+import { IMatch } from '../config/matches';
+import { fetchGroupStageResults } from '../services/api';
+import { GroupIdentifier, IGroupResults } from '../models/groups';
 
 interface Props {
   match: IMatch;

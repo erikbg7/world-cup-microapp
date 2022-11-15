@@ -2,7 +2,7 @@ import React from 'react';
 import clsx from 'clsx';
 import Image from 'next/image';
 import { TEAMS } from '../config/teams';
-import { GroupIdentifier, IGroupStageTeamResults } from '../pages/groups';
+import { GroupIdentifier, IGroupStageTeamResults } from '../models/groups';
 
 interface Props {
   group: GroupIdentifier;

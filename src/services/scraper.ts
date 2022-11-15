@@ -37,7 +37,6 @@ const getGroupStageResults = async (url: string) => {
   assert.equal(tables?.length, 8, 'Expected exactly 8 tables');
 
   tables.forEach((table, index) => {
-    console.log('tables');
     const teams = table.querySelectorAll('tr');
     assert.equal(teams?.length, 4, 'Expected exactly 4 teams per table');
 

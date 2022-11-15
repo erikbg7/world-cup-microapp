@@ -29,12 +29,11 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     console.log('[Scraper Error]: ', e);
     console.log('Trying to get results from file system...');
     try {
-      console.log('result from file system');
       const results = await getResultsFromFileSystem();
       res.status(200).json({ results });
     } catch (e) {
       console.log('[File System Error]: ', e);
-      res.status(500).json({ error: '[Results Error]: Data could not be recovered' });
+      res.status(500).json({ error: '[Results Error]: Data could not be retrieved' });
     }
   }
 }

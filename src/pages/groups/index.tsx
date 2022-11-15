@@ -1,22 +1,28 @@
-import { GetServerSideProps, NextPage } from 'next';
+import { useQuery } from '@tanstack/react-query';
 import GroupSection from '../../components/GroupsSection';
-import { ITeam } from '../../config/teams';
+import GroupsSectionSkeleton from '../../components/GroupsSectionSkeleton';
 import { fetchGroupStageResults } from '../../services/api';
+import type { GroupIdentifier, IGroupResults, IGroupStageTeamResults } from '../../models/groups';
 
-type GroupIdentifier = 'A' | 'B' | 'C' | 'D' | 'E' | 'F' | 'G' | 'H';
+const GroupStagePage = () => {
+  const { data, isError, isLoading } = useQuery(['groupResults'], fetchGroupStageResults);
+  const results = data as IGroupResults;
 
-interface IGroupStageTeamResults {
-  name: ITeam['name'];
-  played: string;
-  won: string;
-  lost: string;
-  draw: string;
-  points: string;
-}
+  if (isError || isLoading) {
+    return (
+      <div className="overflow-auto flex-1 py-5">
+        <div className="my-7 mx-2">
+          <h2 className="text-xl p-3">Group A</h2>
+          <GroupsSectionSkeleton />
+        </div>
+        <div className="my-7 mx-2">
+          <h2 className="text-xl p-3">Group B</h2>
+          <GroupsSectionSkeleton />
+        </div>
+      </div>
+    );
+  }
 
-interface IGroupResults extends Record<GroupIdentifier, IGroupStageTeamResults[]> {}
-
-const GroupStagePage: NextPage<{ results: IGroupResults }> = ({ results }) => {
   return (
     <div className="overflow-auto flex-1 py-5">
       {Object.entries(results).map(([group, teams]) => (
@@ -30,21 +36,4 @@ const GroupStagePage: NextPage<{ results: IGroupResults }> = ({ results }) => {
   );
 };
 
-// TODO: Convert to ISR
-const getServerSideProps = async () => {
-  try {
-    const results = await fetchGroupStageResults();
-    return {
-      props: { results: results },
-      // revalidate: 30,
-    };
-  } catch (e) {
-    console.error({ e });
-    return { props: { results: {} } };
-  }
-};
-
-export { getServerSideProps };
 export default GroupStagePage;
-
-export type { GroupIdentifier, IGroupResults, IGroupStageTeamResults };
