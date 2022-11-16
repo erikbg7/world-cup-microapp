@@ -18,6 +18,7 @@
     "clsx": "^1.2.1",
     "eslint": "8.27.0",
     "eslint-config-next": "13.0.3",
+    "firebase": "^9.14.0",
     "got": "^12.5.2",
     "jsdom": "^20.0.2",
     "next": "13.0.3",

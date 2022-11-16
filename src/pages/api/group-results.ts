@@ -1,11 +1,11 @@
 import fs from 'fs';
 import path from 'path';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getGroupStageResults } from '../../services/scraper';
+import { scrapGroupStageResults } from '../../services/scraper';
 
 const getResultsFromScraper = async () => {
   const url = 'https://statorium.com/fifa-world-cup-2022-api.html';
-  const results = await getGroupStageResults(url);
+  const results = await scrapGroupStageResults(url);
 
   const filePath = path.join(process.cwd(), 'content', 'results.json');
   fs.writeFileSync(filePath, JSON.stringify(results, null, 2));
