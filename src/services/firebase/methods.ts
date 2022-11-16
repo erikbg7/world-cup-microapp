@@ -7,7 +7,6 @@ const getGroupStageResults = async (): Promise<IGroupResults> => {
   const tablesString = docRef.get('tables');
 
   const tables = JSON.parse(tablesString);
-  console.log({ tables });
   return tables as IGroupResults;
 };
 
