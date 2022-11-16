@@ -8,7 +8,7 @@ interface ILiveMatch {
   team1: ILiveTeam;
   team2: ILiveTeam;
 }
-const LIVE_SCORES = [
+const LIVE_SCORES: ILiveMatch[] = [
   {
     team1: {
       name: 'Spain',
@@ -28,6 +28,7 @@ const LIVE_SCORES = [
       name: 'Japan',
       fifaCode: 'JPN',
       flag: '/flags/jp.webp',
+      score: 0,
     },
     team2: {
       name: 'Spain',
