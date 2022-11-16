@@ -11,7 +11,12 @@ const getDateByTimezone = ({ timestamp, format }: IDateFormat) => {
   const monthName = date.toLocaleString('en-GB', { timeZone, month: 'short' });
   const day = date.toLocaleString('en-GB', { timeZone, day: 'numeric' });
   const dayName = date.toLocaleString('en-GB', { timeZone, weekday: 'short' });
-  const hourAndMinutes = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+  const hourAndMinutes = date.toLocaleTimeString(['en-GB'], {
+    timeZone,
+    hour: '2-digit',
+    minute: '2-digit',
+    hour12: false,
+  });
 
   const dateFormated = {
     dateAndTime: `${dayName}, ${day}/${month} ${hourAndMinutes}`,
