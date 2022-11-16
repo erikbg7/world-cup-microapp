@@ -35,7 +35,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team2: TEAMS.Iran,
       },
       {
-        group: 'B',
+        group: 'A',
         time: 1669046400000,
         team1: TEAMS.Senegal,
         team2: TEAMS.Netherlands,
@@ -58,7 +58,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team2: TEAMS.SaudiArabia,
       },
       {
-        group: 'C',
+        group: 'D',
         time: 1669122000000,
         team1: TEAMS.Denmark,
         team2: TEAMS.Tunisia,
@@ -70,7 +70,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team2: TEAMS.Poland,
       },
       {
-        group: 'C',
+        group: 'D',
         time: 1669143600000,
         team1: TEAMS.France,
         team2: TEAMS.Australia,
