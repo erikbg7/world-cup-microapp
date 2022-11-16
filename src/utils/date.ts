@@ -15,10 +15,10 @@ const getDateByTimezone = ({ timestamp, format }: IDateFormat) => {
   const minute = date.toLocaleString('en-GB', { timeZone, minute: '2-digit' });
 
   const dateFormated = {
-    dateAndTime: `${dayName}, ${day}/${month} ${hour}:0${minute}`,
-    dateNumbers: `${day}/${month} ${hour}:0${minute}`,
+    dateAndTime: `${dayName}, ${day}/${month} ${hour}:${minute}`,
+    dateNumbers: `${day}/${month} ${hour}:${minute}`,
     dateNames: `${dayName}, ${monthName} ${day}`,
-    dateHour: `${hour}:0${minute}`,
+    dateHour: `${hour}:${minute}`,
   }[format];
 
   return dateFormated || date.toLocaleString('en-GB', { timeZone });
