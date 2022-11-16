@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "scrap-group-stage": "node ./scripts/scrap-group-stage.mjs"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
