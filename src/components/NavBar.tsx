@@ -12,12 +12,13 @@ const SECTIONS: ISection[] = [
   { id: 1, name: 'Matches', path: '/matches' },
   { id: 2, name: 'Groups', path: '/groups' },
   { id: 3, name: 'Knockouts', path: '/knockout' },
+  { id: 4, name: 'Stadiums', path: '/stadiums' },
 ];
 
 const NavBar = () => {
   return (
-    <nav className="top-0 left-0 right-0 z-10 bg-rose-900">
-      <ul className="flex justify-center h-20 sm:px-20">
+    <nav className="top-0 left-0 right-0 z-10 bg-[#0061a2]">
+      <ul className="flex justify-center h-20 sm:px-20 text-[#FDB936]">
         {SECTIONS.map((section) => (
           <NavBarItem key={section.id} {...section} />
         ))}
@@ -37,7 +38,7 @@ const NavBarItem: React.FC<ISection> = (props) => {
         className={clsx(
           'flex justify-center items-center',
           'w-full h-full hover:bg-gray-200/20',
-          isActive && 'border-b-4 border-white'
+          isActive && 'border-b-4 border-[#FDB936]'
         )}
       >
         {props.name}
