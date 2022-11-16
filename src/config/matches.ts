@@ -338,7 +338,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
       },
     ],
   },
-  'Group Stage · Fri, Dec 2': {
+  'Group Stage · Fri, Dec 3': {
     day: 1669993200000,
     matches: [
       {
