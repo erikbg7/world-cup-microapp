@@ -1,9 +1,9 @@
-name: Cron Scheduler to Scrap Group Stage Results
+name: Group Stage Scrap Scheduler
 
 on:
-  push:
-    branches:
-      - erik/improve-server-stuff
+  schedule:
+    - cron: '36 20 * * 0-6'
+    - cron: '38 21 * * 0-6'
 
 jobs:
   build:
