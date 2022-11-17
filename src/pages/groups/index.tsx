@@ -1,36 +1,17 @@
 import { useQuery } from '@tanstack/react-query';
 import GroupSection from '../../components/GroupsSection';
-import GroupsSectionSkeleton from '../../components/GroupsSectionSkeleton';
-import { fetchGroupStageResults } from '../../services/api';
-import type { GroupIdentifier, IGroupResults, IGroupStageTeamResults } from '../../models/groups';
+import type { GroupIdentifier } from '../../models/groups';
+import { getGroupStageResults } from '../../services/firebase/methods';
+
+const GROUPS = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'] as GroupIdentifier[];
 
 const GroupStagePage = () => {
-  const { data, isError, isLoading } = useQuery(['groupResults'], fetchGroupStageResults);
-  const results = data as IGroupResults;
-
-  if (isError || isLoading) {
-    return (
-      <div className="py-5">
-        <div className="my-7 mx-2">
-          <h2 className="text-xl p-3">Group A</h2>
-          <GroupsSectionSkeleton />
-        </div>
-        <div className="my-7 mx-2">
-          <h2 className="text-xl p-3">Group B</h2>
-          <GroupsSectionSkeleton />
-        </div>
-      </div>
-    );
-  }
+  const { data } = useQuery(['group-results'], getGroupStageResults);
 
   return (
     <div className="py-5">
-      {Object.entries(results).map(([group, teams]) => (
-        <GroupSection
-          key={group}
-          group={group as GroupIdentifier}
-          teams={teams as IGroupStageTeamResults[]}
-        />
+      {GROUPS.map((group) => (
+        <GroupSection key={group} group={group} teams={data?.[group]} />
       ))}
     </div>
   );
