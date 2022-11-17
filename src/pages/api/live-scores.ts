@@ -4,7 +4,7 @@ import { NextApiRequest, NextApiResponse } from 'next';
 import { getAllScores } from '../../services/live-scrapper';
 
 const getResultsFromScraper = async () => {
-  const url = 'https://www.livescores.com/football/world-cup/?tz=5.5';
+  const url = 'https://www.livescores.com/football/world-cup';
   const results = await getAllScores(url);
 
   const filePath = path.join(process.cwd(), 'content', 'live-scores.json');
