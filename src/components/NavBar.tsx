@@ -32,7 +32,7 @@ const NavBarItem: React.FC<ISection> = (props) => {
   const isActive = router.pathname === props.path;
 
   return (
-    <li className="flex flex-1 text-lg">
+    <li className="flex flex-1 text-lg text-[#FDB936]">
       <Link
         href={props.path}
         className={clsx(
