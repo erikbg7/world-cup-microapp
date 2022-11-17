@@ -3,7 +3,13 @@
 @tailwind utilities;
 
 body {
-  @apply bg-blackish text-white;
+  @apply text-black;
+}
+
+.bloom {
+  opacity: 0.1;
+  background: radial-gradient(yellow, yellow, transparent);
+  @apply rounded-full h-[100vw] w-[100vw];
 }
 
 .responsive-screen {
