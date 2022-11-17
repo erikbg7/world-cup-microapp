@@ -95,19 +95,14 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
 });
 
 const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
-  const { data, isError, isLoading } = useQuery(['group-results'], getGroupStageResults);
-  const results = data as IGroupResults;
-
-  if (isError || isLoading) {
-    return <GroupsSectionSkeleton />;
-  }
+  const { data } = useQuery(['group-results'], getGroupStageResults);
 
   return (
     <GroupSection
       showGroup={false}
       className="w-full px-2 py-0"
       group={props.group}
-      teams={results[props.group]}
+      teams={data?.[props.group]}
     />
   );
 };
