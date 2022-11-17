@@ -5,9 +5,8 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 
 import TeamDetails from './TeamDetails';
 import GroupSection from './GroupsSection';
-import GroupsSectionSkeleton from './GroupsSectionSkeleton';
 import { IMatch } from '../config/matches';
-import { GroupIdentifier, IGroupResults } from '../models/groups';
+import { GroupIdentifier } from '../models/groups';
 import { getGroupStageResults } from '../services/firebase/methods';
 
 interface Props {
