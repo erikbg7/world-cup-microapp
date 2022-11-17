@@ -26,8 +26,8 @@ const GROUP_BY_INDEX: IMapIndex = {
   7: 'H',
 };
 
-const scrapGroupStageResults = async (url: string) => {
-  const response = await got(url);
+const scrapeGroupStage = async () => {
+  const response = await got('https://statorium.com/fifa-world-cup-2022-api.html');
   const dom = new jsdom.JSDOM(response.body);
 
   const SCRAPING_RESULTS = { ...GROUP_RESULTS };
@@ -41,7 +41,7 @@ const scrapGroupStageResults = async (url: string) => {
     assert.equal(teams?.length, 4, 'Expected exactly 4 teams per table');
 
     teams.forEach((team, teamIndex) => {
-      const data = scrapTeamDataFromRow(team);
+      const data = scrapeTeamDataFromRow(team);
       SCRAPING_RESULTS[GROUP_BY_INDEX[index]][teamIndex] = data;
     });
   });
@@ -49,7 +49,7 @@ const scrapGroupStageResults = async (url: string) => {
   return SCRAPING_RESULTS;
 };
 
-const scrapTeamDataFromRow = (tr: HTMLTableRowElement) => {
+const scrapeTeamDataFromRow = (tr: HTMLTableRowElement) => {
   const tableData = tr.querySelectorAll('td');
 
   assert.equal(tableData?.length, 11, 'Expected 11 cells per table row');
@@ -73,4 +73,4 @@ const scrapTeamDataFromRow = (tr: HTMLTableRowElement) => {
   return teamData;
 };
 
-export { scrapGroupStageResults };
+export { scrapeGroupStage };
