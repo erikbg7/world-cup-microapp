@@ -5,33 +5,43 @@ import { useEffect } from 'react';
 import { fetchAllScores } from '../services/api';
 import { useQuery } from '@tanstack/react-query';
 
+const STATUS = ['FT', 'AP', 'AET', 'AW', 'HW', 'D'];
+
 const LiveScore = () => {
   const { data } = useQuery(['allScores'], fetchAllScores, { refetchInterval: 30000 });
+
+  const renderLiveScore = (m: ILiveMatch) => {
+    if (m.result && (STATUS.includes(m.result) || m.result.includes(':'))) {
+      return <span className="text-lg mx-2 font-bold px-1">{m.result}</span>;
+    }
+
+    return (
+      <>
+        <span className="animate-ping rounded h-2 w-2 bg-liveIndicator" />
+        <span className="text-lg mx-2 font-bold px-1">LIVE</span>
+      </>
+    );
+  };
 
   return (
     <>
       {data?.length > 0 ? (
         <>
           {data
-            .filter((t: any) => {
-              const d1 = new Date(t.time);
+            .filter((m: ILiveMatch) => {
+              const d1 = new Date(Number(m.time));
               const d2 = new Date();
-              const d3 = new Date(1670092200000);
               const isSameDate = d1.getDate() === d2.getDate();
               const isSameYear = d1.getFullYear() === d2.getFullYear();
-              const lastEventDate = d2.getDate() < d3.getDate();
 
-              return isSameDate && isSameYear && lastEventDate;
+              return isSameDate && isSameYear;
             })
             .map((liveMatch: ILiveMatch) => (
               <div
                 key={liveMatch.team1.fifaCode + liveMatch.team2.fifaCode}
                 className="flex items-center bg-gray-800 rounded mt-3 mx-3"
               >
-                <div className="flex  justify-end mb-2 Light p-2">
-                  <span className="animate-ping rounded h-2 w-2 bg-liveIndicator" />
-                  <span className="text-lg mx-2 font-bold px-1">LIVE</span>
-                </div>
+                {renderLiveScore(liveMatch)}
 
                 <div className="flex w-full p-2  items-center">
                   <TeamDetails

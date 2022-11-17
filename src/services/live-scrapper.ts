@@ -19,8 +19,7 @@ const getAllScores = async (url: string) => {
           '[data-testid^="football_match_row-away_score"]'
         )?.textContent;
         const result =
-          matches[i].querySelector('[data-testid^="football_match_row-status_comment"]')
-            ?.textContent ?? '';
+          matches[i].querySelector('[data-testid^="match_row_time-status"]')?.textContent ?? '';
 
         return {
           ...ls,

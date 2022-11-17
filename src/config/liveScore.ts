@@ -1,5 +1,15 @@
 import { ITeam, TEAMS } from './teams';
 
+export enum MatchResult {
+  FT = 'FT', // Full time
+  AET = 'AET', // After extra time
+  HT = 'HT', // Half Time
+  D = 'D', // Draw
+  HW = 'HW', // Home win
+  AW = 'AW', // Away Win
+  ET = 'ET', // Extra time
+  AP = 'AP', // After Penalty
+}
 interface ILiveMatch {
   group: string;
   time: string;
@@ -11,7 +21,7 @@ interface ILiveMatch {
 const LIVE_SCORES: ILiveMatch[] = [
   {
     group: 'Group A',
-    time: '1668902400000', //1668613400622
+    time: '1668902400000',
     team1: TEAMS.Qatar,
     team2: TEAMS.Ecuador,
     scores: ['0', '0'],
@@ -134,6 +144,22 @@ const LIVE_SCORES: ILiveMatch[] = [
     time: '1669248000000',
     team1: TEAMS.Portugal,
     team2: TEAMS.Ghana,
+    scores: ['0', '0'],
+    result: '',
+  },
+  {
+    group: 'Group H',
+    time: '1669593600000',
+    team1: TEAMS.SouthKorea,
+    team2: TEAMS.Ghana,
+    scores: ['0', '0'],
+    result: '',
+  },
+  {
+    group: 'Group H',
+    time: '1669680000000',
+    team1: TEAMS.Portugal,
+    team2: TEAMS.Uruguay,
     scores: ['0', '0'],
     result: '',
   },
