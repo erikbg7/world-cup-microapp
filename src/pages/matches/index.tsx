@@ -6,7 +6,7 @@ import DateTime from '../../components/DateTime';
 
 const MatchesPage = () => {
   return (
-    <div className="overflow-auto flex-1 py-5">
+    <div className="py-5">
       {Object.entries(GROUP_STAGE_MATCHES).map(([id, matchDay]) => (
         <MatchesDay key={id} id={id} matchDay={matchDay} />
       ))}

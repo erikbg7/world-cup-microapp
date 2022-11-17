@@ -10,7 +10,7 @@ const GroupStagePage = () => {
 
   if (isError || isLoading) {
     return (
-      <div className="overflow-auto flex-1 py-5">
+      <div className="py-5">
         <div className="my-7 mx-2">
           <h2 className="text-xl p-3">Group A</h2>
           <GroupsSectionSkeleton />
@@ -24,7 +24,7 @@ const GroupStagePage = () => {
   }
 
   return (
-    <div className="overflow-auto flex-1 py-5">
+    <div className="py-5">
       {Object.entries(results).map(([group, teams]) => (
         <GroupSection
           key={group}

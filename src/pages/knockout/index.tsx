@@ -60,7 +60,7 @@ const MatchItem: React.FC<IMatchItem> = ({ idx, match, type }) => {
 };
 const KnockoutStagePage = () => {
   return (
-    <div className="overflow-auto flex-1 flex lg:justify-center pl-2.5 ">
+    <div className="flex lg:justify-center pl-2.5 ">
       {KNOCKOUT_STAGE_ROUNDS.map((round) => (
         <div
           key={round.type}
