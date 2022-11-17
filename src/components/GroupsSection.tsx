@@ -26,7 +26,7 @@ const GroupSection: React.FC<Props> = ({ group, teams, className, showGroup = tr
               <th>L</th>
               <th>Pts</th>
             </tr>
-            {teams?.length && group === 'A' ? <TableRows teams={teams} /> : <TableRowsSkeleton />}
+            {teams?.length ? <TableRows teams={teams} /> : <TableRowsSkeleton />}
           </tbody>
         </table>
       </div>
