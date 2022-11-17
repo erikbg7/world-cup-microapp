@@ -13,21 +13,23 @@ interface Props {
 
 const GroupSection: React.FC<Props> = ({ group, teams, className, showGroup = true }) => {
   return (
-    <section className={clsx('p-6 sm:p-12', className)}>
-      {showGroup && <h2 className="text-xl p-3">Group {group}</h2>}
-      <table className="w-full text-center">
-        <tbody>
-          <tr>
-            <th>Teams</th>
-            <th>P</th>
-            <th>W</th>
-            <th>D</th>
-            <th>L</th>
-            <th>Pts</th>
-          </tr>
-          {teams?.length ? <TableRows teams={teams} /> : <TableRowsSkeleton />}
-        </tbody>
-      </table>
+    <section className={clsx('p-4 sm:p-12', className)}>
+      {showGroup && <h2 className="text-2xl text-white p-3">Group {group}</h2>}
+      <div className="rounded-md bg-white py-2 px-3">
+        <table className="w-full text-center">
+          <tbody>
+            <tr className="px-2">
+              <th className="text-left px-4">Teams</th>
+              <th>P</th>
+              <th>W</th>
+              <th>D</th>
+              <th>L</th>
+              <th>Pts</th>
+            </tr>
+            {teams?.length && group === 'A' ? <TableRows teams={teams} /> : <TableRowsSkeleton />}
+          </tbody>
+        </table>
+      </div>
     </section>
   );
 };
@@ -39,10 +41,10 @@ const TableRows: React.FC<{ teams: IGroupStageTeamResults[] }> = ({ teams }) => 
         const flag = Object.values(TEAMS).find((t) => t.name === team.name)?.flag || TEAMS.TBD.flag;
 
         return (
-          <tr key={team.name} className="border-t border-gray-600 text-gray-300">
+          <tr key={team.name} className="border-t border-gray-400 text-gray-600">
             <td className="flex items-center py-2">
-              <span className="font-mono">{i + 1}</span>
-              <div className="relative h-6 w-6 mx-4 border border-white-300 rounded-sm">
+              <span className="font-mono mx-1">{i + 1}</span>
+              <div className="relative h-6 w-6 mx-3 border border-gray-600 rounded-sm">
                 <Image fill sizes="100vw" className="object-fill" src={flag} alt={team.name} />
               </div>
               {team.name}
@@ -60,17 +62,17 @@ const TableRows: React.FC<{ teams: IGroupStageTeamResults[] }> = ({ teams }) => 
 };
 
 const TableRowsSkeleton = () => {
-  const FakeResult = <span className="bg-slate-700 rounded-sm"> 00 </span>;
+  const FakeResult = <span className="bg-slate-300 rounded-sm"> 00 </span>;
 
   return (
     <>
       {[0, 1, 2, 3].map((index) => {
         return (
-          <tr key={index} className="animate-pulse border-t border-gray-600 text-transparent">
+          <tr key={index} className="animate-pulse border-t border-gray-400 text-transparent">
             <td className="flex items-center py-2">
-              <span className="bg-slate-700 rounded-sm mx-1">00</span>
-              <span className="bg-slate-700 rounded-sm mx-1">image</span>
-              <span className="bg-slate-700 rounded-sm mx-1">placeholder team</span>
+              <span className="bg-slate-300 rounded-sm mx-1">00</span>
+              <span className="bg-slate-300 rounded-sm mx-1">image</span>
+              <span className="bg-slate-300 rounded-sm mx-1">placeholder team</span>
             </td>
             <td>{FakeResult}</td>
             <td>{FakeResult}</td>
