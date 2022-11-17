@@ -10,7 +10,7 @@ function scheduledScraperTask1() {
 
 // TODO: Change to real URL before merging
 function scheduledScraperTask2() {
-  fetch('https://world-cup-microapp.vercel.app/api/group-stage/wikipedia')
+  fetch('https://world-cup-microapp.vercel.app/api/group-stage/foxsports')
     .then((res) => res.json())
     .then((data) => console.log({ data }))
     .catch((e) => console.log({ e }));

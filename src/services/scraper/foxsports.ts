@@ -26,12 +26,12 @@ const GROUP_BY_INDEX: IMapIndex = {
   7: 'H',
 };
 
-const scrapeStatoriumGroupStage = async () => {
-  const response = await got('https://statorium.com/fifa-world-cup-2022-api.html');
+const scrapeFoxsportsGroupStage = async () => {
+  const response = await got('www.foxsports.com/soccer/2022-fifa-world-cup/standings');
   const dom = new jsdom.JSDOM(response.body);
 
   const SCRAPING_RESULTS = { ...GROUP_RESULTS };
-  const GROUP_SELECTOR = 'div.table-responsive > table > tbody';
+  const GROUP_SELECTOR = 'table.data-table > tbody';
   const tables = dom.window.document.querySelectorAll(GROUP_SELECTOR);
 
   assert.equal(tables?.length, 8, 'Expected exactly 8 tables');
@@ -55,12 +55,12 @@ const scrapeTeamDataFromRow = (tr: HTMLTableRowElement) => {
   assert.equal(tableData?.length, 11, 'Expected 11 cells per table row');
 
   const teamData: Record<string, any> = {
-    name: tableData[1].children[1].textContent,
+    name: tableData[1].children[0].children[1].textContent,
     played: tableData[2].textContent,
-    won: tableData[3].textContent,
-    lost: tableData[4].textContent,
-    draw: tableData[5].textContent,
-    points: tableData[8].textContent,
+    won: tableData[3].textContent?.split('-')[0],
+    lost: tableData[3].textContent?.split('-')[2],
+    draw: tableData[3].textContent?.split('-')[1],
+    points: tableData[6].textContent,
   };
 
   assert.ok(teamData.name, 'Expected team name to be defined');
@@ -73,4 +73,4 @@ const scrapeTeamDataFromRow = (tr: HTMLTableRowElement) => {
   return teamData;
 };
 
-export { scrapeStatoriumGroupStage };
+export { scrapeFoxsportsGroupStage };
