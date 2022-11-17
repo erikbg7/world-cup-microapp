@@ -6,14 +6,23 @@ import { fetchAllScores } from '../services/api';
 import { useQuery } from '@tanstack/react-query';
 
 const LiveScore = () => {
-  const { data, isLoading } = useQuery(['allScores'], fetchAllScores);
+  const { data } = useQuery(['allScores'], fetchAllScores, { refetchInterval: 30000 });
 
   return (
     <>
       {data?.length > 0 ? (
         <>
           {data
-            .filter((t: any) => new Date(t.time).getDay() >= new Date().getDay())
+            .filter((t: any) => {
+              const d1 = new Date(t.time);
+              const d2 = new Date();
+              const d3 = new Date(1670092200000);
+              const isSameDate = d1.getDate() === d2.getDate();
+              const isSameYear = d1.getFullYear() === d2.getFullYear();
+              const lastEventDate = d2.getDate() < d3.getDate();
+
+              return isSameDate && isSameYear && lastEventDate;
+            })
             .map((liveMatch: ILiveMatch) => (
               <div
                 key={liveMatch.team1.fifaCode + liveMatch.team2.fifaCode}
