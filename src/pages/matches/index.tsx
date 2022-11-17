@@ -17,8 +17,8 @@ const MatchesPage = () => {
 const MatchesDay: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDay }) => {
   return (
     <section className="px-6 sm:px-12">
-      <h2 className="text-gray-300 text-sm py-3 px-6">{id}</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-[1px] py-[1px] bg-gray-600">
+      <h2 className="text-white text-sm py-3 px-6">{id}</h2>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-[1px] bg-gray-600 rounded-md overflow-hidden">
         {matchDay.matches.map((match) => (
           <MatchItem key={match.team1.name + match.team2.name} {...match} />
         ))}
@@ -35,16 +35,16 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
   return (
     <>
       <div
-        className="bg-blackishLight py-4 px-6 hover:bg-black hover:cursor-pointer"
+        className="bg-white py-4 px-6 hover:bg-gray-300 hover:cursor-pointer"
         onClick={handleMatchClick}
       >
-        <div className="flex justify-between items-center">
-          <span className="text-sm text-gray-400">Group {group}</span>
+        <div className="flex justify-between items-center text-gray-600">
+          <span className="text-sm ">Group {group}</span>
           <span className="text-lg font-semibold">
             <DateTime timestamp={time} format="dateHour" />
           </span>
         </div>
-        <div className="flex items-center text-center text-gray-300 h-20 py-2">
+        <div className="flex items-center text-center h-20 py-2">
           <TeamDetails
             name={team1.name}
             flag={team1.flag}

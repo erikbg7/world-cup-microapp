@@ -31,13 +31,13 @@ const NavBarItem: React.FC<ISection> = (props) => {
   const isActive = router.pathname === props.path;
 
   return (
-    <li className="flex flex-1 text-lg text-[#FDB936]">
+    <li className="flex flex-1 text-lg text-gray-200 font-semibold">
       <Link
         href={props.path}
         className={clsx(
           'flex justify-center items-center',
           'w-full h-full hover:bg-gray-200/20',
-          isActive && 'border-b-4 border-[#FDB936]'
+          isActive && 'border-b-4 border-yellow-500 text-white'
         )}
       >
         {props.name}
