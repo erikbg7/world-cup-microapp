@@ -9,7 +9,7 @@ const GroupStagePage = () => {
   const { data } = useQuery(['group-results'], getGroupStageResults);
 
   return (
-    <div className="overflow-auto flex-1 py-5">
+    <div className="py-5">
       {GROUPS.map((group) => (
         <GroupSection key={group} group={group} teams={data?.[group]} />
       ))}

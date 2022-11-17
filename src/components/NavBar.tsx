@@ -16,7 +16,7 @@ const SECTIONS: ISection[] = [
 
 const NavBar = () => {
   return (
-    <nav className="top-0 left-0 right-0 z-10 bg-rose-900">
+    <nav className="top-0 left-0 right-0 z-10 bg-[#0061a2]">
       <ul className="flex justify-center h-20 sm:px-20">
         {SECTIONS.map((section) => (
           <NavBarItem key={section.id} {...section} />
@@ -31,13 +31,13 @@ const NavBarItem: React.FC<ISection> = (props) => {
   const isActive = router.pathname === props.path;
 
   return (
-    <li className="flex flex-1 text-lg">
+    <li className="flex flex-1 text-lg text-[#FDB936]">
       <Link
         href={props.path}
         className={clsx(
           'flex justify-center items-center',
           'w-full h-full hover:bg-gray-200/20',
-          isActive && 'border-b-4 border-white'
+          isActive && 'border-b-4 border-[#FDB936]'
         )}
       >
         {props.name}
