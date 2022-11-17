@@ -36,7 +36,7 @@ const TableRows: React.FC<{ teams: IGroupStageTeamResults[] }> = ({ teams }) => 
   return (
     <>
       {teams.map((team, i) => {
-        const flag = Object.values(TEAMS).find((t) => t.name === team.name)!.flag;
+        const flag = Object.values(TEAMS).find((t) => t.name === team.name)?.flag || TEAMS.TBD.flag;
 
         return (
           <tr key={team.name} className="border-t border-gray-600 text-gray-300">

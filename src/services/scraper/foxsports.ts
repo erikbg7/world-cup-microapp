@@ -27,7 +27,7 @@ const GROUP_BY_INDEX: IMapIndex = {
 };
 
 const scrapeFoxsportsGroupStage = async () => {
-  const response = await got('www.foxsports.com/soccer/2022-fifa-world-cup/standings');
+  const response = await got('https://www.foxsports.com/soccer/2022-fifa-world-cup/standings');
   const dom = new jsdom.JSDOM(response.body);
 
   const SCRAPING_RESULTS = { ...GROUP_RESULTS };
@@ -52,10 +52,10 @@ const scrapeFoxsportsGroupStage = async () => {
 const scrapeTeamDataFromRow = (tr: HTMLTableRowElement) => {
   const tableData = tr.querySelectorAll('td');
 
-  assert.equal(tableData?.length, 11, 'Expected 11 cells per table row');
+  assert.equal(tableData?.length, 10, 'Expected 10 cells per table row');
 
   const teamData: Record<string, any> = {
-    name: tableData[1].children[0].children[1].textContent,
+    name: normalizeName(tableData[1].children[0].children[1].textContent),
     played: tableData[2].textContent,
     won: tableData[3].textContent?.split('-')[0],
     lost: tableData[3].textContent?.split('-')[2],
@@ -71,6 +71,14 @@ const scrapeTeamDataFromRow = (tr: HTMLTableRowElement) => {
   assert.ok(teamData.points, 'Expected team points to be defined');
 
   return teamData;
+};
+
+const normalizeName = (country: string | null) => {
+  const countryName = country?.trim();
+  if (countryName === 'United States') return 'USA';
+  if (countryName === 'South Korea') return 'Korea Republic';
+
+  return countryName;
 };
 
 export { scrapeFoxsportsGroupStage };
