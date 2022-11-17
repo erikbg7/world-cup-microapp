@@ -7,8 +7,8 @@ import TeamDetails from './TeamDetails';
 import GroupSection from './GroupsSection';
 import GroupsSectionSkeleton from './GroupsSectionSkeleton';
 import { IMatch } from '../config/matches';
-import { fetchGroupStageResults } from '../services/api';
 import { GroupIdentifier, IGroupResults } from '../models/groups';
+import { getGroupStageResults } from '../services/firebase/methods';
 
 interface Props {
   match: IMatch;
@@ -95,7 +95,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
 });
 
 const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
-  const { data, isError, isLoading } = useQuery(['groupResults'], fetchGroupStageResults);
+  const { data, isError, isLoading } = useQuery(['group-results'], getGroupStageResults);
   const results = data as IGroupResults;
 
   if (isError || isLoading) {

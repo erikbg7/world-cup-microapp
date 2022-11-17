@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import GroupSection from '../../components/GroupsSection';
 import GroupsSectionSkeleton from '../../components/GroupsSectionSkeleton';
-import { fetchGroupStageResults } from '../../services/api';
 import type { GroupIdentifier, IGroupResults, IGroupStageTeamResults } from '../../models/groups';
+import { getGroupStageResults } from '../../services/firebase/methods';
 
 const GroupStagePage = () => {
-  const { data, isError, isLoading } = useQuery(['groupResults'], fetchGroupStageResults);
+  const { data, isError, isLoading } = useQuery(['group-results'], getGroupStageResults);
   const results = data as IGroupResults;
 
   if (isError || isLoading) {
