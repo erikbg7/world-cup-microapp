@@ -8,6 +8,7 @@ import { IMatch } from '../config/matches';
 import { GroupIdentifier } from '../models/groups';
 import { getGroupStageResults } from '../services/firebase/methods';
 import CloseIcon from './icons/CloseIcon';
+import DiamondDivider from './DiamondDivider';
 
 interface Props {
   match: IMatch;
@@ -93,17 +94,6 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
     </Transition>
   );
 });
-
-const DiamondDivider = () => {
-  return (
-    <div className="flex items-center justify-center w-full text-center">
-      <div className="h-3 w-3 bg-teal rotate-45"></div>
-      <div className="h-[1px] w-5 bg-teal"></div>
-      <div className="h-2 w-2 bg-teal rotate-45"></div>
-      <div className="h-[1px] w-24 bg-teal"></div>
-    </div>
-  );
-};
 
 const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
   const { data } = useQuery(['group-results'], getGroupStageResults);

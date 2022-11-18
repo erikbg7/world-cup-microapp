@@ -14,3 +14,13 @@ body {
 .responsive-screen {
   @apply mx-auto lg:w-[90%] xl:w-[80%] 2xl:w-[70%];
 }
+
+/* Chrome, Safari and Opera */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}

@@ -18,7 +18,7 @@ const SECTIONS: ISection[] = [
 
 const NavBar = () => {
   return (
-    <nav className="top-0 left-0 right-0 z-10 border overflow-scroll border-b-qatar">
+    <nav className="top-0 left-0 right-0 z-10 border overflow-scroll no-scrollbar border-b-qatar">
       <ul className="flex items-center h-20">
         {SECTIONS.map((section) => (
           <NavBarItem key={section.id} {...section} />

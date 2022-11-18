@@ -6,6 +6,7 @@ import DateTime from '../../components/DateTime';
 import { ITeam } from '../../config/teams';
 import StadiumIcon from '../../components/icons/StadiumIcon';
 import ClockIcon from '../../components/icons/ClockIcon';
+import DiamondBullet from '../../components/DiamondBullet';
 
 const MatchesPage = () => {
   return (
@@ -48,7 +49,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
         <div className="flex flex-1 border-l border-l-qatar">
           <div className="flex flex-col w-full h-full py-4 pl-6 text-sm font-light">
             <div className="flex items-center py-1">
-              <DiamondBullet />
+              <DiamondBullet size={1.5} className="ml-1" />
               <span className="ml-2">Group A</span>
             </div>
             <div className="flex items-center py-1">
@@ -80,10 +81,6 @@ const TeamData: React.FC<ITeam> = ({ flag, name, fifaCode }) => {
       <div className="font-extrabold">{fifaCode}</div>
     </div>
   );
-};
-
-const DiamondBullet = () => {
-  return <div className="inline-block h-1.5 w-1.5 ml-1 bg-teal rotate-45" />;
 };
 
 export default MatchesPage;
