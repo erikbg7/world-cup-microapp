@@ -13,22 +13,28 @@ const StadiumsPage = () => {
             <div className="relative mb-2 mt-2">
               <Image src={stadium.image} alt={stadium.name} width={800} height={450} className="" />
             </div>
-            <p>
-              <strong>Capacity:</strong> {stadium.capacity}
-            </p>
-            <p className="my-4">
-              <strong>Location:</strong> {stadium.location}
-            </p>
-            <p className="flex">
-              <strong>Matches:</strong>
-              <ul>
-                {stadium.matches.map((match) => (
-                  <li key={stadium.name + match} className="pl-2">
-                    · {match}
-                  </li>
-                ))}
-              </ul>
-            </p>
+            <table className="table-auto m-2">
+              <tbody>
+                <tr className="my-2">
+                  <td className="flex items-start font-semibold px-1 text-lg">Capacity:</td>
+                  <td className="text-lg">{stadium.capacity}</td>
+                </tr>
+                <tr className="my-2">
+                  <td className="flex items-start font-semibold px-1 text-lg">Location:</td>
+                  <td className="text-lg">{stadium.location}</td>
+                </tr>
+                <tr className="my-2">
+                  <td className="flex items-start font-semibold px-1 text-lg">Matches:</td>
+                  <td className="text-lg">
+                    <ul>
+                      {stadium.matches.map((match) => (
+                        <li key={stadium.name + match}>· {match}</li>
+                      ))}
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
           <DiamondDivider className="my-8" />
         </section>

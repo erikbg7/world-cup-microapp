@@ -60,7 +60,7 @@ const TableRows: React.FC<{ teams: IGroupStageTeamResults[] }> = ({ teams }) => 
 };
 
 const TableRowsSkeleton = () => {
-  const FakeResult = <span className="bg-slate-300 rounded-sm"> 00 </span>;
+  const FakeResult = <span className="bg-qatar/20 rounded-sm"> 00 </span>;
 
   return (
     <>
@@ -68,9 +68,9 @@ const TableRowsSkeleton = () => {
         return (
           <tr key={index} className="animate-pulse border-t border-gray-400 text-transparent">
             <td className="flex items-center py-2">
-              <span className="bg-slate-300 rounded-sm mx-1">00</span>
-              <span className="bg-slate-300 rounded-sm mx-1">image</span>
-              <span className="bg-slate-300 rounded-sm mx-1">placeholder team</span>
+              <span className="bg-qatar/20 rounded-sm mx-1">00</span>
+              <span className="bg-qatar/20 rounded-sm mx-1">image</span>
+              <span className="bg-qatar/20 rounded-sm mx-1">placeholder team</span>
             </td>
             <td>{FakeResult}</td>
             <td>{FakeResult}</td>

@@ -29,7 +29,7 @@ const KnockoutRound: React.FC<IRound> = ({ type, matches }) => {
   return (
     <>
       {matches.map((match, idx) => (
-        <div key={match.team1.name + match.team2.name} className="relative">
+        <div key={match.date} className="relative">
           <MatchItem idx={idx as number} match={{ ...match, time: match.date }} type={type} />
         </div>
       ))}
