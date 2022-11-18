@@ -35,7 +35,7 @@ const NavBarItem: React.FC<ISection> = (props) => {
       <Link
         href={props.path}
         className={clsx(
-          'border border-qatar p-2',
+          'border border-qatar p-2 text-center',
           'w-full h-[50%] hover:cursor-pointer',
           isActive && 'active-nav-link'
         )}
