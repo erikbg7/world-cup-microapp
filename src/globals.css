@@ -3,7 +3,12 @@
 @tailwind utilities;
 
 body {
-  @apply bg-blackish text-white;
+  @apply bg-cream text-qatar;
+}
+
+.active-nav-link {
+  @apply bg-qatar text-white border border-qatar;
+  box-shadow: 4px 4px 0px #02cfb6;
 }
 
 .responsive-screen {

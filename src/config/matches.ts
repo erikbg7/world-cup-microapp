@@ -3,6 +3,7 @@ import { GroupIdentifier } from '../models/groups';
 
 interface IMatch {
   group?: GroupIdentifier;
+  stadium?: string;
   time: number;
   team1: ITeam;
   team2: ITeam;

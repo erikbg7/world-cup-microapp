@@ -5,10 +5,9 @@ import { XMarkIcon } from '@heroicons/react/24/solid';
 
 import TeamDetails from './TeamDetails';
 import GroupSection from './GroupsSection';
-import GroupsSectionSkeleton from './GroupsSectionSkeleton';
 import { IMatch } from '../config/matches';
-import { fetchGroupStageResults } from '../services/api';
-import { GroupIdentifier, IGroupResults } from '../models/groups';
+import { GroupIdentifier } from '../models/groups';
+import { getGroupStageResults } from '../services/firebase/methods';
 
 interface Props {
   match: IMatch;
@@ -52,7 +51,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full h-full transform overflow-hidden text-left align-middle shadow-xl transition-all bg-blackish">
+              <Dialog.Panel className="w-full h-full transform overflow-hidden text-left align-middle shadow-xl transition-all">
                 <button
                   className="absolute top-10 right-10 hover:bg-gray-600/40 p-2 rounded-lg"
                   onClick={closeModal}
@@ -95,19 +94,14 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
 });
 
 const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
-  const { data, isError, isLoading } = useQuery(['groupResults'], fetchGroupStageResults);
-  const results = data as IGroupResults;
-
-  if (isError || isLoading) {
-    return <GroupsSectionSkeleton />;
-  }
+  const { data } = useQuery(['group-results'], getGroupStageResults);
 
   return (
     <GroupSection
       showGroup={false}
       className="w-full px-2 py-0"
       group={props.group}
-      teams={results[props.group]}
+      teams={data?.[props.group]}
     />
   );
 };

@@ -12,8 +12,10 @@ export default function App({ Component, pageProps }: AppProps) {
     <QueryClientProvider client={queryClient}>
       <div className="fixed w-full h-full flex flex-col">
         <NavBar />
-        <LiveScore />
-        <Component {...pageProps} />
+        <div className="w-full flex-1 flex flex-col overflow-auto">
+          <LiveScore />
+          <Component {...pageProps} />
+        </div>
       </div>
     </QueryClientProvider>
   );
