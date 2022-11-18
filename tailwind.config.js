@@ -11,9 +11,16 @@ module.exports = {
         xs: '390px',
       },
       backgroundColor: {
-        blackish: '#171717',
-        blackishLight: '#202124',
+        qatar: '#8A1638',
+        cream: '#EEEEE3',
+        teal: '#02CFB6',
         liveIndicator: '#00FF00',
+      },
+      textColor: {
+        qatar: '#8A1638',
+      },
+      borderColor: {
+        qatar: '#8A1638',
       },
     },
   },

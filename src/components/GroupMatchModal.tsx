@@ -51,7 +51,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full h-full transform overflow-hidden text-left align-middle shadow-xl transition-all bg-blackish">
+              <Dialog.Panel className="w-full h-full transform overflow-hidden text-left align-middle shadow-xl transition-all">
                 <button
                   className="absolute top-10 right-10 hover:bg-gray-600/40 p-2 rounded-lg"
                   onClick={closeModal}
