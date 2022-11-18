@@ -5,7 +5,7 @@ import TeamDetails from '../../components/TeamDetails';
 import DateTime from '../../components/DateTime';
 import GroupMatchModal, { IGroupMatchModalHandler } from '../../components/GroupMatchModal';
 import { IMatch } from '../../config/matches';
-import { ClockIcon } from '@heroicons/react/24/solid';
+import ClockIcon from '../../components/icons/ClockIcon';
 
 const KnockoutStagePage = () => {
   return (
@@ -53,7 +53,7 @@ const MatchItem: React.FC<IMatchItem> = ({ idx, match, type }) => {
         id={type}
         onClick={handleMatchClick}
         className={clsx(
-          'border border-qatar pt-2 pb-2 pl-2 mt-2.5 mb-2.5 w-36',
+          'border border-qatar p-1 mt-2.5 mb-2.5 w-36',
           'hover:cursor-pointer hover:bg-gray-300',
           {
             ['mb-[108px]']: type === 'Quarterfinals',
@@ -63,21 +63,21 @@ const MatchItem: React.FC<IMatchItem> = ({ idx, match, type }) => {
           }
         )}
       >
-        <p className="flex items-center text-xs pl-2.5 mb-2">
+        <p className="flex items-center text-xs px-1 mb-2">
           <ClockIcon className="w-3 h-3 mr-2" />
-          <DateTime timestamp={match.time} format="dateAndTime" />
+          <DateTime className="font-semibold" timestamp={match.time} format="dateHHHHDDMM" />
         </p>
         <div className="">
           <TeamDetails
             name={match.team1.name}
             flag={match.team1.flag}
-            flagClassName="w-8 h-5 h-6 mt-0 mb-1"
+            flagClassName="w-8 h-5 h-6 m-1"
             nameClassName="text-sm font-light"
           />
           <TeamDetails
             name={match.team2.name}
             flag={match.team2.flag}
-            flagClassName="w-8 h-5 mt-0 mb-1"
+            flagClassName="w-8 h-5 m-1"
             nameClassName="text-sm font-light"
           />
         </div>

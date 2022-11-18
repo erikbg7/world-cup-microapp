@@ -2,7 +2,6 @@ import React from 'react';
 import Image from 'next/image';
 import { GROUP_STAGE_MATCHES, IMatch, IMatchDay } from '../../config/matches';
 import GroupMatchModal, { IGroupMatchModalHandler } from '../../components/GroupMatchModal';
-import TeamDetails from '../../components/TeamDetails';
 import DateTime from '../../components/DateTime';
 import { ITeam } from '../../config/teams';
 import StadiumIcon from '../../components/icons/StadiumIcon';
@@ -47,18 +46,18 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
           </div>
         </div>
         <div className="flex flex-1 border-l border-l-qatar">
-          <div className="flex flex-col w-full h-full py-4 pl-4 text-sm font-light">
+          <div className="flex flex-col w-full h-full py-4 pl-6 text-sm font-light">
             <div className="flex items-center py-1">
               <DiamondBullet />
               <span className="ml-2">Group A</span>
             </div>
             <div className="flex items-center py-1">
               <ClockIcon className="h-3 w-3" />
-              <span className="ml-2">Group A</span>
+              <DateTime className="font-semibold ml-2" timestamp={time} format="dateHHHHDDMM" />
             </div>
             <div className="flex items-center py-1">
               <StadiumIcon className="inline-block h-3 w-3" />
-              <span className="ml-2">Group A</span>
+              <span className="ml-2">TBD</span>
             </div>
           </div>
         </div>
@@ -75,10 +74,10 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
 const TeamData: React.FC<ITeam> = ({ flag, name, fifaCode }) => {
   return (
     <div className="flex items-center">
-      <div className="relative h-6 w-8 mr-3">
+      <div className="relative h-6 w-9 mr-3">
         <Image fill sizes="100vw" className="object-fill rounded-sm" src={flag} alt={name} />
       </div>
-      <div className="font-bold">{fifaCode}</div>
+      <div className="font-extrabold">{fifaCode}</div>
     </div>
   );
 };

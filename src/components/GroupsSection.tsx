@@ -14,7 +14,7 @@ interface Props {
 const GroupSection: React.FC<Props> = ({ group, teams, className, showGroup = true }) => {
   return (
     <section className={clsx('p-4 sm:p-12', className)}>
-      {showGroup && <h2 className="text-2xl p-3 font-semibold">Group {group}</h2>}
+      {showGroup && <h2 className="text-xl p-3 font-bold">Group {group}</h2>}
       <table className="w-full text-center">
         <tbody>
           <tr className="px-2">
