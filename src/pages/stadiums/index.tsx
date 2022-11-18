@@ -7,9 +7,9 @@ const StadiumsPage = () => {
   return (
     <div className="flex flex-col px-3 py-6 overflow-auto">
       {STADIUMS.map((stadium: IStadium) => (
-        <section>
+        <section key={stadium.name}>
           <h2 className="text-2xl font-bold mb-3">{stadium.name}</h2>
-          <div key={stadium.name} className="p-2.5 border-b border border-qatar">
+          <div className="p-2.5 border-b border border-qatar">
             <div className="relative mb-2 mt-2">
               <Image src={stadium.image} alt={stadium.name} width={800} height={450} className="" />
             </div>
