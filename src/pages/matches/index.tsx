@@ -6,7 +6,7 @@ import TeamDetails from '../../components/TeamDetails';
 import DateTime from '../../components/DateTime';
 import { ITeam } from '../../config/teams';
 import StadiumIcon from '../../components/icons/StadiumIcon';
-import { ClockIcon } from '@heroicons/react/24/solid';
+import ClockIcon from '../../components/icons/ClockIcon';
 
 const MatchesPage = () => {
   return (
@@ -84,7 +84,7 @@ const TeamData: React.FC<ITeam> = ({ flag, name, fifaCode }) => {
 };
 
 const DiamondBullet = () => {
-  return <div className="inline-block h-1.5 w-1.5 bg-teal rotate-45" />;
+  return <div className="inline-block h-1.5 w-1.5 ml-1 bg-teal rotate-45" />;
 };
 
 export default MatchesPage;

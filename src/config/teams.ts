@@ -168,7 +168,7 @@ const TEAMS = {
   TBD: {
     name: 'TBD',
     fifaCode: 'TBD',
-    flag: '/flags/no-flag.webp',
+    flag: '/flags/tbd.svg',
   },
 };
 
