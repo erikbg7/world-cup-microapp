@@ -31,14 +31,17 @@ const MatchesDay: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDa
   );
 };
 
-const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
+const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium }) => {
   const modalRef = React.useRef<IGroupMatchModalHandler>(null);
 
   const handleMatchClick = () => modalRef.current?.open();
 
   return (
     <>
-      <div className="flex border border-qatar hover:cursor-pointer p-5" onClick={handleMatchClick}>
+      <div
+        className="flex border border-qatar hover:cursor-pointer h-36 p-5"
+        onClick={handleMatchClick}
+      >
         <div className="flex flex-1">
           <div className="flex flex-col justify-between py-2">
             <TeamData {...team1} />
@@ -47,20 +50,30 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2 }) => {
           </div>
         </div>
         <div className="flex flex-1 border-l border-l-qatar">
-          <div className="flex flex-col w-full h-full py-4 pl-6 text-sm font-light">
-            <div className="flex items-center py-1">
-              <DiamondBullet size={1.5} className="ml-1" />
-              <span className="ml-2">Group A</span>
-            </div>
-            <div className="flex items-center py-1">
-              <ClockIcon className="h-3 w-3" />
-              <DateTime className="font-semibold ml-2" timestamp={time} format="dateHHHHDDMM" />
-            </div>
-            <div className="flex items-center py-1">
-              <StadiumIcon className="inline-block h-3 w-3" />
-              <span className="ml-2">TBD</span>
-            </div>
-          </div>
+          <table className="flex flex-col justify-center w-full h-full pl-6 text-sm font-light">
+            <tr className="flex items-center py-1">
+              <td className="flex items-center">
+                <DiamondBullet size={1.5} className="ml-1" />
+              </td>
+              <td>
+                <span className="ml-2">Group A</span>
+              </td>
+            </tr>
+            <tr className="flex items-center py-1">
+              <td className="flex items-center">
+                <ClockIcon className="h-3 w-3" />
+              </td>
+              <td>
+                <DateTime className="font-semibold ml-2" timestamp={time} format="dateHHHHDDMM" />
+              </td>
+            </tr>
+            <tr className="flex items-center py-1">
+              <td className="flex items-center">
+                <StadiumIcon className="inline-block h-3 w-3" />
+              </td>
+              <td className="ml-2">{stadium || 'TBD'}</td>
+            </tr>
+          </table>
         </div>
       </div>
       <GroupMatchModal

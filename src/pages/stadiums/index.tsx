@@ -1,12 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
-import { STADIUMS, IStadium } from '../../config/stadiums';
+import { STADIUMS_DATA, IStadium } from '../../config/stadiums';
 import DiamondDivider from '../../components/DiamondDivider';
 
 const StadiumsPage = () => {
   return (
     <div className="flex flex-col px-3 py-6 overflow-auto">
-      {STADIUMS.map((stadium: IStadium) => (
+      {STADIUMS_DATA.map((stadium: IStadium) => (
         <section key={stadium.name}>
           <h2 className="text-2xl font-bold mb-3">{stadium.name}</h2>
           <div className="p-2.5 border-b border border-qatar">

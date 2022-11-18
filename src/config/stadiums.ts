@@ -1,13 +1,27 @@
+const STADIUMS = {
+  LusailStadium: 'Lusail Stadium',
+  AlBaytStadium: 'Al Bayt Stadium',
+  AhmadBinAliStadium: 'Ahmad Bin Ali Stadium',
+  AlJanoubStadium: 'Al Janoub Stadium',
+  AlThumamaStadium: 'Al Thumama Stadium',
+  EducationCityStadium: 'Education City Stadium',
+  KhalifaInternationalStadium: 'Khalifa International Stadium',
+  Stadium974: 'Stadium 974',
+} as const;
+
+type Stadium = typeof STADIUMS[keyof typeof STADIUMS];
+
 interface IStadium {
-  name: string;
+  name: Stadium;
   capacity: number;
   image: string;
   matches: string[];
   location: string;
 }
-const STADIUMS: IStadium[] = [
+
+const STADIUMS_DATA: IStadium[] = [
   {
-    name: 'Lusail Stadium',
+    name: STADIUMS.LusailStadium,
     capacity: 80000,
     image:
       'https://www.qatar2022.qa/sites/default/files/styles/800x450/public/2022-08/Lusail-Stadium.jpg?h=48c16481&itok=8C6VGuWW',
@@ -15,7 +29,7 @@ const STADIUMS: IStadium[] = [
     location: 'Lusail City, 20km north of central Doha',
   },
   {
-    name: 'Al Bayt Stadium',
+    name: STADIUMS.AlBaytStadium,
     capacity: 60000,
     image:
       'https://www.qatar2022.qa/sites/default/files/styles/800x450/public/2022-08/Al-Bayt-Stadium.jpg?h=aa3f82a2&itok=tiOliQAU',
@@ -28,7 +42,7 @@ const STADIUMS: IStadium[] = [
     location: 'Al Khor City, 35km north of central Doha',
   },
   {
-    name: 'Ahmad Bin Ali Stadium',
+    name: STADIUMS.AhmadBinAliStadium,
     capacity: 40000,
     image:
       'https://www.qatar2022.qa/sites/default/files/styles/800x450/public/2022-08/Ahmad-Bin-Ali-Stadium.jpg?h=8f9cfe54&itok=jXevwslQ',
@@ -36,7 +50,7 @@ const STADIUMS: IStadium[] = [
     location: 'Umm Al Afaei, 20km west of central Doha',
   },
   {
-    name: 'Al Janoub Stadium',
+    name: STADIUMS.AlJanoubStadium,
     capacity: 40000,
     image:
       'https://www.qatar2022.qa/sites/default/files/styles/800x450/public/2022-08/Al-Janoub-Stadium.jpg?h=f8ea1366&itok=S3pVgjb6',
@@ -44,7 +58,7 @@ const STADIUMS: IStadium[] = [
     location: 'Al Wakrah, 22km east of central Doha',
   },
   {
-    name: 'Al Thumama Stadium',
+    name: STADIUMS.AlThumamaStadium,
     capacity: 40000,
     image:
       'https://www.qatar2022.qa/sites/default/files/styles/800x450/public/2022-08/Al-Thumama-Stadium.jpg?h=98540297&itok=nFjM5LqP',
@@ -52,7 +66,7 @@ const STADIUMS: IStadium[] = [
     location: 'Al Thumama, 12km south of central Doha',
   },
   {
-    name: 'Education City Stadium',
+    name: STADIUMS.EducationCityStadium,
     capacity: 40000,
     image:
       'https://www.qatar2022.qa/sites/default/files/styles/800x450/public/2022-08/Education-City-Stadium.jpg?h=bf548865&itok=CJFsdNRm',
@@ -60,7 +74,7 @@ const STADIUMS: IStadium[] = [
     location: 'Al Rayyan, 13km north-west of central Doha',
   },
   {
-    name: 'Khalifa International Stadium',
+    name: STADIUMS.KhalifaInternationalStadium,
     capacity: 40000,
     image:
       'https://www.qatar2022.qa/sites/default/files/styles/800x450/public/2022-08/Khalifa-International-Stadium.jpg?h=b5673621&itok=reV3zOJN',
@@ -68,7 +82,7 @@ const STADIUMS: IStadium[] = [
     location: 'Aspire, 5km west of central Doha',
   },
   {
-    name: 'Stadium 974',
+    name: STADIUMS.Stadium974,
     capacity: 40000,
     image:
       'https://www.qatar2022.qa/sites/default/files/styles/800x450/public/2022-08/Stadium-974.jpg?h=27457cb0&itok=TSlJw7Nj',
@@ -77,5 +91,5 @@ const STADIUMS: IStadium[] = [
   },
 ];
 
-export { STADIUMS };
-export type { IStadium };
+export { STADIUMS_DATA, STADIUMS };
+export type { IStadium, Stadium };
