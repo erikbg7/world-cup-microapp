@@ -1,23 +1,16 @@
 import React from 'react';
-import clsx from 'clsx';
+import { IMatch } from '../../config/matches';
 import { IRound, KNOCKOUT_STAGE_ROUNDS } from '../../config/knockout-stage';
 import TeamDetails from '../../components/TeamDetails';
 import DateTime from '../../components/DateTime';
 import GroupMatchModal, { IGroupMatchModalHandler } from '../../components/GroupMatchModal';
-import { IMatch } from '../../config/matches';
 import ClockIcon from '../../components/icons/ClockIcon';
 
 const KnockoutStagePage = () => {
   return (
     <div className="flex lg:justify-center pl-2.5 ">
       {KNOCKOUT_STAGE_ROUNDS.map((round) => (
-        <div
-          key={round.type}
-          className={clsx('', {
-            ['ml-5 pt-14']: round.type === 'Quarterfinals',
-            ['ml-5']: round.type === 'Semifinals' || round.type === 'Final',
-          })}
-        >
+        <div key={round.type} className="flex flex-col justify-around mx-2">
           <KnockoutRound {...round} />
         </div>
       ))}
@@ -43,7 +36,7 @@ interface IMatchItem {
   type: string;
 }
 
-const MatchItem: React.FC<IMatchItem> = ({ idx, match, type }) => {
+const MatchItem: React.FC<IMatchItem> = ({ match, type }) => {
   const modalRef = React.useRef<IGroupMatchModalHandler>(null);
 
   const handleMatchClick = () => modalRef.current?.open();
@@ -52,16 +45,7 @@ const MatchItem: React.FC<IMatchItem> = ({ idx, match, type }) => {
       <div
         id={type}
         onClick={handleMatchClick}
-        className={clsx(
-          'border border-qatar p-1 mt-2.5 mb-2.5 w-36',
-          'hover:cursor-pointer hover:bg-gray-300',
-          {
-            ['mb-[108px]']: type === 'Quarterfinals',
-            ['mt-[163px]']: type === 'Semifinals' && idx === 0,
-            ['mt-[308px]']: type === 'Semifinals' && idx === 1,
-            ['mt-[370px]']: type === 'Final',
-          }
-        )}
+        className={'border border-qatar p-1 my-1.5 w-36 hover:cursor-pointer'}
       >
         <p className="flex items-center text-xs px-1 mb-2">
           <ClockIcon className="w-3 h-3 mr-2" />
