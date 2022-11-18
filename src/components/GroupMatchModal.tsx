@@ -1,13 +1,13 @@
 import React from 'react';
 import { useQuery } from '@tanstack/react-query';
 import { Dialog, Transition } from '@headlessui/react';
-import { XMarkIcon } from '@heroicons/react/24/solid';
 
 import TeamDetails from './TeamDetails';
 import GroupSection from './GroupsSection';
 import { IMatch } from '../config/matches';
 import { GroupIdentifier } from '../models/groups';
 import { getGroupStageResults } from '../services/firebase/methods';
+import CloseIcon from './icons/CloseIcon';
 
 interface Props {
   match: IMatch;
@@ -51,21 +51,22 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <Dialog.Panel className="w-full h-full transform overflow-hidden text-left align-middle shadow-xl transition-all">
+              <Dialog.Panel className="w-full h-full transform overflow-hidden text-left align-middle shadow-xl transition-all bg-cream">
                 <button
-                  className="absolute top-10 right-10 hover:bg-gray-600/40 p-2 rounded-lg"
+                  className="absolute top-10 right-10 hover:bg-qatar/20 p-2 rounded-lg"
                   onClick={closeModal}
                 >
-                  <XMarkIcon className="text-gray-300 hover:text-gray-100 h-10 w-10 mx-auto" />
+                  <CloseIcon className="h-10 w-10 mx-auto" />
                 </button>
 
-                <div className="responsive-screen flex flex-col justify-center items-center w-full h-full ">
-                  <div className="text-4xl font-extralight w-full p-4 text-center">
-                    <div className="py-2">{props.title}</div>
-                    <hr className="w-full border-gray-600" />
+                <div className="responsive-screen flex flex-col justify-center items-center w-full h-full pb-20">
+                  <div className="text-4xl font-extralight w-full px-4 py-12 text-center">
+                    {props.title}
                   </div>
 
-                  <div className="flex justify-around items-center w-full py-16">
+                  <DiamondDivider />
+
+                  <div className="flex justify-around items-center w-full pb-16 pt-10">
                     <TeamDetails
                       name={props.match.team1.name}
                       flag={props.match.team1.flag}
@@ -73,7 +74,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                       nameClassName="text-lg"
                       wrapperClassName="flex-col"
                     />
-                    <span className="text-3xl text-gray-500 font-extralight">vs</span>
+                    <span className="text-3xl font-extralight">vs</span>
                     <TeamDetails
                       name={props.match.team2.name}
                       flag={props.match.team2.flag}
@@ -92,6 +93,17 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
     </Transition>
   );
 });
+
+const DiamondDivider = () => {
+  return (
+    <div className="flex items-center justify-center w-full text-center">
+      <div className="h-3 w-3 bg-teal rotate-45"></div>
+      <div className="h-[1px] w-5 bg-teal"></div>
+      <div className="h-2 w-2 bg-teal rotate-45"></div>
+      <div className="h-[1px] w-24 bg-teal"></div>
+    </div>
+  );
+};
 
 const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
   const { data } = useQuery(['group-results'], getGroupStageResults);
