@@ -21,6 +21,7 @@ module.exports = {
       },
       borderColor: {
         qatar: '#8A1638',
+        green: '#02cfb6',
       },
     },
   },
