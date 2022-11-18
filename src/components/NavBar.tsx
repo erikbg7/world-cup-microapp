@@ -12,6 +12,8 @@ const SECTIONS: ISection[] = [
   { id: 1, name: 'Matches', path: '/matches' },
   { id: 2, name: 'Groups', path: '/groups' },
   { id: 3, name: 'Knockouts', path: '/knockout' },
+  { id: 4, name: 'Stadiums', path: '/stadiums' },
+  { id: 5, name: 'Teams', path: '/teams' },
 ];
 
 const NavBar = () => {
