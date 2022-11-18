@@ -13,12 +13,12 @@ interface Props {
 
 const GroupSection: React.FC<Props> = ({ group, teams, className, showGroup = true }) => {
   return (
-    <section className={clsx('p-6 sm:p-12', className)}>
-      {showGroup && <h2 className="text-xl p-3">Group {group}</h2>}
+    <section className={clsx('p-4 sm:p-12', className)}>
+      {showGroup && <h2 className="text-xl p-3 font-bold">Group {group}</h2>}
       <table className="w-full text-center">
         <tbody>
-          <tr>
-            <th>Teams</th>
+          <tr className="px-2">
+            <th className="text-left px-4">Teams</th>
             <th>P</th>
             <th>W</th>
             <th>D</th>
@@ -39,10 +39,10 @@ const TableRows: React.FC<{ teams: IGroupStageTeamResults[] }> = ({ teams }) => 
         const flag = Object.values(TEAMS).find((t) => t.name === team.name)?.flag || TEAMS.TBD.flag;
 
         return (
-          <tr key={team.name} className="border-t border-gray-600 text-gray-300">
+          <tr key={team.name} className="border-t border-qatar">
             <td className="flex items-center py-2">
-              <span className="font-mono">{i + 1}</span>
-              <div className="relative h-6 w-6 mx-4 border border-white-300 rounded-sm">
+              <span className="font-mono mx-1">{i + 1}</span>
+              <div className="relative h-6 w-8 mx-3 rounded-sm">
                 <Image fill sizes="100vw" className="object-fill" src={flag} alt={team.name} />
               </div>
               {team.name}
@@ -60,17 +60,17 @@ const TableRows: React.FC<{ teams: IGroupStageTeamResults[] }> = ({ teams }) => 
 };
 
 const TableRowsSkeleton = () => {
-  const FakeResult = <span className="bg-slate-700 rounded-sm"> 00 </span>;
+  const FakeResult = <span className="bg-slate-300 rounded-sm"> 00 </span>;
 
   return (
     <>
       {[0, 1, 2, 3].map((index) => {
         return (
-          <tr key={index} className="animate-pulse border-t border-gray-600 text-transparent">
+          <tr key={index} className="animate-pulse border-t border-gray-400 text-transparent">
             <td className="flex items-center py-2">
-              <span className="bg-slate-700 rounded-sm mx-1">00</span>
-              <span className="bg-slate-700 rounded-sm mx-1">image</span>
-              <span className="bg-slate-700 rounded-sm mx-1">placeholder team</span>
+              <span className="bg-slate-300 rounded-sm mx-1">00</span>
+              <span className="bg-slate-300 rounded-sm mx-1">image</span>
+              <span className="bg-slate-300 rounded-sm mx-1">placeholder team</span>
             </td>
             <td>{FakeResult}</td>
             <td>{FakeResult}</td>

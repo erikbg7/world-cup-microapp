@@ -1,13 +1,12 @@
 import React from 'react';
-import clsx from 'clsx';
 import { getDateByTimezone, IDateFormat } from '../utils/date';
 
 interface Props extends IDateFormat {
-  dateTimeClassName?: string;
+  className?: string;
 }
 
-const DateTime: React.FC<Props> = ({ timestamp, format, dateTimeClassName }) => {
-  return <p className={clsx(dateTimeClassName)}>{getDateByTimezone({ timestamp, format })}</p>;
+const DateTime: React.FC<Props> = ({ timestamp, format, className }) => {
+  return <p className={className}>{getDateByTimezone({ timestamp, format })}</p>;
 };
 
 export default DateTime;

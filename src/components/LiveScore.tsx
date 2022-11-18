@@ -1,7 +1,6 @@
 import TeamDetails from './TeamDetails';
 // import { LIVE_SCORES, ILiveMatch } from '../config/liveScore';
 import { ILiveMatch } from '../config/liveScore';
-import { useEffect } from 'react';
 import { fetchAllScores } from '../services/api';
 import { useQuery } from '@tanstack/react-query';
 

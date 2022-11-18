@@ -20,7 +20,7 @@ const TeamDetails: React.FC<Props> = ({
 }) => {
   return (
     <div className={clsx('flex flex-1 items-center', wrapperClassName)}>
-      <div className={clsx('relative m-2 border border-gray-300 rounded-sm', flagClassName)}>
+      <div className={clsx('relative m-2 rounded-sm', flagClassName)}>
         <Image src={flag} alt={name} fill sizes="100vw" className="rounded-sm object-cover" />
       </div>
       <div className={nameClassName}>{name}</div>
