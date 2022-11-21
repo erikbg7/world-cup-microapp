@@ -8,6 +8,7 @@ interface IMatch {
   time: number;
   team1: ITeam;
   team2: ITeam;
+  scores?: string[];
 }
 
 interface IMatchDay {
@@ -25,6 +26,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         time: 1668960000000,
         team1: TEAMS.Qatar,
         team2: TEAMS.Ecuador,
+        scores: ['0', '2'],
       },
     ],
   },

@@ -6,6 +6,7 @@ interface ITeam {
   defenders: string[];
   midfielders: string[];
   forwards: string[];
+  score?: string;
 }
 
 const TEAMS = {
