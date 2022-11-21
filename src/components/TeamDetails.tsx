@@ -6,6 +6,7 @@ import { ITeam } from '../config/teams';
 interface Props {
   flag: ITeam['flag'];
   name: ITeam['name'];
+  score?: string;
   flagClassName?: string;
   nameClassName?: string;
   wrapperClassName?: string;
@@ -14,6 +15,7 @@ interface Props {
 const TeamDetails: React.FC<Props> = ({
   flag,
   name,
+  score,
   flagClassName,
   nameClassName,
   wrapperClassName,
@@ -24,6 +26,7 @@ const TeamDetails: React.FC<Props> = ({
         <Image src={flag} alt={name} fill sizes="100vw" className="rounded-sm object-cover" />
       </div>
       <div className={nameClassName}>{name}</div>
+      <p>{score}</p>
     </div>
   );
 };

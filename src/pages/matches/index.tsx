@@ -45,7 +45,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
         <div className="flex flex-1">
           <div className="flex flex-col justify-between py-2">
             <TeamData {...{ ...team1, score: scores?.[0] }} />
-            <div className="text-sm w-full text-center font-light">v</div>
+            <div className="text-sm w-full text-center font-light">vs</div>
             <TeamData {...{ ...team2, score: scores?.[1] }} />
           </div>
         </div>
@@ -79,7 +79,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
       <GroupMatchModal
         ref={modalRef}
         title={`Group Stage · Group ${group}`}
-        match={{ group, time, team1, team2 } as IMatch}
+        match={{ group, time, team1, team2, scores } as IMatch}
       />
     </>
   );
