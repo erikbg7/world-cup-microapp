@@ -53,7 +53,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
           <table className="flex flex-col justify-center w-full h-full pl-6 text-sm font-light">
             <tr className="flex items-center py-1">
               <td className="flex items-center">
-                <DiamondBullet size={1.5} className="ml-1" />
+                <DiamondBullet size={2} />
               </td>
               <td>
                 <span className="ml-2">Group {group}</span>
@@ -88,7 +88,9 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
 const TeamData: React.FC<ITeam> = ({ flag, name, fifaCode, score }) => {
   return (
     <div className="flex items-center">
-      <span className="pr-2">{score}</span>
+      <span className="pr-2">
+        <strong>{score}</strong>
+      </span>
       <div className="relative h-6 w-9 mr-3">
         <Image fill sizes="100vw" className="object-fill rounded-sm" src={flag} alt={name} />
       </div>
