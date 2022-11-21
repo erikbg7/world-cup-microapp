@@ -47,6 +47,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         time: 1669046400000,
         team1: TEAMS.Senegal,
         team2: TEAMS.Netherlands,
+        scores: ['0', '2'],
       },
       {
         group: 'B',

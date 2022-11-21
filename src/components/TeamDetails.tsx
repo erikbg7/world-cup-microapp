@@ -26,7 +26,9 @@ const TeamDetails: React.FC<Props> = ({
         <Image src={flag} alt={name} fill sizes="100vw" className="rounded-sm object-cover" />
       </div>
       <div className={nameClassName}>{name}</div>
-      <p>{score}</p>
+      <p>
+        <strong>{score}</strong>
+      </p>
     </div>
   );
 };
