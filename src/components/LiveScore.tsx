@@ -42,6 +42,7 @@ const LiveScore = () => {
 
               return isSameDate && isSameYear;
             })
+            .sort((m1: ILiveMatch, m2: ILiveMatch) => Number(m1.time) - Number(m2.time))
             .map((liveMatch: ILiveMatch) => (
               <div
                 key={liveMatch.team1.fifaCode + liveMatch.team2.fifaCode}
