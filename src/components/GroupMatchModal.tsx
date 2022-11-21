@@ -71,6 +71,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                     <TeamDetails
                       name={props.match.team1.name}
                       flag={props.match.team1.flag}
+                      score={props.match.scores?.[0]}
                       flagClassName="h-12 w-20"
                       nameClassName="text-lg"
                       wrapperClassName="flex-col"
@@ -79,6 +80,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                     <TeamDetails
                       name={props.match.team2.name}
                       flag={props.match.team2.flag}
+                      score={props.match.scores?.[1]}
                       flagClassName="h-12 w-20"
                       nameClassName="text-lg"
                       wrapperClassName="flex-col"

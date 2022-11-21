@@ -31,7 +31,7 @@ const MatchesDay: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDa
   );
 };
 
-const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium }) => {
+const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, scores }) => {
   const modalRef = React.useRef<IGroupMatchModalHandler>(null);
 
   const handleMatchClick = () => modalRef.current?.open();
@@ -44,9 +44,9 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium }) => 
       >
         <div className="flex flex-1">
           <div className="flex flex-col justify-between py-2">
-            <TeamData {...team1} />
-            <div className="text-sm w-full text-center font-light">v</div>
-            <TeamData {...team2} />
+            <TeamData {...{ ...team1, score: scores?.[0] }} />
+            <div className="text-sm w-full text-center font-light">vs</div>
+            <TeamData {...{ ...team2, score: scores?.[1] }} />
           </div>
         </div>
         <div className="flex flex-1 border-l border-l-qatar">
@@ -56,7 +56,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium }) => 
                 <DiamondBullet size={1.5} className="ml-1" />
               </td>
               <td>
-                <span className="ml-2">Group A</span>
+                <span className="ml-2">Group {group}</span>
               </td>
             </tr>
             <tr className="flex items-center py-1">
@@ -79,15 +79,16 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium }) => 
       <GroupMatchModal
         ref={modalRef}
         title={`Group Stage · Group ${group}`}
-        match={{ group, time, team1, team2 } as IMatch}
+        match={{ group, time, team1, team2, scores } as IMatch}
       />
     </>
   );
 };
 
-const TeamData: React.FC<ITeam> = ({ flag, name, fifaCode }) => {
+const TeamData: React.FC<ITeam> = ({ flag, name, fifaCode, score }) => {
   return (
     <div className="flex items-center">
+      <span className="pr-2">{score}</span>
       <div className="relative h-6 w-9 mr-3">
         <Image fill sizes="100vw" className="object-fill rounded-sm" src={flag} alt={name} />
       </div>
