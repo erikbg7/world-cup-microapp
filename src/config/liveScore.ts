@@ -37,7 +37,7 @@ const LIVE_SCORES: ILiveMatch[] = [
   },
   {
     group: 'Group B',
-    time: '1668992400000',
+    time: '1669035600000',
     team1: TEAMS.England,
     team2: TEAMS.Iran,
     scores: ['0', '0'],
