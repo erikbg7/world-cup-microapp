@@ -3,6 +3,7 @@ import TeamDetails from './TeamDetails';
 import { ILiveMatch } from '../config/liveScore';
 import { fetchAllScores } from '../services/api';
 import { useQuery } from '@tanstack/react-query';
+import { getDateByTimezone } from '../utils/date';
 
 const STATUS = ['FT', 'AP', 'AET', 'AW', 'HW', 'D'];
 
@@ -10,8 +11,14 @@ const LiveScore = () => {
   const { data } = useQuery(['allScores'], fetchAllScores, { refetchInterval: 30000 });
 
   const renderLiveScore = (m: ILiveMatch) => {
-    if (m.result && (STATUS.includes(m.result) || m.result.includes(':'))) {
+    if (m.result && STATUS.includes(m.result)) {
       return <span className="text-lg mx-2 px-1">{m.result}</span>;
+    } else if (m.result.includes(':')) {
+      return (
+        <span className="text-lg mx-2 px-1">
+          {getDateByTimezone({ timestamp: Number(m.time), format: 'dateHour' })}
+        </span>
+      );
     }
 
     return (
@@ -35,6 +42,7 @@ const LiveScore = () => {
 
               return isSameDate && isSameYear;
             })
+            .sort((m1: ILiveMatch, m2: ILiveMatch) => Number(m1.time) - Number(m2.time))
             .map((liveMatch: ILiveMatch) => (
               <div
                 key={liveMatch.team1.fifaCode + liveMatch.team2.fifaCode}

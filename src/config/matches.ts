@@ -34,7 +34,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
       {
         group: 'B',
         stadium: STADIUMS.KhalifaInternationalStadium,
-        time: 1669028400000,
+        time: 1669035600000,
         team1: TEAMS.England,
         team2: TEAMS.Iran,
       },
