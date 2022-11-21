@@ -7,6 +7,7 @@ import { ITeam } from '../../config/teams';
 import StadiumIcon from '../../components/icons/StadiumIcon';
 import ClockIcon from '../../components/icons/ClockIcon';
 import DiamondBullet from '../../components/DiamondBullet';
+import Score from '../../components/Score';
 
 const MatchesPage = () => {
   return (
@@ -44,9 +45,23 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
       >
         <div className="flex flex-1">
           <div className="flex flex-col justify-between py-2">
-            <TeamData {...{ ...team1, score: scores?.[0] }} />
+            <TeamData
+              {...{
+                ...team1,
+                score: scores?.[0],
+                matchState:
+                  Number(scores?.[0]) > Number(scores?.[1]) ? 'border-win' : 'border-loose',
+              }}
+            />
             <div className="text-sm w-full text-center font-light">vs</div>
-            <TeamData {...{ ...team2, score: scores?.[1] }} />
+            <TeamData
+              {...{
+                ...team2,
+                score: scores?.[1],
+                matchState:
+                  Number(scores?.[1]) > Number(scores?.[0]) ? 'border-win' : 'border-loose',
+              }}
+            />
           </div>
         </div>
         <div className="flex flex-1 border-l border-l-qatar">
@@ -85,12 +100,10 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
   );
 };
 
-const TeamData: React.FC<ITeam> = ({ flag, name, fifaCode, score }) => {
+const TeamData: React.FC<ITeam> = ({ flag, name, fifaCode, score, matchState }) => {
   return (
     <div className="flex items-center">
-      <span className="pr-2">
-        <strong>{score}</strong>
-      </span>
+      {score && <Score score={score} matchState={matchState as string} />}
       <div className="relative h-6 w-9 mr-3">
         <Image fill sizes="100vw" className="object-fill rounded-sm" src={flag} alt={name} />
       </div>

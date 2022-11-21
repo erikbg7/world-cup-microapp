@@ -72,6 +72,11 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                       name={props.match.team1.name}
                       flag={props.match.team1.flag}
                       score={props.match.scores?.[0]}
+                      matchState={
+                        Number(props.match.scores?.[0]) > Number(props.match.scores?.[1])
+                          ? 'border-win'
+                          : 'border-loose'
+                      }
                       flagClassName="h-12 w-20"
                       nameClassName="text-lg"
                       wrapperClassName="flex-col"
@@ -81,6 +86,11 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                       name={props.match.team2.name}
                       flag={props.match.team2.flag}
                       score={props.match.scores?.[1]}
+                      matchState={
+                        Number(props.match.scores?.[1]) > Number(props.match.scores?.[0])
+                          ? 'border-win'
+                          : 'border-loose'
+                      }
                       flagClassName="h-12 w-20"
                       nameClassName="text-lg"
                       wrapperClassName="flex-col"

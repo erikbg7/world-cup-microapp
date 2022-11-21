@@ -7,6 +7,7 @@ interface ITeam {
   midfielders: string[];
   forwards: string[];
   score?: string;
+  matchState?: string;
 }
 
 const TEAMS = {
