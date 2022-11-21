@@ -33,7 +33,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       res.status(200).json({ scores });
     } catch (e) {
       console.log('[File System Error]: ', e);
-      res.status(500).json({ error: '[Results Error]: Data could not be retrieved' });
+      res.status(500).json({ data: '[Results Error]: Data could not be retrieved', error: e });
     }
   }
 }
