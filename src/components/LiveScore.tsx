@@ -11,13 +11,13 @@ const LiveScore = () => {
 
   const renderLiveScore = (m: ILiveMatch) => {
     if (m.result && (STATUS.includes(m.result) || m.result.includes(':'))) {
-      return <span className="text-lg mx-2 font-bold px-1">{m.result}</span>;
+      return <span className="text-lg mx-2 px-1">{m.result}</span>;
     }
 
     return (
       <>
         <span className="animate-ping rounded h-2 w-2 bg-liveIndicator" />
-        <span className="text-lg mx-2 font-bold px-1">LIVE</span>
+        <span className="text-lg mx-2 px-1">LIVE</span>
       </>
     );
   };
@@ -38,7 +38,7 @@ const LiveScore = () => {
             .map((liveMatch: ILiveMatch) => (
               <div
                 key={liveMatch.team1.fifaCode + liveMatch.team2.fifaCode}
-                className="flex items-center bg-gray-800 rounded mt-3 mx-3"
+                className="flex items-center bg-teal rounded mt-3 mx-3 text-white font-bold"
               >
                 {renderLiveScore(liveMatch)}
 
