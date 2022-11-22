@@ -52,7 +52,7 @@ const scrapeFoxsportsGroupStage = async () => {
 const scrapeTeamDataFromRow = (tr: HTMLTableRowElement) => {
   const tableData = tr.querySelectorAll('td');
 
-  assert.equal(tableData?.length, 10, 'Expected 10 cells per table row');
+  assert.equal(tableData?.length, 8, 'Expected 8 cells per table row');
 
   const teamData: Record<string, any> = {
     name: normalizeName(tableData[1].children[0].children[1].textContent),
@@ -60,7 +60,7 @@ const scrapeTeamDataFromRow = (tr: HTMLTableRowElement) => {
     won: tableData[3].textContent?.split('-')[0],
     lost: tableData[3].textContent?.split('-')[2],
     draw: tableData[3].textContent?.split('-')[1],
-    points: tableData[6].textContent,
+    points: tableData[7].textContent,
   };
 
   assert.ok(teamData.name, 'Expected team name to be defined');
