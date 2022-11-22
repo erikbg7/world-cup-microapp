@@ -6,11 +6,9 @@ interface ITeam {
   defenders: string[];
   midfielders: string[];
   forwards: string[];
-  score?: string;
-  matchState?: string;
 }
 
-const TEAMS = {
+const TEAMS: Record<string, ITeam> = {
   Qatar: {
     name: 'Qatar',
     fifaCode: 'QAT',

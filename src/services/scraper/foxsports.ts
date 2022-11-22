@@ -1,30 +1,7 @@
 import jsdom from 'jsdom';
 import assert from 'assert';
 import got from 'got';
-
-interface IResults extends Record<string, any[]> {}
-const GROUP_RESULTS: IResults = {
-  A: [],
-  B: [],
-  C: [],
-  D: [],
-  E: [],
-  F: [],
-  G: [],
-  H: [],
-};
-
-interface IMapIndex extends Record<number, string> {}
-const GROUP_BY_INDEX: IMapIndex = {
-  0: 'A',
-  1: 'B',
-  2: 'C',
-  3: 'D',
-  4: 'E',
-  5: 'F',
-  6: 'G',
-  7: 'H',
-};
+import { GROUP_BY_INDEX, GROUP_RESULTS } from '.';
 
 const scrapeFoxsportsGroupStage = async () => {
   const response = await got('https://www.foxsports.com/soccer/2022-fifa-world-cup/standings');
@@ -33,7 +10,7 @@ const scrapeFoxsportsGroupStage = async () => {
   console.log('******** dom', dom);
 
   const SCRAPING_RESULTS = { ...GROUP_RESULTS };
-  const GROUP_SELECTOR = 'table.data-table > tbody';
+  const GROUP_SELECTOR = 'div.table-standings > table.data-table > tbody';
   const tables = dom.window.document.querySelectorAll(GROUP_SELECTOR);
 
   assert.equal(tables?.length, 8, 'Expected exactly 8 tables');
@@ -54,7 +31,7 @@ const scrapeFoxsportsGroupStage = async () => {
 const scrapeTeamDataFromRow = (tr: HTMLTableRowElement) => {
   const tableData = tr.querySelectorAll('td');
 
-  assert.equal(tableData?.length, 10, 'Expected 10 cells per table row');
+  assert.equal(tableData?.length, 8, 'Expected 8 cells per table row');
 
   const teamData: Record<string, any> = {
     name: normalizeName(tableData[1].children[0].children[1].textContent),
@@ -62,7 +39,7 @@ const scrapeTeamDataFromRow = (tr: HTMLTableRowElement) => {
     won: tableData[3].textContent?.split('-')[0],
     lost: tableData[3].textContent?.split('-')[2],
     draw: tableData[3].textContent?.split('-')[1],
-    points: tableData[6].textContent,
+    points: tableData[7].textContent,
   };
 
   assert.ok(teamData.name, 'Expected team name to be defined');
