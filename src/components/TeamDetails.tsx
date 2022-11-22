@@ -8,7 +8,7 @@ interface Props {
   flag: ITeam['flag'];
   name: ITeam['name'];
   score?: string;
-  matchState?: string;
+  isWinner?: boolean;
   flagClassName?: string;
   nameClassName?: string;
   wrapperClassName?: string;
@@ -18,7 +18,7 @@ const TeamDetails: React.FC<Props> = ({
   flag,
   name,
   score,
-  matchState,
+  isWinner,
   flagClassName,
   nameClassName,
   wrapperClassName,
@@ -29,7 +29,7 @@ const TeamDetails: React.FC<Props> = ({
         <Image src={flag} alt={name} fill sizes="100vw" className="rounded-sm object-cover" />
       </div>
       <div className={nameClassName}>{name}</div>
-      {score && <Score score={score} matchState={matchState as string} />}
+      {score && <Score score={score} isWinner={!!isWinner} />}
     </div>
   );
 };

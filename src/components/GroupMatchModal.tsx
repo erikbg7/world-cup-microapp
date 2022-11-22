@@ -26,6 +26,8 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
 
   React.useImperativeHandle(ref, () => ({ open: () => setIsOpen(true) }));
 
+  const hasScores = !!props.match.scores?.[0] && !!props.match.scores?.[1];
+
   return (
     <Transition appear show={isOpen} as={React.Fragment}>
       <Dialog as="div" className="absolute bottom-0 right-0 z-10" onClose={closeModal}>
@@ -72,10 +74,9 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                       name={props.match.team1.name}
                       flag={props.match.team1.flag}
                       score={props.match.scores?.[0]}
-                      matchState={
+                      isWinner={
+                        hasScores &&
                         Number(props.match.scores?.[0]) > Number(props.match.scores?.[1])
-                          ? 'border-win'
-                          : 'border-loose'
                       }
                       flagClassName="h-12 w-20"
                       nameClassName="text-lg"
@@ -86,10 +87,9 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                       name={props.match.team2.name}
                       flag={props.match.team2.flag}
                       score={props.match.scores?.[1]}
-                      matchState={
+                      isWinner={
+                        hasScores &&
                         Number(props.match.scores?.[1]) > Number(props.match.scores?.[0])
-                          ? 'border-win'
-                          : 'border-loose'
                       }
                       flagClassName="h-12 w-20"
                       nameClassName="text-lg"
