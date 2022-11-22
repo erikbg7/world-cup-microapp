@@ -31,7 +31,7 @@ const scrapeFoxsportsGroupStage = async () => {
   const dom = new jsdom.JSDOM(response.body);
 
   const SCRAPING_RESULTS = { ...GROUP_RESULTS };
-  const GROUP_SELECTOR = 'table.data-table > tbody';
+  const GROUP_SELECTOR = 'table-standings > table.data-table > tbody';
   const tables = dom.window.document.querySelectorAll(GROUP_SELECTOR);
 
   assert.equal(tables?.length, 8, 'Expected exactly 8 tables');
