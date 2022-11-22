@@ -61,6 +61,7 @@ const normalizeName = (country: string | null) => {
     .map((piece) => piece.charAt(0).toUpperCase() + piece.slice(1).toLowerCase())
     .join(' ');
 
+  if (countryName === 'Usa') return 'USA';
   if (countryName === 'Ir Iran') return 'Iran';
   if (countryName === 'South Korea') return 'Korea Republic';
 
