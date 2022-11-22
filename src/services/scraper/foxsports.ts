@@ -7,8 +7,6 @@ const scrapeFoxsportsGroupStage = async () => {
   const response = await got('https://www.foxsports.com/soccer/2022-fifa-world-cup/standings');
   const dom = new jsdom.JSDOM(response.body);
 
-  console.log('******** dom', dom);
-
   const SCRAPING_RESULTS = { ...GROUP_RESULTS };
   const GROUP_SELECTOR = 'div.table-standings > table.data-table > tbody';
   const tables = dom.window.document.querySelectorAll(GROUP_SELECTOR);
