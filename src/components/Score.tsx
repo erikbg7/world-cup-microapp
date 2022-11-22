@@ -1,14 +1,18 @@
+import clsx from 'clsx';
 import React from 'react';
 
 interface Props {
   score: string;
-  matchState: string;
+  isWinner: boolean;
 }
 
-const Score: React.FC<Props> = ({ score, matchState }) => {
+const Score: React.FC<Props> = ({ score, isWinner }) => {
   return (
     <span
-      className={`w-7 h-7 bg-white rotate-45 flex items-center justify-center ${matchState} border-r border-t mr-2`}
+      className={clsx(
+        `w-7 h-7 bg-white rotate-45 flex items-center justify-center border-r border-t mr-2`,
+        isWinner ? `border-win` : `border-loose`
+      )}
     >
       <strong className="-rotate-45">{score}</strong>
     </span>

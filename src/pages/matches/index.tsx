@@ -36,6 +36,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
   const modalRef = React.useRef<IGroupMatchModalHandler>(null);
 
   const handleMatchClick = () => modalRef.current?.open();
+  const hasScores = !!scores?.[0] && !!scores?.[1];
 
   return (
     <>
@@ -46,21 +47,19 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
         <div className="flex flex-1">
           <div className="flex flex-col justify-between py-2">
             <TeamData
-              {...{
-                ...team1,
-                score: scores?.[0],
-                matchState:
-                  Number(scores?.[0]) > Number(scores?.[1]) ? 'border-win' : 'border-loose',
-              }}
+              name={team1.name}
+              flag={team1.flag}
+              fifaCode={team1.fifaCode}
+              score={scores?.[0]}
+              isWinner={hasScores && scores[0] > scores[1]}
             />
             <div className="text-sm w-full text-center font-light">vs</div>
             <TeamData
-              {...{
-                ...team2,
-                score: scores?.[1],
-                matchState:
-                  Number(scores?.[1]) > Number(scores?.[0]) ? 'border-win' : 'border-loose',
-              }}
+              name={team2.name}
+              flag={team2.flag}
+              fifaCode={team2.fifaCode}
+              score={scores?.[1]}
+              isWinner={hasScores && scores[1] > scores[0]}
             />
           </div>
         </div>
@@ -100,10 +99,18 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
   );
 };
 
-const TeamData: React.FC<ITeam> = ({ flag, name, fifaCode, score, matchState }) => {
+interface TeamDataProps {
+  name: ITeam['name'];
+  flag: ITeam['flag'];
+  fifaCode: ITeam['fifaCode'];
+  score?: string;
+  isWinner: boolean;
+}
+
+const TeamData: React.FC<TeamDataProps> = ({ flag, name, fifaCode, score, isWinner }) => {
   return (
     <div className="flex items-center">
-      {score && <Score score={score} matchState={matchState as string} />}
+      {score && <Score score={score} isWinner={isWinner} />}
       <div className="relative h-6 w-9 mr-3">
         <Image fill sizes="100vw" className="object-fill rounded-sm" src={flag} alt={name} />
       </div>
