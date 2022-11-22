@@ -23,3 +23,4 @@ const GROUP_BY_INDEX: IMapIndex = {
 };
 
 export { GROUP_BY_INDEX, GROUP_RESULTS };
+export type { IResults };
