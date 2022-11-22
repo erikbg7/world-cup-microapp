@@ -68,6 +68,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         time: 1669111200000,
         team1: TEAMS.Argentina,
         team2: TEAMS.SaudiArabia,
+        scores: ['1', '2'],
       },
       {
         group: 'D',
