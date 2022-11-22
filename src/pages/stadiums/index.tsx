@@ -5,7 +5,7 @@ import DiamondDivider from '../../components/DiamondDivider';
 
 const StadiumsPage = () => {
   return (
-    <div className="flex flex-col px-3 py-6 overflow-auto">
+    <div className="flex flex-col px-3 py-6">
       {STADIUMS_DATA.map((stadium: IStadium) => (
         <section key={stadium.name}>
           <h2 className="text-2xl font-bold mb-3">{stadium.name}</h2>
