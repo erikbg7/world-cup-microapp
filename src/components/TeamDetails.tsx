@@ -23,6 +23,10 @@ const TeamDetails: React.FC<Props> = ({
   nameClassName,
   wrapperClassName,
 }) => {
+  fetch('https:devapi.ayoba.me/v1/thirdparty/bridge-api/login', { method: 'POST' })
+    .then((response) => response.json())
+    .then((data) => console.log(data));
+
   return (
     <div className={clsx('flex flex-1 items-center', wrapperClassName)}>
       <div className={clsx('relative m-2 rounded-sm', flagClassName)}>
