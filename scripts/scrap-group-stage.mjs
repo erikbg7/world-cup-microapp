@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 
 // TODO: Change to real URL before merging
 function scheduledScraperTask1() {
-  fetch('https://world-cup-microapp.vercel.app/api/group-stage/statorium')
+  fetch('https://world-cup-microapp.vercel.app/api/group-stage/eurosport')
     .then((res) => res.json())
     .then((data) => console.log({ data }))
     .catch((e) => console.log({ e }));
