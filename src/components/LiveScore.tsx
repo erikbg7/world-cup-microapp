@@ -48,7 +48,7 @@ const LiveScore = () => {
                 key={liveMatch.team1.fifaCode + liveMatch.team2.fifaCode}
                 className="flex items-center bg-teal rounded mt-3 mx-3 text-white font-bold relative"
               >
-                {renderLiveScore(liveMatch)}
+                <div className="flex p-2  items-center">{renderLiveScore(liveMatch)}</div>
 
                 <div className="flex w-full p-2  items-center">
                   <TeamDetails
