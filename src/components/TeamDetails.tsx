@@ -12,6 +12,7 @@ interface Props {
   flagClassName?: string;
   nameClassName?: string;
   wrapperClassName?: string;
+  scoreClassName?: string;
 }
 
 const TeamDetails: React.FC<Props> = ({
@@ -22,6 +23,7 @@ const TeamDetails: React.FC<Props> = ({
   flagClassName,
   nameClassName,
   wrapperClassName,
+  scoreClassName,
 }) => {
   return (
     <div className={clsx('flex flex-1 items-center', wrapperClassName)}>
@@ -29,7 +31,7 @@ const TeamDetails: React.FC<Props> = ({
         <Image src={flag} alt={name} fill sizes="100vw" className="rounded-sm object-cover" />
       </div>
       <div className={nameClassName}>{name}</div>
-      {score && <Score score={score} isWinner={!!isWinner} />}
+      {score && <Score score={score} isWinner={!!isWinner} className={scoreClassName} />}
     </div>
   );
 };
