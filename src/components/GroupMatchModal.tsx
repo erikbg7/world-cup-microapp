@@ -111,8 +111,6 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
 const DynamicMatchDetails: React.FC<{ id: IMatch['matchId'] }> = (props) => {
   const { data } = useQuery([props.id], fetchMatchDetails(props.id!));
 
-  console.table(data);
-
   return (
     <div>
       {data?.results?.map((r) => (
