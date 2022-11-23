@@ -47,10 +47,10 @@ const MatchItem: React.FC<IMatchItem> = ({ match, type }) => {
         onClick={handleMatchClick}
         className={'border border-qatar p-1 my-1.5 w-36 hover:cursor-pointer'}
       >
-        <p className="flex items-center text-xs px-1 mb-2">
+        <span className="flex items-center text-xs px-1 mb-2">
           <ClockIcon className="w-3 h-3 mr-2" />
           <DateTime className="font-semibold" timestamp={match.time} format="dateHHHHDDMM" />
-        </p>
+        </span>
         <div className="">
           <TeamDetails
             name={match.team1.name}
