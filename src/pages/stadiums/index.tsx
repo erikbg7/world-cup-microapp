@@ -11,7 +11,13 @@ const StadiumsPage = () => {
           <h2 className="text-2xl font-bold mb-3">{stadium.name}</h2>
           <div className="p-2.5 border-b border border-qatar">
             <div className="relative mb-2 mt-2">
-              <Image src={stadium.image} alt={stadium.name} width={800} height={450} className="" />
+              <Image
+                src={stadium.image}
+                alt={stadium.name}
+                width={800}
+                height={450}
+                sizes="300px"
+              />
             </div>
             <table className="table-auto m-2">
               <tbody>

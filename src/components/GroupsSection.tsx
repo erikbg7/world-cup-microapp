@@ -43,7 +43,7 @@ const TableRows: React.FC<{ teams: IGroupStageTeamResults[] }> = ({ teams }) => 
             <td className="flex items-center py-2">
               <span className="font-mono mx-1">{i + 1}</span>
               <div className="relative h-6 w-8 mx-3 rounded-sm">
-                <Image fill sizes="100vw" className="object-fill" src={flag} alt={team.name} />
+                <Image fill sizes="100px" className="object-fill" src={flag} alt={team.name} />
               </div>
               {team.name}
             </td>

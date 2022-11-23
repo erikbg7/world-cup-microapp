@@ -112,7 +112,7 @@ const TeamData: React.FC<TeamDataProps> = ({ flag, name, fifaCode, score, isWinn
     <div className="flex items-center">
       {score && <Score score={score} isWinner={isWinner} />}
       <div className="relative h-6 w-9 mr-3">
-        <Image fill sizes="100vw" className="object-fill rounded-sm" src={flag} alt={name} />
+        <Image fill sizes="100px" className="object-fill rounded-sm" src={flag} alt={name} />
       </div>
       <div className="font-extrabold">{fifaCode}</div>
     </div>
