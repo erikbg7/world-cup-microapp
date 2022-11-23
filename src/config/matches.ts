@@ -142,6 +142,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team1: TEAMS.Belgium,
         team2: TEAMS.Canada,
         matchId: 'group-f/belgium-vs-canada/663920',
+        scores: ['1', '0'],
       },
     ],
   },
