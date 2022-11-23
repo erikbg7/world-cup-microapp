@@ -83,6 +83,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team1: TEAMS.Denmark,
         team2: TEAMS.Tunisia,
         matchId: 'group-d/denmark-vs-tunisia/663911',
+        scores: ['0', '0'],
       },
       {
         group: 'C',
@@ -91,6 +92,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team1: TEAMS.Mexico,
         team2: TEAMS.Poland,
         matchId: 'group-c/mexico-vs-poland/663905',
+        scores: ['0', '0'],
       },
       {
         group: 'D',
@@ -99,6 +101,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team1: TEAMS.France,
         team2: TEAMS.Australia,
         matchId: 'group-d/france-vs-australia/663910',
+        scores: ['4', '1'],
       },
     ],
   },
@@ -112,6 +115,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team1: TEAMS.Morocco,
         team2: TEAMS.Croatia,
         matchId: 'group-f/morocco-vs-croatia/663921',
+        scores: ['0', '0'],
       },
       {
         group: 'E',
