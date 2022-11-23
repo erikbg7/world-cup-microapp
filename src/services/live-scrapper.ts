@@ -47,4 +47,12 @@ const getAllScores = async (url: string) => {
   return scores;
 };
 
-export { getAllScores };
+const getMatchDetails = async (url: string) => {
+  const scores: ILiveMatch[] = [];
+  const response = await got(url);
+  const dom = new jsdom.JSDOM(response.body);
+
+  return dom;
+};
+
+export { getAllScores, getMatchDetails };
