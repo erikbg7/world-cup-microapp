@@ -9,10 +9,12 @@ import { GroupIdentifier } from '../models/groups';
 import { getGroupStageResults } from '../services/firebase/methods';
 import CloseIcon from './icons/CloseIcon';
 import DiamondDivider from './DiamondDivider';
+import { fetchMatchDetails } from '../services/api';
 
 interface Props {
   match: IMatch;
   title: string;
+  isLive?: boolean;
 }
 
 interface IGroupMatchModalHandler {
@@ -95,6 +97,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                     />
                   </div>
                   {props.match.group && <DynamicGroupSection group={props.match.group} />}
+                  {props.isLive && <DynamicMatchDetails id={props.match.matchId} />}
                 </div>
               </Dialog.Panel>
             </Transition.Child>
@@ -104,6 +107,14 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
     </Transition>
   );
 });
+
+const DynamicMatchDetails: React.FC<{ id: IMatch['matchId'] }> = (props) => {
+  const { data } = useQuery([props.id], fetchMatchDetails(props.id!));
+
+  console.table(data);
+
+  return <div>live event and results</div>;
+};
 
 const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
   const { data } = useQuery(['group-results'], getGroupStageResults);

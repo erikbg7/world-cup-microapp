@@ -4,4 +4,10 @@ const fetchAllScores = async () => {
   return data.results;
 };
 
-export { fetchAllScores };
+const fetchMatchDetails = (matchId: string) => async () => {
+  const response = await fetch(`/api/match-details?matchId=${matchId}`);
+  const data = await response.json();
+  return data.results;
+};
+
+export { fetchAllScores, fetchMatchDetails };
