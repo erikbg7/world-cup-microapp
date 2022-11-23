@@ -65,28 +65,30 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
         </div>
         <div className="flex flex-1 border-l border-l-qatar">
           <table className="flex flex-col justify-center w-full h-full pl-6 text-sm font-light">
-            <tr className="flex items-center py-1">
-              <td className="flex items-center">
-                <DiamondBullet size={2} />
-              </td>
-              <td>
-                <span className="ml-2">Group {group}</span>
-              </td>
-            </tr>
-            <tr className="flex items-center py-1">
-              <td className="flex items-center">
-                <ClockIcon className="h-3 w-3" />
-              </td>
-              <td>
-                <DateTime className="font-semibold ml-2" timestamp={time} format="dateHHHHDDMM" />
-              </td>
-            </tr>
-            <tr className="flex items-center py-1">
-              <td className="flex items-center">
-                <StadiumIcon className="inline-block h-3 w-3" />
-              </td>
-              <td className="ml-2">{stadium || 'TBD'}</td>
-            </tr>
+            <tbody>
+              <tr className="flex items-center py-1">
+                <td className="flex items-center">
+                  <DiamondBullet size={2} />
+                </td>
+                <td>
+                  <span className="ml-2">Group {group}</span>
+                </td>
+              </tr>
+              <tr className="flex items-center py-1">
+                <td className="flex items-center">
+                  <ClockIcon className="h-3 w-3" />
+                </td>
+                <td>
+                  <DateTime className="font-semibold ml-2" timestamp={time} format="dateHHHHDDMM" />
+                </td>
+              </tr>
+              <tr className="flex items-center py-1">
+                <td className="flex items-center">
+                  <StadiumIcon className="inline-block h-3 w-3" />
+                </td>
+                <td className="ml-2">{stadium || 'TBD'}</td>
+              </tr>
+            </tbody>
           </table>
         </div>
       </div>
