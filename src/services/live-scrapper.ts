@@ -58,10 +58,10 @@ const getMatchDetails = async (url: string) => {
   const events = dom.window.document.querySelectorAll(EVENT_SELECTOR);
 
   events.forEach((event) => {
-    const isYellowCardEvent = !!event.querySelectorAll('[name="FootballYellowCard"]')?.length;
-    const isRedCardEvent = !!event.querySelectorAll('[name="FootballRedCard"]')?.length;
-    const isGoalEvent = !!event.querySelectorAll('[name="FootballGoal"]')?.length;
-    const isPenaltyGoalEvent = !!event.querySelectorAll('[name="FootballGoalPen"]')?.length;
+    const isYellowCardEvent = !!event.querySelector('[name="FootballYellowCard"]');
+    const isRedCardEvent = !!event.querySelector('[name="FootballRedCard"]');
+    const isGoalEvent = !!event.querySelector('[name="FootballGoal"]');
+    const isPenaltyGoalEvent = !!event.querySelector('[name="FootballGoalPen"]');
 
     if (isYellowCardEvent || isRedCardEvent || isGoalEvent || isPenaltyGoalEvent) {
       const time = event.children[0].textContent;

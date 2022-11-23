@@ -28,7 +28,7 @@ const LiveScore = () => {
             })
             .sort((m1: ILiveMatch, m2: ILiveMatch) => Number(m1.time) - Number(m2.time))
             .map((liveMatch: ILiveMatch) => (
-              <LiveMatchItem liveMatch={liveMatch} />
+              <LiveMatchItem key={liveMatch.time} liveMatch={liveMatch} />
             ))}
         </>
       ) : (
@@ -44,7 +44,6 @@ const LiveMatchItem: React.FC<{ liveMatch: ILiveMatch }> = (props) => {
 
   return (
     <div
-      key={props.liveMatch.time}
       onClick={handleMatchClick}
       className="flex items-center bg-teal rounded mt-3 mx-3 text-white font-bold relative hover:cursor-pointer"
     >
