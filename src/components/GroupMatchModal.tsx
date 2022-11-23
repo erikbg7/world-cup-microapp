@@ -116,7 +116,7 @@ const DynamicMatchDetails: React.FC<{ id: IMatch['matchId'] }> = (props) => {
   return (
     <div>
       {data?.results?.map((r) => (
-        <div>
+        <div key={r.time}>
           {r.type} {r.time} {r.team1Player} {r.team2Player}
         </div>
       ))}
