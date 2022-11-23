@@ -113,7 +113,15 @@ const DynamicMatchDetails: React.FC<{ id: IMatch['matchId'] }> = (props) => {
 
   console.table(data);
 
-  return <div>live event and results</div>;
+  return (
+    <div>
+      {data?.results?.map((r) => (
+        <div>
+          {r.type} {r.time} {r.team1Player} {r.team2Player}
+        </div>
+      ))}
+    </div>
+  );
 };
 
 const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {

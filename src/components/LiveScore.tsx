@@ -77,7 +77,13 @@ const LiveMatchItem: React.FC<{ liveMatch: ILiveMatch }> = (props) => {
         isLive
         ref={modalRef}
         title={props.liveMatch.group}
-        match={{ team1: props.liveMatch.team1, team2: props.liveMatch.team2 } as IMatch}
+        match={
+          {
+            team1: props.liveMatch.team1,
+            team2: props.liveMatch.team2,
+            matchId: props.liveMatch.matchId,
+          } as IMatch
+        }
       />
     </div>
   );

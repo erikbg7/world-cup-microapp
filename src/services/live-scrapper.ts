@@ -61,12 +61,14 @@ const getMatchDetails = async (url: string) => {
     const isYellowCardEvent = !!event.querySelectorAll('[name="FootballYellowCard"]')?.length;
     const isRedCardEvent = !!event.querySelectorAll('[name="FootballRedCard"]')?.length;
     const isGoalEvent = !!event.querySelectorAll('[name="FootballGoal"]')?.length;
+    const isPenaltyGoalEvent = !!event.querySelectorAll('[name="FootballGoalPen"]')?.length;
 
-    if (isYellowCardEvent || isRedCardEvent || isGoalEvent) {
+    if (isYellowCardEvent || isRedCardEvent || isGoalEvent || isPenaltyGoalEvent) {
       const time = event.children[0].textContent;
       const team1Player = event.children[1].children[0].textContent;
       const team2Player = event.children[3].children[0].textContent;
-      const type = isGoalEvent ? 'goal' : isRedCardEvent ? 'red-card' : 'yellow-card';
+      const type =
+        isGoalEvent || isPenaltyGoalEvent ? 'goal' : isRedCardEvent ? 'red-card' : 'yellow-card';
 
       assert.ok(time, 'Event time is required');
       assert.notEqual(Number(time?.split(/[\s']+/)[0]), NaN, 'Minute should be a number');
