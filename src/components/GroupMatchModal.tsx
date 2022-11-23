@@ -27,6 +27,8 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
   React.useImperativeHandle(ref, () => ({ open: () => setIsOpen(true) }));
 
   const hasScores = !!props.match.scores?.[0] && !!props.match.scores?.[1];
+  const isTeam1Winner = Number(props.match.scores?.[0]) > Number(props.match.scores?.[1]);
+  const isTeam2Winner = Number(props.match.scores?.[1]) > Number(props.match.scores?.[0]);
 
   return (
     <Transition appear show={isOpen} as={React.Fragment}>
@@ -56,7 +58,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
             >
               <Dialog.Panel className="w-full h-full transform overflow-hidden text-left align-middle shadow-xl transition-all bg-cream">
                 <button
-                  className="absolute top-10 right-10 hover:bg-qatar/20 p-2 rounded-lg"
+                  className="absolute top-5 right-5 hover:bg-qatar/20 p-2 rounded-lg focus:outline-none"
                   onClick={closeModal}
                 >
                   <CloseIcon className="h-10 w-10 mx-auto" />
@@ -74,26 +76,22 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>((props,
                       name={props.match.team1.name}
                       flag={props.match.team1.flag}
                       score={props.match.scores?.[0]}
-                      isWinner={
-                        hasScores &&
-                        Number(props.match.scores?.[0]) > Number(props.match.scores?.[1])
-                      }
+                      isWinner={hasScores && isTeam1Winner}
                       flagClassName="h-12 w-20"
                       nameClassName="text-lg"
                       wrapperClassName="flex-col"
+                      scoreClassName="mr-0 mt-4"
                     />
                     <span className="text-3xl font-extralight">vs</span>
                     <TeamDetails
                       name={props.match.team2.name}
                       flag={props.match.team2.flag}
                       score={props.match.scores?.[1]}
-                      isWinner={
-                        hasScores &&
-                        Number(props.match.scores?.[1]) > Number(props.match.scores?.[0])
-                      }
+                      isWinner={hasScores && isTeam2Winner}
                       flagClassName="h-12 w-20"
                       nameClassName="text-lg"
                       wrapperClassName="flex-col"
+                      scoreClassName="mr-0 mt-4"
                     />
                   </div>
                   {props.match.group && <DynamicGroupSection group={props.match.group} />}
