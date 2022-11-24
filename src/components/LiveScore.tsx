@@ -1,6 +1,5 @@
 import React from 'react';
 import TeamDetails from './TeamDetails';
-// import { LIVE_SCORES, ILiveMatch } from '../config/liveScore';
 import { ILiveMatch } from '../config/liveScore';
 import { fetchAllScores } from '../services/api';
 import { useQuery } from '@tanstack/react-query';
@@ -40,7 +39,7 @@ const LiveScore = () => {
 
 const LiveMatchItem: React.FC<{ liveMatch: ILiveMatch }> = (props) => {
   const modalRef = React.useRef<IGroupMatchModalHandler>(null);
-  const handleMatchClick = () => modalRef.current?.open();
+  const handleMatchClick = () => modalRef.current?.open(props.liveMatch);
 
   return (
     <div
