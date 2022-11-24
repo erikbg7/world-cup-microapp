@@ -1,8 +1,9 @@
 import jsdom from 'jsdom';
 import assert from 'assert';
 import got from 'got';
-import { ILiveMatch, LIVE_SCORES } from '../config/liveScore';
+import { ILiveMatch } from '../config/liveScore';
 import { IMatchEvent } from '../models/events';
+import { MATCHES } from '../config/matches';
 
 const normalizeTeam = (name: string) => {
   const team = name.toLocaleLowerCase();
@@ -35,7 +36,7 @@ const getAllScores = async (url: string) => {
         '[data-testid^="football_match_row-away_score"]'
       )?.textContent;
 
-      const scoreObj = LIVE_SCORES.find(
+      const scoreObj = MATCHES.find(
         ({ team1, team2 }) =>
           team1.name.toLowerCase() === normalizeTeam(t1) &&
           team2.name.toLowerCase() === normalizeTeam(t2)

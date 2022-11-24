@@ -1,5 +1,5 @@
 export interface IDateFormat {
-  format: 'dateAndTime' | 'dateNumbers' | 'dateNames' | 'dateHour' | 'dateHHHHDDMM';
+  format: 'dateAndTime' | 'dateNumbers' | 'dateNames' | 'dateHour' | 'dateHHHHDDMM' | 'dateDay';
   timestamp: number;
 }
 
@@ -24,9 +24,16 @@ const getDateByTimezone = ({ timestamp, format }: IDateFormat) => {
     dateNames: `${dayName}, ${monthName} ${day}`,
     dateHour: `${hourAndMinutes}`,
     dateHHHHDDMM: `${hourAndMinutes} · ${day} ${monthName}`,
+    dateDay: `${day}`,
   }[format];
 
   return dateFormated || date.toLocaleString('en-GB', { timeZone });
 };
 
-export { getDateByTimezone };
+const isToday = (timestamp: number) => {
+  const today = new Date();
+  const date = new Date(timestamp);
+  return date.getDate() === today.getDate() && date.getMonth() === today.getMonth();
+};
+
+export { getDateByTimezone, isToday };
