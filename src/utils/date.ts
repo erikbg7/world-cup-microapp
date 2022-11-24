@@ -1,5 +1,5 @@
 export interface IDateFormat {
-  format: 'dateAndTime' | 'dateNumbers' | 'dateNames' | 'dateHour' | 'dateHHHHDDMM';
+  format: 'dateAndTime' | 'dateNumbers' | 'dateNames' | 'dateHour' | 'dateHHHHDDMM' | 'dateDay';
   timestamp: number;
 }
 
@@ -24,6 +24,7 @@ const getDateByTimezone = ({ timestamp, format }: IDateFormat) => {
     dateNames: `${dayName}, ${monthName} ${day}`,
     dateHour: `${hourAndMinutes}`,
     dateHHHHDDMM: `${hourAndMinutes} · ${day} ${monthName}`,
+    dateDay: `${day}`,
   }[format];
 
   return dateFormated || date.toLocaleString('en-GB', { timeZone });

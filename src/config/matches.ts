@@ -1,6 +1,7 @@
 import { ITeam, TEAMS } from './teams';
 import { GroupIdentifier } from '../models/groups';
 import { STADIUMS, Stadium } from './stadiums';
+import { getDateByTimezone } from '../utils/date';
 
 interface IMatch {
   group?: GroupIdentifier;
@@ -405,58 +406,66 @@ const MATCHES: IMatch[] = [
   },
 ];
 
+const getMatchesByDay = (timestamp: number) => {
+  return MATCHES.filter((match) => {
+    const day = getDateByTimezone({ timestamp, format: 'dateDay' });
+    const matchDay = getDateByTimezone({ timestamp: match.time, format: 'dateDay' });
+    return matchDay === day;
+  });
+};
+
 const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
   'Group Stage · Sun, Nov 20': {
     day: 1668960000000,
-    matches: [MATCHES[0]],
+    matches: getMatchesByDay(1668960000000),
   },
   'Group Stage · Mon, Nov 21': {
     day: 1669035600000,
-    matches: [MATCHES[1], MATCHES[2], MATCHES[3]],
+    matches: getMatchesByDay(1669035600000),
   },
   'Group Stage · Tue, Nov 22': {
     day: 1669111200000,
-    matches: [MATCHES[4], MATCHES[5], MATCHES[6], MATCHES[7]],
+    matches: getMatchesByDay(1669111200000),
   },
   'Group Stage · Wed, Nov 23': {
     day: 1669197600000,
-    matches: [MATCHES[8], MATCHES[9], MATCHES[10], MATCHES[11]],
+    matches: getMatchesByDay(1669197600000),
   },
   'Group Stage · Thu, Nov 24': {
     day: 1669284000000,
-    matches: [MATCHES[12], MATCHES[13], MATCHES[14], MATCHES[15]],
+    matches: getMatchesByDay(1669284000000),
   },
   'Group Stage · Fri, Nov 25': {
     day: 1669370400000,
-    matches: [MATCHES[16], MATCHES[17], MATCHES[18], MATCHES[19]],
+    matches: getMatchesByDay(1669370400000),
   },
   'Group Stage · Sat, Nov 26': {
     day: 1669456800000,
-    matches: [MATCHES[20], MATCHES[21], MATCHES[22], MATCHES[23]],
+    matches: getMatchesByDay(1669456800000),
   },
   'Group Stage · Sun, Nov 27': {
     day: 1669543200000,
-    matches: [MATCHES[24], MATCHES[25], MATCHES[26], MATCHES[27]],
+    matches: getMatchesByDay(1669543200000),
   },
   'Group Stage · Mon, Nov 28': {
     day: 1669629600000,
-    matches: [MATCHES[28], MATCHES[29], MATCHES[30], MATCHES[31]],
+    matches: getMatchesByDay(1669629600000),
   },
   'Group Stage · Tue, Nov 29': {
     day: 1669734000000,
-    matches: [MATCHES[32], MATCHES[33], MATCHES[34], MATCHES[35]],
+    matches: getMatchesByDay(1669734000000),
   },
   'Group Stage · Wed, Nov 30': {
     day: 1669820400000,
-    matches: [MATCHES[36], MATCHES[37], MATCHES[38], MATCHES[39]],
+    matches: getMatchesByDay(1669820400000),
   },
   'Group Stage · Thu, Dec 1': {
     day: 1669906800000,
-    matches: [MATCHES[40], MATCHES[41], MATCHES[42], MATCHES[43]],
+    matches: getMatchesByDay(1669906800000),
   },
   'Group Stage · Fri, Dec 2': {
     day: 1669993200000,
-    matches: [MATCHES[44], MATCHES[45], MATCHES[46], MATCHES[47]],
+    matches: getMatchesByDay(1669993200000),
   },
 };
 
