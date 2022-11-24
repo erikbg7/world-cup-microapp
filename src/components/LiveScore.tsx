@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import { getDateByTimezone } from '../utils/date';
 import GroupMatchModal, { IGroupMatchModalHandler } from './GroupMatchModal';
 import { IMatch } from '../config/matches';
+import DiamondBullet from '../components/DiamondBullet';
 
 const STATUS = ['FT', 'AP', 'AET', 'AW', 'HW', 'D'];
 
@@ -74,6 +75,11 @@ const LiveMatchItem: React.FC<{ liveMatch: ILiveMatch }> = (props) => {
             nameClassName="hidden xs:block"
           />
         </div>
+        <DiamondBullet
+          className="bg-white h-[18px] w-[18px] flex items-center justify-center ml-[auto]"
+          size={3}
+          icon="/images/arrow.svg"
+        />
       </div>
       <GroupMatchModal
         isLive
