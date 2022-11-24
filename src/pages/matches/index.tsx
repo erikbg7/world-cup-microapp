@@ -77,7 +77,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
               name={team2.name}
               flag={team2.flag}
               fifaCode={team2.fifaCode}
-              score={hasScores ? scores?.[1] : liveScores[0]}
+              score={hasScores ? scores?.[1] : liveScores[1]}
               isWinner={hasScores && scores[1] > scores[0]}
             />
           </div>
@@ -129,6 +129,8 @@ interface TeamDataProps {
 }
 
 const TeamData: React.FC<TeamDataProps> = ({ flag, name, fifaCode, score, isWinner }) => {
+  console.log('***** fifaCode', fifaCode);
+  console.log('***** score', score);
   return (
     <div className="flex items-center">
       {score && <Score score={score} isWinner={isWinner} />}
