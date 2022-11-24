@@ -47,7 +47,7 @@ const LiveMatchItem: React.FC<{ liveMatch: ILiveMatch }> = (props) => {
       onClick={handleMatchClick}
       className="flex items-center bg-teal rounded mt-3 mx-3 text-white font-bold relative hover:cursor-pointer"
     >
-      <div style={{ width: 100 }} className="flex p-2  items-center w-30">
+      <div className="flex p-2  items-center w-20">
         <LiveMatchLabel match={props.liveMatch} />
       </div>
       <div className="flex p-2 items-center flex-1 justify-items-start pr-2">
@@ -59,13 +59,13 @@ const LiveMatchItem: React.FC<{ liveMatch: ILiveMatch }> = (props) => {
             nameClassName="hidden xs:block"
             wrapperClassName="flex-row-reverse"
           />
-          <span id={`${props.liveMatch.team1.name}-score`} className="px-3">
+          <span id={`${props.liveMatch.team1.name}-score`} className="px-2">
             {props.liveMatch.scores?.[0]}
           </span>
         </div>
         <span>-</span>
         <div className="flex items-center">
-          <span id={`${props.liveMatch.team2.name}-score`} className="px-3">
+          <span id={`${props.liveMatch.team2.name}-score`} className="px-2">
             {props.liveMatch.scores?.[1]}
           </span>
           <TeamDetails
