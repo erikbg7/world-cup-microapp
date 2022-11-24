@@ -58,11 +58,15 @@ const LiveMatchItem: React.FC<{ liveMatch: ILiveMatch }> = (props) => {
             nameClassName="hidden xs:block"
             wrapperClassName="flex-row-reverse"
           />
-          <span className="px-3">{props.liveMatch.scores?.[0]}</span>
+          <span id={`${props.liveMatch.team1.name}-score`} className="px-3">
+            {props.liveMatch.scores?.[0]}
+          </span>
         </div>
         <span>-</span>
         <div className="flex items-center">
-          <span className="px-3">{props.liveMatch.scores?.[1]}</span>
+          <span id={`${props.liveMatch.team2.name}-score`} className="px-3">
+            {props.liveMatch.scores?.[1]}
+          </span>
           <TeamDetails
             name={props.liveMatch.team2.fifaCode}
             flag={props.liveMatch.team2.flag}

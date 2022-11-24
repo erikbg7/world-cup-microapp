@@ -1,5 +1,4 @@
 import { IMatch } from './matches';
-import { ITeam, TEAMS } from './teams';
 
 export enum MatchResult {
   FT = 'FT', // Full time

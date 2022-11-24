@@ -30,4 +30,10 @@ const getDateByTimezone = ({ timestamp, format }: IDateFormat) => {
   return dateFormated || date.toLocaleString('en-GB', { timeZone });
 };
 
-export { getDateByTimezone };
+const isToday = (timestamp: number) => {
+  const today = new Date();
+  const date = new Date(timestamp);
+  return date.getDate() === today.getDate() && date.getMonth() === today.getMonth();
+};
+
+export { getDateByTimezone, isToday };

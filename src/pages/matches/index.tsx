@@ -8,6 +8,8 @@ import StadiumIcon from '../../components/icons/StadiumIcon';
 import ClockIcon from '../../components/icons/ClockIcon';
 import DiamondBullet from '../../components/DiamondBullet';
 import Score from '../../components/Score';
+import { ITouple } from '../../components/MatchDetailsSection';
+import { isToday } from '../../utils/date';
 
 const MatchesPage = () => {
   return (
@@ -34,9 +36,26 @@ const MatchesDay: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDa
 
 const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, scores }) => {
   const modalRef = React.useRef<IGroupMatchModalHandler>(null);
+  const [liveScores, setLiveScores] = React.useState<ITouple>(['', '']);
 
   const handleMatchClick = () => modalRef.current?.open();
-  const hasScores = !!scores?.[0] && !!scores?.[1];
+  const hasScores = scores?.length === 2;
+
+  React.useEffect(() => {
+    let intervalId: any;
+    if (!hasScores && isToday(time)) {
+      intervalId = setInterval(() => {
+        let liveScore1 = document?.getElementById(`${team1.name}-score`)?.textContent;
+        let liveScore2 = document?.getElementById(`${team2.name}-score`)?.textContent;
+        liveScore1 = liveScore1?.replace('?', '');
+        liveScore2 = liveScore2?.replace('?', '');
+        if (liveScore1 !== liveScores[0] || liveScore2 !== liveScores[1]) {
+          setLiveScores([liveScore1 as string, liveScore2 as string]);
+        }
+      }, 5000);
+    }
+    return () => intervalId && clearInterval(intervalId);
+  }, []);
 
   return (
     <>
@@ -50,7 +69,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
               name={team1.name}
               flag={team1.flag}
               fifaCode={team1.fifaCode}
-              score={scores?.[0]}
+              score={hasScores ? scores?.[0] : liveScores[0]}
               isWinner={hasScores && scores[0] > scores[1]}
             />
             <div className="text-sm w-full text-center font-light">vs</div>
@@ -58,7 +77,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
               name={team2.name}
               flag={team2.flag}
               fifaCode={team2.fifaCode}
-              score={scores?.[1]}
+              score={hasScores ? scores?.[1] : liveScores[0]}
               isWinner={hasScores && scores[1] > scores[0]}
             />
           </div>
