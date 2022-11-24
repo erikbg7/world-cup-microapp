@@ -156,6 +156,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team1: TEAMS.Switzerland,
         team2: TEAMS.Cameroon,
         matchId: 'group-g/switzerland-vs-cameroon/663924',
+        scores: ['1', '0'],
       },
       {
         group: 'H',
