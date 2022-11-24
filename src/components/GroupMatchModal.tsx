@@ -42,8 +42,7 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>(
     const isTeam1Winner = Number(match.scores?.[0]) > Number(match.scores?.[1]);
     const isTeam2Winner = Number(match.scores?.[1]) > Number(match.scores?.[0]);
 
-    const getScore = (index: 0 | 1) =>
-      isLive ? modalData?.scores?.[index] : match.scores?.[index];
+    const getScore = (index: 0 | 1) => modalData?.scores?.[index] || match.scores?.[index];
 
     return (
       <Transition appear show={isOpen} as={React.Fragment}>
@@ -95,18 +94,18 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>(
                         flagClassName="h-12 w-20"
                         nameClassName="text-lg"
                         wrapperClassName="flex-col"
-                        scoreClassName="mr-0 mt-4"
+                        scoreClassName="m-4"
                       />
                       <span className="text-3xl font-extralight">vs</span>
                       <TeamDetails
                         name={match.team2.name}
                         flag={match.team2.flag}
-                        score={getScore(0)}
+                        score={getScore(1)}
                         isWinner={hasScores && isTeam2Winner}
                         flagClassName="h-12 w-20"
                         nameClassName="text-lg"
                         wrapperClassName="flex-col"
-                        scoreClassName="mr-0 mt-4"
+                        scoreClassName="m-4"
                       />
                     </div>
                     {match.group && <DynamicGroupSection group={match.group} />}
