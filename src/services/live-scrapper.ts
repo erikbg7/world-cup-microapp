@@ -4,6 +4,14 @@ import got from 'got';
 import { ILiveMatch, LIVE_SCORES } from '../config/liveScore';
 import { IMatchEvent } from '../models/events';
 
+const normalizeTeam = (name: string) => {
+  const team = name.toLocaleLowerCase();
+  if (team === 'south korea') {
+    return 'korea republic';
+  }
+  return team;
+};
+
 const getAllScores = async (url: string) => {
   const scores: ILiveMatch[] = [];
   const response = await got(url);
@@ -29,8 +37,8 @@ const getAllScores = async (url: string) => {
 
       const scoreObj = LIVE_SCORES.find(
         ({ team1, team2 }) =>
-          team1.name.toLowerCase() === t1.toLowerCase() &&
-          team2.name.toLowerCase() === t2.toLowerCase()
+          team1.name.toLowerCase() === normalizeTeam(t1) &&
+          team2.name.toLowerCase() === normalizeTeam(t2)
       );
 
       if (scoreObj) {

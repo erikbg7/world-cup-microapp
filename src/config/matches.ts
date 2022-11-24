@@ -124,6 +124,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team1: TEAMS.Germany,
         team2: TEAMS.Japan,
         matchId: 'group-e/germany-vs-japan/663912',
+        scores: ['1', '2'],
       },
       {
         group: 'E',
@@ -132,6 +133,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team1: TEAMS.Spain,
         team2: TEAMS.CostaRica,
         matchId: 'group-e/spain-vs-costa-rica/663913',
+        scores: ['7', '0'],
       },
       {
         group: 'F',
@@ -140,6 +142,7 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
         team1: TEAMS.Belgium,
         team2: TEAMS.Canada,
         matchId: 'group-f/belgium-vs-canada/663920',
+        scores: ['1', '0'],
       },
     ],
   },
