@@ -129,8 +129,6 @@ interface TeamDataProps {
 }
 
 const TeamData: React.FC<TeamDataProps> = ({ flag, name, fifaCode, score, isWinner }) => {
-  console.log('***** fifaCode', fifaCode);
-  console.log('***** score', score);
   return (
     <div className="flex items-center">
       {score && <Score score={score} isWinner={isWinner} />}
