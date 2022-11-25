@@ -22,6 +22,7 @@
     "got": "^12.5.2",
     "jsdom": "^20.0.2",
     "next": "13.0.3",
+    "next-plausible": "^3.6.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "typescript": "4.8.4"
