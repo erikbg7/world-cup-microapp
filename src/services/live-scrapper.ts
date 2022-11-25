@@ -92,4 +92,54 @@ const getMatchDetails = async (url: string) => {
   return liveEvents;
 };
 
-export { getAllScores, getMatchDetails };
+const getTopScores = async () => {
+  const url =
+    'https://www.sportingnews.com/us/soccer/news/world-cup-2022-top-goal-scorer-updated-rankings-golden-boot/e5nqav2zpixqgfar0nolaxcf';
+  // const response = await got(url);
+  // const dom = new jsdom.JSDOM(response.body);
+  // const topScore = dom.window.document
+  //   .querySelector('[class="table-retro-standard"]')
+  //   ?.querySelectorAll('tr[class="even]');
+
+  // console.log('*********** topScore', topScore);
+  // const matches = dom.window.document
+  //   .querySelector('[data-testid="match_rows-root"]')
+  //   ?.querySelectorAll('div[data-testid^="football_match_row"]');
+
+  // if ((matches?.length ?? 0) > 0) {
+  //   matches!.forEach((match) => {
+  //     const t1 =
+  //       match.querySelector('[data-testid^="football_match_row-home_team"]')?.textContent ?? '';
+  //     const t2 =
+  //       match.querySelector('[data-testid^="football_match_row-away_team"]')?.textContent ?? '';
+  //     const result =
+  //       match.querySelector('[data-testid^="match_row_time-status"]')?.textContent ?? '';
+  //     const score0 = match.querySelector(
+  //       '[data-testid^="football_match_row-home_score"]'
+  //     )?.textContent;
+  //     const score1 = match.querySelector(
+  //       '[data-testid^="football_match_row-away_score"]'
+  //     )?.textContent;
+
+  //     const scoreObj = MATCHES.find(
+  //       ({ team1, team2 }) =>
+  //         team1.name.toLowerCase() === normalizeTeam(t1) &&
+  //         team2.name.toLowerCase() === normalizeTeam(t2)
+  //     );
+
+  //     if (scoreObj) {
+  //       scores.push({
+  //         ...scoreObj,
+  //         scores: [score0 ?? '0', score1 ?? '0'],
+  //         result,
+  //       });
+  //     }
+  //   });
+
+  //   return scores;
+  // }
+
+  // return scores;
+};
+
+export { getAllScores, getMatchDetails, getTopScores };
