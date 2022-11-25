@@ -143,6 +143,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Uruguay,
     team2: TEAMS.SouthKorea,
     matchId: 'group-h/uruguay-vs-south-korea/663931',
+    scores: ['0', '0'],
   },
   {
     group: 'H',
@@ -151,6 +152,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Portugal,
     team2: TEAMS.Ghana,
     matchId: 'group-h/portugal-vs-ghana/663930',
+    scores: ['3', '2'],
   },
   {
     group: 'G',
@@ -159,6 +161,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Brazil,
     team2: TEAMS.Serbia,
     matchId: 'group-g/brazil-vs-serbia/663925',
+    scores: ['2', '0'],
   },
   {
     group: 'B',
