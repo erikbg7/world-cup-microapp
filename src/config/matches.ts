@@ -206,6 +206,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Tunisia,
     team2: TEAMS.Australia,
     matchId: 'group-d/tunisia-vs-australia/663906',
+    scores: ['0', '1'],
   },
   {
     group: 'C',
@@ -214,6 +215,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Poland,
     team2: TEAMS.SaudiArabia,
     matchId: 'group-c/poland-vs-saudi-arabia/663900',
+    scores: ['2', '0'],
   },
   {
     group: 'D',
@@ -222,6 +224,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.France,
     team2: TEAMS.Denmark,
     matchId: 'group-d/france-vs-denmark/663907',
+    scores: ['2', '1'],
   },
   {
     group: 'C',
@@ -230,6 +233,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Argentina,
     team2: TEAMS.Mexico,
     matchId: 'group-c/argentina-vs-mexico/663901',
+    scores: ['2', '0'],
   },
   {
     group: 'E',
