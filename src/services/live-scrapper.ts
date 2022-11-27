@@ -3,6 +3,7 @@ import assert from 'assert';
 import got from 'got';
 import { ILiveMatch } from '../config/liveScore';
 import { IMatchEvent } from '../models/events';
+import { IGoalScorer } from '../models/players';
 import { MATCHES } from '../config/matches';
 
 const normalizeTeam = (name: string) => {
@@ -92,54 +93,35 @@ const getMatchDetails = async (url: string) => {
   return liveEvents;
 };
 
-const getTopScores = async () => {
-  const url =
-    'https://www.sportingnews.com/us/soccer/news/world-cup-2022-top-goal-scorer-updated-rankings-golden-boot/e5nqav2zpixqgfar0nolaxcf';
-  // const response = await got(url);
-  // const dom = new jsdom.JSDOM(response.body);
-  // const topScore = dom.window.document
-  //   .querySelector('[class="table-retro-standard"]')
-  //   ?.querySelectorAll('tr[class="even]');
+const getTopScores = async (url: string) => {
+  const response = await got(url);
+  const dom = new jsdom.JSDOM(response.body);
+  const topScore = dom.window.document
+    .querySelector('[class="table-retro-standard"]')
+    ?.querySelector('tbody')
+    ?.querySelectorAll('tr');
 
-  // console.log('*********** topScore', topScore);
-  // const matches = dom.window.document
-  //   .querySelector('[data-testid="match_rows-root"]')
-  //   ?.querySelectorAll('div[data-testid^="football_match_row"]');
+  const players: IGoalScorer[] = [];
 
-  // if ((matches?.length ?? 0) > 0) {
-  //   matches!.forEach((match) => {
-  //     const t1 =
-  //       match.querySelector('[data-testid^="football_match_row-home_team"]')?.textContent ?? '';
-  //     const t2 =
-  //       match.querySelector('[data-testid^="football_match_row-away_team"]')?.textContent ?? '';
-  //     const result =
-  //       match.querySelector('[data-testid^="match_row_time-status"]')?.textContent ?? '';
-  //     const score0 = match.querySelector(
-  //       '[data-testid^="football_match_row-home_score"]'
-  //     )?.textContent;
-  //     const score1 = match.querySelector(
-  //       '[data-testid^="football_match_row-away_score"]'
-  //     )?.textContent;
+  topScore!.forEach((player) => {
+    const tds = player.querySelectorAll('td');
+    const tdsArr = Array.from(tds);
 
-  //     const scoreObj = MATCHES.find(
-  //       ({ team1, team2 }) =>
-  //         team1.name.toLowerCase() === normalizeTeam(t1) &&
-  //         team2.name.toLowerCase() === normalizeTeam(t2)
-  //     );
+    if (tdsArr.length) {
+      const row = {
+        rank: tdsArr[0].textContent,
+        name: tdsArr[1].textContent,
+        team: tdsArr[2].textContent,
+        goals: tdsArr[3].textContent,
+        assists: tdsArr[4].textContent,
+        matches: tdsArr[5].textContent,
+        minutes: tdsArr[6].textContent,
+      };
+      players.push(row as IGoalScorer);
+    }
+  });
 
-  //     if (scoreObj) {
-  //       scores.push({
-  //         ...scoreObj,
-  //         scores: [score0 ?? '0', score1 ?? '0'],
-  //         result,
-  //       });
-  //     }
-  //   });
-
-  //   return scores;
-  // }
-
-  // return scores;
+  return players;
 };
 
 export { getAllScores, getMatchDetails, getTopScores };
