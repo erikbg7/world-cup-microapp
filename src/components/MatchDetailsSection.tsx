@@ -12,7 +12,7 @@ interface Props {
 
 const MatchDetailsSection: React.FC<Props> = ({ referee, events, teams }) => {
   return (
-    <section className="w-full px-2 py-0">
+    <section className="w-full px-2 py-0 overflow-auto">
       <table className="w-full text-center">
         <tbody>
           {events?.map((r) => (

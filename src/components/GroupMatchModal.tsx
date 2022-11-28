@@ -78,14 +78,14 @@ const GroupMatchModal = React.forwardRef<IGroupMatchModalHandler, Props>(
                     <CloseIcon className="h-10 w-10 mx-auto" />
                   </button>
 
-                  <div className="responsive-screen flex flex-col justify-center items-center w-full h-full pb-20">
+                  <div className="responsive-screen flex flex-col justify-center items-center w-full h-full pb-5">
                     <div className="text-4xl font-extralight w-full px-4 py-12 text-center">
                       {title}
                     </div>
 
                     <DiamondDivider />
 
-                    <div className="flex justify-around items-center w-full pb-16 pt-10">
+                    <div className="flex justify-around items-center w-full pb-5 pt-10">
                       <TeamDetails
                         name={match.team1.name}
                         flag={match.team1.flag}
@@ -139,7 +139,7 @@ const DynamicGroupSection: React.FC<{ group: GroupIdentifier }> = (props) => {
   return (
     <GroupSection
       showGroup={false}
-      className="w-full px-2 py-0"
+      className="w-full px-2 py-0 overflow-auto flex-1"
       group={props.group}
       teams={data?.[props.group]}
     />

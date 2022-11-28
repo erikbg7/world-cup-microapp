@@ -13,7 +13,7 @@ import { isToday } from '../../utils/date';
 
 const MatchesPage = () => {
   return (
-    <div className="py-5">
+    <div className="py-5 flex-1 overflow-auto">
       {Object.entries(GROUP_STAGE_MATCHES).map(([id, matchDay]) => (
         <MatchesDay key={id} id={id} matchDay={matchDay} />
       ))}
