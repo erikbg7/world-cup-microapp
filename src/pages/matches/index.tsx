@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import { GROUP_STAGE_MATCHES, IMatch, IMatchDay } from '../../config/matches';
 import GroupMatchModal, { IGroupMatchModalHandler } from '../../components/GroupMatchModal';
@@ -22,8 +22,16 @@ const MatchesPage = () => {
 };
 
 const MatchesDay: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDay }) => {
+  const currentMatchRef = useRef<HTMLDivElement>(null);
+  React.useEffect(() => {
+    currentMatchRef?.current?.scrollIntoView();
+  }, []);
+
   return (
-    <section className="px-6 sm:px-12 pb-6">
+    <section
+      className="px-6 sm:px-12 pb-6"
+      ref={isToday(matchDay.matches[0].time) ? currentMatchRef : undefined}
+    >
       <h2 className="text-xl font-semibold py-3">{id}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-hidden">
         {matchDay.matches.map((match) => (
