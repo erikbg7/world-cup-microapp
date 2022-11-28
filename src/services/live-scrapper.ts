@@ -3,6 +3,7 @@ import assert from 'assert';
 import got from 'got';
 import { ILiveMatch } from '../config/liveScore';
 import { IMatchEvent } from '../models/events';
+import { IGoalScorer } from '../models/players';
 import { MATCHES } from '../config/matches';
 
 const normalizeTeam = (name: string) => {
@@ -92,4 +93,35 @@ const getMatchDetails = async (url: string) => {
   return liveEvents;
 };
 
-export { getAllScores, getMatchDetails };
+const getTopScores = async (url: string) => {
+  const response = await got(url);
+  const dom = new jsdom.JSDOM(response.body);
+  const topScore = dom.window.document
+    .querySelector('[class="table-retro-standard"]')
+    ?.querySelector('tbody')
+    ?.querySelectorAll('tr');
+
+  const players: IGoalScorer[] = [];
+
+  topScore!.forEach((player) => {
+    const tds = player.querySelectorAll('td');
+    const tdsArr = Array.from(tds);
+
+    if (tdsArr.length) {
+      const row = {
+        rank: tdsArr[0].textContent,
+        name: tdsArr[1].textContent,
+        team: tdsArr[2].textContent,
+        goals: tdsArr[3].textContent,
+        assists: tdsArr[4].textContent,
+        matches: tdsArr[5].textContent,
+        minutes: tdsArr[6].textContent,
+      };
+      players.push(row as IGoalScorer);
+    }
+  });
+
+  return players;
+};
+
+export { getAllScores, getMatchDetails, getTopScores };

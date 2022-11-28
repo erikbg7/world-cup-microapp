@@ -12,4 +12,10 @@ const fetchMatchDetails = (matchId: string) => async () => {
   return data as { results: IMatchEvent[] };
 };
 
-export { fetchAllScores, fetchMatchDetails };
+const fetchStatistics = () => async () => {
+  const response = await fetch('/api/statistics');
+  const data = await response.json();
+  return data;
+};
+
+export { fetchAllScores, fetchMatchDetails, fetchStatistics };
