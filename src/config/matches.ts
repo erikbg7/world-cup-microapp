@@ -242,6 +242,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Japan,
     team2: TEAMS.CostaRica,
     matchId: 'group-e/japan-vs-costa-rica/663915',
+    scores: ['0', '1'],
   },
   {
     group: 'F',
@@ -250,6 +251,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Belgium,
     team2: TEAMS.Morocco,
     matchId: 'group-f/belgium-vs-morocco/663919',
+    scores: ['0', '2'],
   },
   {
     group: 'F',
@@ -258,6 +260,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Croatia,
     team2: TEAMS.Canada,
     matchId: 'group-f/croatia-vs-canada/663918',
+    scores: ['4', '1'],
   },
   {
     group: 'E',
@@ -266,6 +269,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Spain,
     team2: TEAMS.Germany,
     matchId: 'group-e/spain-vs-germany/663914',
+    scores: ['1', '1'],
   },
   {
     group: 'G',
