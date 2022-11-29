@@ -314,6 +314,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Ecuador,
     team2: TEAMS.Senegal,
     matchId: 'group-a/ecuador-vs-senegal/663893',
+    scores: ['1', '2'],
   },
   {
     group: 'A',
@@ -322,6 +323,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Netherlands,
     team2: TEAMS.Qatar,
     matchId: 'group-a/netherlands-vs-qatar/663892',
+    scores: ['2', '0'],
   },
   {
     group: 'B',
@@ -330,6 +332,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Iran,
     team2: TEAMS.USA,
     matchId: 'group-b/iran-vs-usa/663899',
+    scores: ['0', '1'],
   },
   {
     group: 'B',
@@ -338,6 +341,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Wales,
     team2: TEAMS.England,
     matchId: 'group-b/wales-vs-england/663897',
+    scores: ['0', '3'],
   },
   {
     group: 'D',
