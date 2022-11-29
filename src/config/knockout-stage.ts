@@ -17,8 +17,8 @@ const KNOCKOUT_STAGE_ROUNDS: IRound[] = [
     matches: [
       {
         date: 1670079600000,
-        team1: { ...TEAMS.TBD, name: '1ºA' },
-        team2: { ...TEAMS.TBD, name: '2ºB' },
+        team1: { ...TEAMS.Netherlands },
+        team2: { ...TEAMS.USA },
       },
       {
         date: 1670094000000,
@@ -27,23 +27,23 @@ const KNOCKOUT_STAGE_ROUNDS: IRound[] = [
       },
       {
         date: 1670252400000,
-        team1: { ...TEAMS.TBD, name: '1ºD' },
-        team2: { ...TEAMS.TBD, name: '2ºC' },
-      },
-      {
-        date: 1670266800000,
-        team1: { ...TEAMS.TBD, name: '1ºB' },
-        team2: { ...TEAMS.TBD, name: '2ºA' },
-      },
-      {
-        date: 1670166000000,
         team1: { ...TEAMS.TBD, name: '1ºE' },
         team2: { ...TEAMS.TBD, name: '2ºF' },
       },
       {
-        date: 1670180400000,
+        date: 1670266800000,
         team1: { ...TEAMS.TBD, name: '1ºG' },
         team2: { ...TEAMS.TBD, name: '2ºH' },
+      },
+      {
+        date: 1670166000000,
+        team1: { ...TEAMS.TBD, name: '1ºD' },
+        team2: { ...TEAMS.TBD, name: '2ºC' },
+      },
+      {
+        date: 1670180400000,
+        team1: { ...TEAMS.England },
+        team2: { ...TEAMS.Senegal },
       },
       {
         date: 1670338800000,
