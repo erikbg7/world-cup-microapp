@@ -349,6 +349,7 @@ const MATCHES: IMatch[] = [
     time: 1669820400000,
     team1: TEAMS.Tunisia,
     team2: TEAMS.France,
+    matchId: 'group-d/tunisia-vs-france/663909',
     scores: ['1', '0'],
   },
   {
@@ -357,6 +358,7 @@ const MATCHES: IMatch[] = [
     time: 1669820400000,
     team1: TEAMS.Australia,
     team2: TEAMS.Denmark,
+    matchId: 'group-d/australia-vs-denmark/663908',
     scores: ['1', '0'],
   },
   {
@@ -365,6 +367,7 @@ const MATCHES: IMatch[] = [
     time: 1669834800000,
     team1: TEAMS.Poland,
     team2: TEAMS.Argentina,
+    matchId: 'group-c/poland-vs-argentina/663903',
     scores: ['0', '2'],
   },
   {
@@ -373,6 +376,7 @@ const MATCHES: IMatch[] = [
     time: 1669834800000,
     team1: TEAMS.SaudiArabia,
     team2: TEAMS.Mexico,
+    matchId: 'group-c/saudi-arabia-vs-mexico/663902',
     scores: ['1', '2'],
   },
   {
@@ -381,6 +385,7 @@ const MATCHES: IMatch[] = [
     time: 1669906800000,
     team1: TEAMS.Croatia,
     team2: TEAMS.Belgium,
+    matchId: 'group-f/croatia-vs-belgium/663922',
     scores: ['0', '0'],
   },
   {
@@ -389,6 +394,7 @@ const MATCHES: IMatch[] = [
     time: 1669906800000,
     team1: TEAMS.Canada,
     team2: TEAMS.Morocco,
+    matchId: 'group-f/canada-vs-morocco/663923',
     scores: ['1', '2'],
   },
   {
@@ -397,6 +403,7 @@ const MATCHES: IMatch[] = [
     time: 1669921200000,
     team1: TEAMS.Japan,
     team2: TEAMS.Spain,
+    matchId: 'group-e/japan-vs-spain/663916',
   },
   {
     group: 'E',
@@ -404,6 +411,7 @@ const MATCHES: IMatch[] = [
     time: 1669921200000,
     team1: TEAMS.CostaRica,
     team2: TEAMS.Germany,
+    matchId: 'group-e/costa-rica-vs-germany/663917',
   },
   {
     group: 'H',
@@ -411,6 +419,7 @@ const MATCHES: IMatch[] = [
     time: 1669993200000,
     team1: TEAMS.SouthKorea,
     team2: TEAMS.Portugal,
+    matchId: 'group-h/south-korea-vs-portugal/663935',
   },
   {
     group: 'H',
@@ -418,6 +427,7 @@ const MATCHES: IMatch[] = [
     time: 1669993200000,
     team1: TEAMS.Ghana,
     team2: TEAMS.Uruguay,
+    matchId: 'group-h/ghana-vs-uruguay/663934',
   },
   {
     group: 'G',
@@ -425,6 +435,7 @@ const MATCHES: IMatch[] = [
     time: 1670007600000,
     team1: TEAMS.Serbia,
     team2: TEAMS.Switzerland,
+    matchId: 'group-g/serbia-vs-switzerland/663928',
   },
   {
     group: 'G',
@@ -432,6 +443,7 @@ const MATCHES: IMatch[] = [
     time: 1670007600000,
     team1: TEAMS.Cameroon,
     team2: TEAMS.Brazil,
+    matchId: 'group-g/cameroon-vs-brazil/663929',
   },
 ];
 
