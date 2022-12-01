@@ -27,7 +27,7 @@ const KNOCKOUT_STAGE_ROUNDS: IRound[] = [
       },
       {
         date: 1670252400000,
-        team1: { ...TEAMS.TBD, name: '1ºE' },
+        team1: { ...TEAMS.Japan },
         team2: { ...TEAMS.Croatia },
       },
       {
@@ -48,7 +48,7 @@ const KNOCKOUT_STAGE_ROUNDS: IRound[] = [
       {
         date: 1670338800000,
         team1: { ...TEAMS.Morocco },
-        team2: { ...TEAMS.TBD, name: '2ºE' },
+        team2: { ...TEAMS.Spain },
       },
       {
         date: 1670353200000,

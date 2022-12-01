@@ -404,6 +404,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Japan,
     team2: TEAMS.Spain,
     matchId: 'group-e/japan-vs-spain/663916',
+    scores: ['2', '1'],
   },
   {
     group: 'E',
@@ -412,6 +413,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.CostaRica,
     team2: TEAMS.Germany,
     matchId: 'group-e/costa-rica-vs-germany/663917',
+    scores: ['2', '4'],
   },
   {
     group: 'H',
