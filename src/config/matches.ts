@@ -381,6 +381,7 @@ const MATCHES: IMatch[] = [
     time: 1669906800000,
     team1: TEAMS.Croatia,
     team2: TEAMS.Belgium,
+    scores: ['0', '0'],
   },
   {
     group: 'F',
@@ -388,6 +389,7 @@ const MATCHES: IMatch[] = [
     time: 1669906800000,
     team1: TEAMS.Canada,
     team2: TEAMS.Morocco,
+    scores: ['1', '2'],
   },
   {
     group: 'E',
