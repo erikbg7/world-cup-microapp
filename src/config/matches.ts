@@ -11,6 +11,8 @@ interface IMatch {
   team2: ITeam;
   scores?: string[];
   matchId?: string;
+  isRoundOf16?: boolean;
+  title?: string;
 }
 
 interface IMatchDay {
@@ -447,14 +449,74 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Brazil,
     matchId: 'group-g/cameroon-vs-brazil/663929',
   },
+  {
+    stadium: STADIUMS.KhalifaInternationalStadium,
+    time: 1670079600000,
+    team1: TEAMS.Netherlands,
+    isRoundOf16: true,
+    team2: TEAMS.USA,
+    title: 'Round of 16',
+    matchId: 'round-of-16/netherlands-vs-usa/714151',
+  },
+  {
+    stadium: STADIUMS.AhmadBinAliStadium,
+    time: 1670094000000,
+    isRoundOf16: true,
+    team1: TEAMS.Argentina,
+    team2: TEAMS.Australia,
+    title: 'Round of 16',
+    matchId: 'round-of-16/argentina-vs-australia/714152',
+  },
+  {
+    stadium: STADIUMS.AlThumamaStadium,
+    time: 1670166000000,
+    isRoundOf16: true,
+    team1: TEAMS.France,
+    team2: TEAMS.Poland,
+    title: 'Round of 16',
+    matchId: 'round-of-16/france-vs-poland/714154',
+  },
+  {
+    stadium: STADIUMS.AlBaytStadium,
+    time: 1670180400000,
+    isRoundOf16: true,
+    team1: TEAMS.England,
+    team2: TEAMS.Senegal,
+    title: 'Round of 16',
+    matchId: 'round-of-16/england-vs-senegal/714153',
+  },
+  {
+    stadium: STADIUMS.AlJanoubStadium,
+    time: 1670252400000,
+    isRoundOf16: true,
+    team1: TEAMS.Japan,
+    team2: TEAMS.Croatia,
+    title: 'Round of 16',
+    matchId: 'round-of-16/japan-vs-croatia/714155',
+  },
+  {
+    stadium: STADIUMS.Stadium974,
+    time: 1670266800000,
+    isRoundOf16: true,
+    team1: TEAMS.TBD,
+    team2: TEAMS.TBD,
+    title: 'Round of 16',
+    matchId: '', //TBD
+  },
 ];
 
-const getMatchesByDay = (timestamp: number) => {
-  return MATCHES.filter((match) => {
+const getMatchesByDay = (timestamp: number, roundOf16?: boolean) => {
+  const filteredMatches = MATCHES.filter((match) => {
     const day = getDateByTimezone({ timestamp, format: 'dateDay' });
     const matchDay = getDateByTimezone({ timestamp: match.time, format: 'dateDay' });
     return matchDay === day;
   });
+
+  if (roundOf16) {
+    return filteredMatches.filter((m) => m.isRoundOf16);
+  }
+
+  return filteredMatches;
 };
 
 const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
@@ -509,6 +571,22 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
   'Group Stage · Fri, Dec 2': {
     day: 1669993200000,
     matches: getMatchesByDay(1669993200000),
+  },
+  'Round Of 16, Dec 3': {
+    day: 1670079600000,
+    matches: getMatchesByDay(1670079600000, true),
+  },
+  'Round Of 16, Dec 4': {
+    day: 1670094000000,
+    matches: getMatchesByDay(1670094000000, true),
+  },
+  'Round Of 16, Dec 5': {
+    day: 1670180400000,
+    matches: getMatchesByDay(1670180400000, true),
+  },
+  'Round Of 16, Dec 6': {
+    day: 1670266800000,
+    matches: getMatchesByDay(1670266800000, true),
   },
 };
 

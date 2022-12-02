@@ -30,7 +30,7 @@ const MatchesDay: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDa
   return (
     <section
       className="px-6 sm:px-12 pb-6"
-      ref={isToday(matchDay.matches[0].time) ? currentMatchRef : undefined}
+      ref={isToday(matchDay.matches[0]?.time ?? 0) ? currentMatchRef : undefined}
     >
       <h2 className="text-xl font-semibold py-3">{id}</h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 overflow-hidden">
@@ -42,7 +42,7 @@ const MatchesDay: React.FC<{ id: string; matchDay: IMatchDay }> = ({ id, matchDa
   );
 };
 
-const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, scores }) => {
+const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, scores, title }) => {
   const modalRef = React.useRef<IGroupMatchModalHandler>(null);
   const [liveScores, setLiveScores] = React.useState<ITouple>(['', '']);
 
@@ -93,14 +93,18 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
         <div className="flex flex-1 border-l border-l-qatar">
           <table className="flex flex-col justify-center w-full h-full pl-6 text-sm font-light">
             <tbody>
-              <tr className="flex items-center py-1">
-                <td className="flex items-center">
-                  <DiamondBullet size={2} />
-                </td>
-                <td>
-                  <span className="ml-2">Group {group}</span>
-                </td>
-              </tr>
+              {group && (
+                <tr className="flex items-center py-1">
+                  <td className="flex items-center">
+                    <DiamondBullet size={2} />
+                  </td>
+
+                  <td>
+                    <span className="ml-2">Group {group}</span>
+                  </td>
+                </tr>
+              )}
+
               <tr className="flex items-center py-1">
                 <td className="flex items-center">
                   <ClockIcon className="h-3 w-3" />
@@ -121,7 +125,7 @@ const MatchItem: React.FC<IMatch> = ({ group, time, team1, team2, stadium, score
       </div>
       <GroupMatchModal
         ref={modalRef}
-        title={`Group Stage · Group ${group}`}
+        title={title || `Group Stage · Group ${group}`}
         match={{ group, time, team1, team2, scores } as IMatch}
       />
     </>
