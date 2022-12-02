@@ -424,6 +424,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.SouthKorea,
     team2: TEAMS.Portugal,
     matchId: 'group-h/south-korea-vs-portugal/663935',
+    scores: ['2', '1'],
   },
   {
     group: 'H',
@@ -432,6 +433,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Ghana,
     team2: TEAMS.Uruguay,
     matchId: 'group-h/ghana-vs-uruguay/663934',
+    scores: ['0', '2'],
   },
   {
     group: 'G',
@@ -499,6 +501,24 @@ const MATCHES: IMatch[] = [
     time: 1670266800000,
     isRoundOf16: true,
     team1: TEAMS.TBD,
+    team2: TEAMS.SouthKorea,
+    title: 'Round of 16',
+    matchId: '', //TBD
+  },
+  {
+    stadium: STADIUMS.EducationCityStadium,
+    time: 1670338800000,
+    isRoundOf16: true,
+    team1: TEAMS.Morocco,
+    team2: TEAMS.Spain,
+    title: 'Round of 16',
+    matchId: '', //TBD
+  },
+  {
+    stadium: STADIUMS.LusailStadium,
+    time: 1670353200000,
+    isRoundOf16: true,
+    team1: TEAMS.Portugal,
     team2: TEAMS.TBD,
     title: 'Round of 16',
     matchId: '', //TBD
@@ -577,16 +597,16 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
     matches: getMatchesByDay(1670079600000, true),
   },
   'Round Of 16, Dec 4': {
-    day: 1670094000000,
-    matches: getMatchesByDay(1670094000000, true),
+    day: 1670166000000,
+    matches: getMatchesByDay(1670166000000, true),
   },
   'Round Of 16, Dec 5': {
-    day: 1670180400000,
-    matches: getMatchesByDay(1670180400000, true),
+    day: 1670252400000,
+    matches: getMatchesByDay(1670252400000, true),
   },
   'Round Of 16, Dec 6': {
-    day: 1670266800000,
-    matches: getMatchesByDay(1670266800000, true),
+    day: 1670338800000,
+    matches: getMatchesByDay(1670338800000, true),
   },
 };
 
