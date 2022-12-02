@@ -442,6 +442,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Serbia,
     team2: TEAMS.Switzerland,
     matchId: 'group-g/serbia-vs-switzerland/663928',
+    scores: ['2', '3'],
   },
   {
     group: 'G',
@@ -450,6 +451,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Cameroon,
     team2: TEAMS.Brazil,
     matchId: 'group-g/cameroon-vs-brazil/663929',
+    scores: ['1', '0'],
   },
   {
     stadium: STADIUMS.KhalifaInternationalStadium,
@@ -500,7 +502,7 @@ const MATCHES: IMatch[] = [
     stadium: STADIUMS.Stadium974,
     time: 1670266800000,
     isRoundOf16: true,
-    team1: TEAMS.TBD,
+    team1: TEAMS.Brazil,
     team2: TEAMS.SouthKorea,
     title: 'Round of 16',
     matchId: '', //TBD
@@ -519,7 +521,7 @@ const MATCHES: IMatch[] = [
     time: 1670353200000,
     isRoundOf16: true,
     team1: TEAMS.Portugal,
-    team2: TEAMS.TBD,
+    team2: TEAMS.Switzerland,
     title: 'Round of 16',
     matchId: '', //TBD
   },
