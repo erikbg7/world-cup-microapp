@@ -457,10 +457,11 @@ const MATCHES: IMatch[] = [
     stadium: STADIUMS.KhalifaInternationalStadium,
     time: 1670079600000,
     team1: TEAMS.Netherlands,
-    isRoundOf16: true,
     team2: TEAMS.USA,
+    isRoundOf16: true,
     title: 'Round of 16',
     matchId: 'round-of-16/netherlands-vs-usa/714151',
+    scores: ['3', '1'],
   },
   {
     stadium: STADIUMS.AhmadBinAliStadium,
@@ -470,6 +471,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Australia,
     title: 'Round of 16',
     matchId: 'round-of-16/argentina-vs-australia/714152',
+    scores: ['2', '1'],
   },
   {
     stadium: STADIUMS.AlThumamaStadium,
