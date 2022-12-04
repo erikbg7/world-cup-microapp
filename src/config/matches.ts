@@ -491,6 +491,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Senegal,
     title: 'Round of 16',
     matchId: 'round-of-16/england-vs-senegal/714153',
+    scores: ['3', '0'],
   },
   {
     stadium: STADIUMS.AlJanoubStadium,
