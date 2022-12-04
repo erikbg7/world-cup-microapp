@@ -481,6 +481,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Poland,
     title: 'Round of 16',
     matchId: 'round-of-16/france-vs-poland/714154',
+    scores: ['3', '1'],
   },
   {
     stadium: STADIUMS.AlBaytStadium,
