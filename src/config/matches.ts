@@ -501,6 +501,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Croatia,
     title: 'Round of 16',
     matchId: 'round-of-16/japan-vs-croatia/714155',
+    scores: ['1(1)', '1(3)'],
   },
   {
     stadium: STADIUMS.Stadium974,
