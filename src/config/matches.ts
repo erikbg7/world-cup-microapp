@@ -491,7 +491,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Senegal,
     title: 'Round of 16',
     matchId: 'round-of-16/england-vs-senegal/714153',
-    scores: ['3', '0'],
+    scores: ['3', '0 '],
   },
   {
     stadium: STADIUMS.AlJanoubStadium,
@@ -509,7 +509,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Brazil,
     team2: TEAMS.SouthKorea,
     title: 'Round of 16',
-    matchId: '', //TBD
+    matchId: 'round-of-16/brazil-vs-south-korea/714156',
   },
   {
     stadium: STADIUMS.EducationCityStadium,
@@ -518,7 +518,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Morocco,
     team2: TEAMS.Spain,
     title: 'Round of 16',
-    matchId: '', //TBD
+    matchId: 'round-of-16/morocco-vs-spain/714158',
   },
   {
     stadium: STADIUMS.LusailStadium,
@@ -527,7 +527,43 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Portugal,
     team2: TEAMS.Switzerland,
     title: 'Round of 16',
-    matchId: '', //TBD
+    matchId: 'round-of-16/portugal-vs-switzerland/714157',
+  },
+  {
+    stadium: STADIUMS.EducationCityStadium,
+    time: 1670598000000,
+    isRoundOf16: false,
+    team1: TEAMS.TBD,
+    team2: TEAMS.TBD,
+    title: 'Quarterfinals',
+    matchId: '',
+  },
+  {
+    stadium: STADIUMS.LusailStadium,
+    time: 1670612400000,
+    isRoundOf16: false,
+    team1: TEAMS.Netherlands,
+    team2: TEAMS.Argentina,
+    title: 'Quarterfinals',
+    matchId: 'quarter-finals/netherlands-vs-argentina/714160',
+  },
+  {
+    stadium: STADIUMS.EducationCityStadium,
+    time: 1670684400000,
+    isRoundOf16: false,
+    team1: TEAMS.TBD,
+    team2: TEAMS.TBD,
+    title: 'Quarterfinals',
+    matchId: '',
+  },
+  {
+    stadium: STADIUMS.AlBaytStadium,
+    time: 1670698800000,
+    isRoundOf16: false,
+    team1: TEAMS.England,
+    team2: TEAMS.France,
+    title: 'Quarterfinals',
+    matchId: 'quarter-finals/england-vs-france/714162',
   },
 ];
 
@@ -613,6 +649,14 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
   'Round Of 16, Dec 6': {
     day: 1670338800000,
     matches: getMatchesByDay(1670338800000, true),
+  },
+  'Quarterfinals, Dec 9': {
+    day: 1670598000000,
+    matches: getMatchesByDay(1670598000000),
+  },
+  'Quarterfinals, Dec 10': {
+    day: 1670684400000,
+    matches: getMatchesByDay(1670684400000),
   },
 };
 
