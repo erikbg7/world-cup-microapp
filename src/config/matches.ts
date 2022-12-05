@@ -511,6 +511,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.SouthKorea,
     title: 'Round of 16',
     matchId: 'round-of-16/brazil-vs-south-korea/714156',
+    scores: ['4', '1'],
   },
   {
     stadium: STADIUMS.EducationCityStadium,
@@ -534,8 +535,8 @@ const MATCHES: IMatch[] = [
     stadium: STADIUMS.EducationCityStadium,
     time: 1670598000000,
     isRoundOf16: false,
-    team1: TEAMS.TBD,
-    team2: TEAMS.TBD,
+    team1: TEAMS.Croatia,
+    team2: TEAMS.Brazil,
     title: 'Quarterfinals',
     matchId: '',
   },
