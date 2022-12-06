@@ -521,6 +521,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Spain,
     title: 'Round of 16',
     matchId: 'round-of-16/morocco-vs-spain/714158',
+    scores: ['0(3)', '0(0)'],
   },
   {
     stadium: STADIUMS.LusailStadium,
@@ -553,7 +554,7 @@ const MATCHES: IMatch[] = [
     stadium: STADIUMS.EducationCityStadium,
     time: 1670684400000,
     isRoundOf16: false,
-    team1: TEAMS.TBD,
+    team1: TEAMS.Morocco,
     team2: TEAMS.TBD,
     title: 'Quarterfinals',
     matchId: '',
