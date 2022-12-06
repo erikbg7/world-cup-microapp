@@ -531,6 +531,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Switzerland,
     title: 'Round of 16',
     matchId: 'round-of-16/portugal-vs-switzerland/714157',
+    scores: ['6', '1'],
   },
   {
     stadium: STADIUMS.EducationCityStadium,
@@ -555,7 +556,7 @@ const MATCHES: IMatch[] = [
     time: 1670684400000,
     isRoundOf16: false,
     team1: TEAMS.Morocco,
-    team2: TEAMS.TBD,
+    team2: TEAMS.Portugal,
     title: 'Quarterfinals',
     matchId: '',
   },
