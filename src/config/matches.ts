@@ -541,6 +541,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Brazil,
     title: 'Quarterfinals',
     matchId: '',
+    scores: ['1(4)', '1(2)'],
   },
   {
     stadium: STADIUMS.LusailStadium,
