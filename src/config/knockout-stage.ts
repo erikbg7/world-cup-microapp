@@ -93,7 +93,7 @@ const KNOCKOUT_STAGE_ROUNDS: IRound[] = [
       {
         date: 1671044400000,
         team1: { ...TEAMS.TBD, name: '1ºA' },
-        team2: { ...TEAMS.TBD, name: '1ºA' },
+        team2: TEAMS.Morocco,
       },
     ],
   },

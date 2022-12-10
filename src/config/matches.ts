@@ -561,6 +561,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Portugal,
     title: 'Quarterfinals',
     matchId: 'quarter-finals/morocco-vs-portugal/714161',
+    scores: ['1', '0'],
   },
   {
     stadium: STADIUMS.AlBaytStadium,
