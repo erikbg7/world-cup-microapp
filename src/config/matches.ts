@@ -571,6 +571,25 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.France,
     title: 'Quarterfinals',
     matchId: 'quarter-finals/england-vs-france/714162',
+    scores: ['1', '2'],
+  },
+  {
+    stadium: STADIUMS.LusailStadium,
+    time: 1670958000000,
+    isRoundOf16: false,
+    team1: TEAMS.Argentina,
+    team2: TEAMS.Croatia,
+    title: 'Semifinals',
+    matchId: 'semi-finals/argentina-vs-croatia/714163',
+  },
+  {
+    stadium: STADIUMS.AlBaytStadium,
+    time: 1671044400000,
+    isRoundOf16: false,
+    team1: TEAMS.France,
+    team2: TEAMS.Morocco,
+    title: 'Semifinals',
+    matchId: 'semi-finals/france-vs-morocco/714164',
   },
 ];
 
@@ -664,6 +683,14 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
   'Quarterfinals, Dec 10': {
     day: 1670684400000,
     matches: getMatchesByDay(1670684400000),
+  },
+  'Semifinals, Dec 13': {
+    day: 1670958000000,
+    matches: getMatchesByDay(1670958000000),
+  },
+  'Semifinals, Dec 14': {
+    day: 1671044400000,
+    matches: getMatchesByDay(1671044400000),
   },
 };
 
