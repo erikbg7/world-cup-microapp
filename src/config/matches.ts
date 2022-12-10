@@ -540,7 +540,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Croatia,
     team2: TEAMS.Brazil,
     title: 'Quarterfinals',
-    matchId: '',
+    matchId: 'quarter-finals/croatia-vs-brazil/714159',
     scores: ['1(4)', '1(2)'],
   },
   {
@@ -551,6 +551,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Argentina,
     title: 'Quarterfinals',
     matchId: 'quarter-finals/netherlands-vs-argentina/714160',
+    scores: ['2(3)', '2(4)'],
   },
   {
     stadium: STADIUMS.EducationCityStadium,
@@ -559,7 +560,7 @@ const MATCHES: IMatch[] = [
     team1: TEAMS.Morocco,
     team2: TEAMS.Portugal,
     title: 'Quarterfinals',
-    matchId: '',
+    matchId: 'quarter-finals/morocco-vs-portugal/714161',
   },
   {
     stadium: STADIUMS.AlBaytStadium,
