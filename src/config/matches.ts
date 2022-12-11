@@ -591,6 +591,15 @@ const MATCHES: IMatch[] = [
     title: 'Semifinals',
     matchId: 'semi-finals/france-vs-morocco/714164',
   },
+  {
+    stadium: STADIUMS.LusailStadium,
+    time: 1671375600000,
+    isRoundOf16: false,
+    team1: TEAMS.TBD,
+    team2: TEAMS.TBD,
+    title: 'Final',
+    matchId: 'final/tbd-vs-tbd/714150',
+  },
 ];
 
 const getMatchesByDay = (timestamp: number, roundOf16?: boolean) => {
@@ -691,6 +700,10 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
   'Semifinals, Dec 14': {
     day: 1671044400000,
     matches: getMatchesByDay(1671044400000),
+  },
+  'Final, Dec 18': {
+    day: 1671375600000,
+    matches: getMatchesByDay(1671375600000),
   },
 };
 
