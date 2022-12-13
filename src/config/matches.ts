@@ -581,6 +581,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.Croatia,
     title: 'Semifinals',
     matchId: 'semi-finals/argentina-vs-croatia/714163',
+    scores: ['3', '0'],
   },
   {
     stadium: STADIUMS.AlBaytStadium,
