@@ -595,7 +595,7 @@ const MATCHES: IMatch[] = [
   },
   {
     stadium: STADIUMS.LusailStadium,
-    time: 1671145200000,
+    time: 1671289200000,
     isRoundOf16: false,
     team1: TEAMS.Morocco,
     team2: TEAMS.Croatia,
@@ -714,8 +714,8 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
     matches: getMatchesByDay(1671044400000),
   },
   'Third Place, Dec 17': {
-    day: 1671145200000,
-    matches: getMatchesByDay(1671145200000),
+    day: 1671289200000,
+    matches: getMatchesByDay(1671289200000),
   },
   'Final, Dec 18': {
     day: 1671375600000,

@@ -97,16 +97,16 @@ const KNOCKOUT_STAGE_ROUNDS: IRound[] = [
       },
     ],
   },
-  {
-    type: 'ThirdPlace',
-    matches: [
-      {
-        date: 1671145200000,
-        team2: TEAMS.Morocco,
-        team1: TEAMS.Croatia,
-      },
-    ],
-  },
+  // {
+  //   type: 'ThirdPlace',
+  //   matches: [
+  //     {
+  //       date: 1671289200,
+  //       team2: TEAMS.Morocco,
+  //       team1: TEAMS.Croatia,
+  //     },
+  //   ],
+  // },
   {
     type: 'Final',
     matches: [
