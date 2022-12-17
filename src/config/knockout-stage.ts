@@ -7,7 +7,7 @@ interface IKnockoutMatch {
 }
 
 interface IRound {
-  type: 'Round of 16' | 'Quarterfinals' | 'Semifinals' | 'Final';
+  type: 'Round of 16' | 'Quarterfinals' | 'Semifinals' | 'ThirdPlace' | 'Final';
   matches: IKnockoutMatch[];
 }
 
@@ -94,6 +94,16 @@ const KNOCKOUT_STAGE_ROUNDS: IRound[] = [
         date: 1671044400000,
         team1: TEAMS.France,
         team2: TEAMS.Morocco,
+      },
+    ],
+  },
+  {
+    type: 'ThirdPlace',
+    matches: [
+      {
+        date: 1671145200000,
+        team2: TEAMS.Morocco,
+        team1: TEAMS.Croatia,
       },
     ],
   },

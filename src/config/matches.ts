@@ -599,7 +599,7 @@ const MATCHES: IMatch[] = [
     isRoundOf16: false,
     team1: TEAMS.Morocco,
     team2: TEAMS.Croatia,
-    title: 'Third place',
+    title: 'ThirdPlace',
     matchId: 'third-place-play-off/croatia-vs-morocco/714166/',
     scores: ['1', '2'],
   },
@@ -712,6 +712,10 @@ const GROUP_STAGE_MATCHES: Record<string, IMatchDay> = {
   'Semifinals, Dec 14': {
     day: 1671044400000,
     matches: getMatchesByDay(1671044400000),
+  },
+  'Third Place, Dec 17': {
+    day: 1671145200000,
+    matches: getMatchesByDay(1671145200000),
   },
   'Final, Dec 18': {
     day: 1671375600000,
