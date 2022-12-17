@@ -595,6 +595,16 @@ const MATCHES: IMatch[] = [
   },
   {
     stadium: STADIUMS.LusailStadium,
+    time: 1671145200000,
+    isRoundOf16: false,
+    team1: TEAMS.Morocco,
+    team2: TEAMS.Croatia,
+    title: 'Third place',
+    matchId: 'third-place-play-off/croatia-vs-morocco/714166/',
+    scores: ['1', '2'],
+  },
+  {
+    stadium: STADIUMS.LusailStadium,
     time: 1671375600000,
     isRoundOf16: false,
     team1: TEAMS.Argentina,
