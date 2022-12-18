@@ -1,10 +1,12 @@
 import React from 'react';
+import Image from 'next/image';
 import { IMatch } from '../../config/matches';
 import { IRound, KNOCKOUT_STAGE_ROUNDS } from '../../config/knockout-stage';
 import TeamDetails from '../../components/TeamDetails';
 import DateTime from '../../components/DateTime';
 import GroupMatchModal, { IGroupMatchModalHandler } from '../../components/GroupMatchModal';
 import ClockIcon from '../../components/icons/ClockIcon';
+import { TEAMS } from '../../config/teams';
 
 const KnockoutStagePage = () => {
   return (
@@ -14,6 +16,41 @@ const KnockoutStagePage = () => {
           <KnockoutRound {...round} />
         </div>
       ))}
+      <div key="Champion" className="flex flex-col justify-around mx-2">
+        <div
+          id="Champion"
+          className={
+            'border flex flex-col align-center border-qatar p-1 my-1.5 w-36 hover:cursor-pointer'
+          }
+        >
+          <div>Champion</div>
+          <div className="text-lg relative w-8 h-5 h-6">
+            <div className="w-8 h-5 h-6">
+              <Image
+                src={TEAMS.Argentina.flag}
+                alt={TEAMS.Argentina.name}
+                fill
+                sizes="50px"
+                className="rounded-sm object-cover"
+              />
+            </div>
+          </div>
+          <div className="">
+            <div className="flex flex-1 items-center">
+              <div className="relative m-2 rounded-sm">
+                <Image
+                  src={TEAMS.Argentina.flag}
+                  alt={TEAMS.Argentina.name}
+                  fill
+                  sizes="100px"
+                  className="rounded-sm object-cover"
+                />
+              </div>
+              <div>{TEAMS.Argentina.name}</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

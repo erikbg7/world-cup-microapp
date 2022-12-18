@@ -611,6 +611,7 @@ const MATCHES: IMatch[] = [
     team2: TEAMS.France,
     title: 'Final',
     matchId: 'final/tbd-vs-tbd/714150',
+    scores: ['3(4)', '3(2)'],
   },
 ];
 
