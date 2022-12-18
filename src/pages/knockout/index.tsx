@@ -23,7 +23,7 @@ const KnockoutStagePage = () => {
             'border flex flex-col align-center border-qatar p-1 my-1.5 w-36 hover:cursor-pointer'
           }
         >
-          <div>Champion</div>
+          <div className="font-bold">!!! Champion</div>
           <div className="text-lg relative w-8 h-5 h-6">
             <div className="w-8 h-5 h-6">
               <Image
@@ -46,7 +46,7 @@ const KnockoutStagePage = () => {
                   className="rounded-sm object-cover"
                 />
               </div>
-              <div>{TEAMS.Argentina.name}</div>
+              <div className="font-bold">{TEAMS.Argentina.name} !!!</div>
             </div>
           </div>
         </div>
