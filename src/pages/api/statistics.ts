@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getTopScores } from '../../services/live-scrapper';
+import { getTopScores } from '../../services/scraper/live';
 
 const getResultsFromScraper = async () => {
   const url =

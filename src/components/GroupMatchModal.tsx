@@ -4,7 +4,7 @@ import { Dialog, Transition } from '@headlessui/react';
 
 import TeamDetails from './TeamDetails';
 import GroupSection from './GroupsSection';
-import CloseIcon from './icons/CloseIcon';
+import CloseIcon from '../icons/CloseIcon';
 import DiamondDivider from './DiamondDivider';
 import MatchDetailsSection, { ITouple } from './MatchDetailsSection';
 import { IMatch } from '../config/matches';

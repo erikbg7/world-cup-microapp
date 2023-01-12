@@ -5,7 +5,7 @@ import { IRound, KNOCKOUT_STAGE_ROUNDS } from '../../config/knockout-stage';
 import TeamDetails from '../../components/TeamDetails';
 import DateTime from '../../components/DateTime';
 import GroupMatchModal, { IGroupMatchModalHandler } from '../../components/GroupMatchModal';
-import ClockIcon from '../../components/icons/ClockIcon';
+import ClockIcon from '../../icons/ClockIcon';
 import { TEAMS } from '../../config/teams';
 
 const KnockoutStagePage = () => {

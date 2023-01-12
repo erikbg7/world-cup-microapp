@@ -1,10 +1,10 @@
 import jsdom from 'jsdom';
 import assert from 'assert';
 import got from 'got';
-import { ILiveMatch } from '../config/liveScore';
-import { IMatchEvent } from '../models/events';
-import { IGoalScorer } from '../models/players';
-import { MATCHES } from '../config/matches';
+import { ILiveMatch } from '../../config/liveScore';
+import { IMatchEvent } from '../../models/events';
+import { IGoalScorer } from '../../models/players';
+import { MATCHES } from '../../config/matches';
 
 const normalizeTeam = (name: string) => {
   const team = name.toLocaleLowerCase();

@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from 'next';
-import { getMatchDetails } from '../../services/live-scrapper';
+import { getMatchDetails } from '../../services/scraper/live';
 
 const getResultsFromScraper = async (matchId: string) => {
   const url = `https://www.livescores.com/football/world-cup/${matchId}/`;
