@@ -1,37 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# World Cup Microapp ⚽ 🎉
+
+A microapp for the 2022 World Cup in Qatar.
+Shows live information about the Stadiums, Teams, Players, Matches and Groups.
+
+## How It Works
+
+- Group information is scrapped from different sources after each match using a Github Actions cron. Data is stored in Firebase and consumed from the app.
+
+- Other information such as games statistics or live results are scrapped and shown on demand using Next API endpoints.
+
+- Finall, static information (stadiums, teams, etc) is hardcoded and used without further manipulation.
+
+## Tech Stack
+
+- Next.js
+- Tailwind
+- Typescript
+- Firebase
+- Github Actions
+- Vercel
+- Plausible
 
 ## Getting Started
 
-First, run the development server:
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## More Information
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+Most of the project was built in a few days, so there are some things that could be improved.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+You won't need Firebase credentials, as the database has been completely removed. However, we have hardcoded the group stage information and made a few changes, so the project remains fully functional.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Results
 
 <img width="1101" alt="image" src="https://user-images.githubusercontent.com/37018474/212161030-c307048d-4f2b-402f-a7f9-e6dbaeb7b766.png">
-
