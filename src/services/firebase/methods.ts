@@ -22,7 +22,7 @@ const fetchFakeGroupStageResults = async (): Promise<IGroupResults> => {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(getHardcodedGroupStageResults());
-    }, 1000);
+    }, 600);
   });
 };
 
