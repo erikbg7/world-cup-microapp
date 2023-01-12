@@ -9,7 +9,7 @@ Shows live information about the Stadiums, Teams, Players, Matches and Groups.
 
 - Other information such as games statistics or live results are scrapped and shown on demand using Next API endpoints.
 
-- Finall, static information (stadiums, teams, etc) is hardcoded and used without further manipulation.
+- Finally, static information (stadiums, teams, etc) is hardcoded and used without further manipulation.
 
 ## Tech Stack
 
